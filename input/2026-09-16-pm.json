@@ -38,5 +38,6 @@
     }
   ],
   "caption": "Perché per prendere una cosa finisci per attraversare mezzo supermercato 👀",
-  "hashtags": ["marketing", "supermercato", "curiosita", "business"]
+  "hashtags": ["marketing", "supermercato", "curiosita", "business"],
+  "render_retry": 1
 }
