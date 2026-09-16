@@ -40,5 +40,45 @@ class SubtitleLayoutTests(unittest.TestCase):
         self.assertIn("130,130", content)
 
 
+class SceneSyncTests(unittest.TestCase):
+    def test_scene_windows_follow_exact_scene_word_boundaries(self) -> None:
+        data = {
+            "narration": "uno due tre quattro cinque sei",
+            "scenes": [
+                {"narration": "uno due"},
+                {"narration": "tre quattro cinque"},
+                {"narration": "sei"},
+            ],
+        }
+        timings = [
+            {"text": word, "start": i * 0.5, "duration": 0.4}
+            for i, word in enumerate("uno due tre quattro cinque sei".split())
+        ]
+        windows = render_entry.scene_windows_exact(data, timings)
+        self.assertEqual(windows[0], (0.0, 0.9))
+        self.assertEqual(windows[1], (1.0, 2.4))
+        self.assertAlmostEqual(windows[2][0], 2.5)
+        self.assertAlmostEqual(windows[2][1], 2.9 + render_entry.TAIL_HOLD_SECONDS)
+
+    def test_scene_narration_must_partition_full_narration(self) -> None:
+        data = {
+            "narration": "uno due tre quattro",
+            "scenes": [
+                {"narration": "uno due"},
+                {"narration": "quattro tre"},
+            ],
+        }
+        timings = [
+            {"text": word, "start": i * 0.5, "duration": 0.4}
+            for i, word in enumerate("uno due tre quattro".split())
+        ]
+        with self.assertRaisesRegex(ValueError, "exact sequential partition"):
+            render_entry.scene_windows_exact(data, timings)
+
+    def test_minimum_narration_contract_is_150_words(self) -> None:
+        self.assertEqual(render_entry.MIN_NARRATION_WORDS, 150)
+        self.assertEqual(render_entry.MIN_VIDEO_SECONDS, 60.0)
+
+
 if __name__ == "__main__":
     unittest.main()
