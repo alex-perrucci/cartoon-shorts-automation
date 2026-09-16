@@ -137,7 +137,7 @@ def generate_images(data: dict[str, Any], work_dir: Path, dry_run: bool) -> list
 async def create_tts(text: str, audio_path: Path, timings_path: Path) -> list[dict[str, Any]]:
     voice = os.environ.get("TTS_VOICE", "it-IT-IsabellaNeural")
     rate = os.environ.get("TTS_RATE", "+8%")
-    communicator = edge_tts.Communicate(text, voice=voice, rate=rate)
+    communicator = edge_tts.Communicate(text, voice=voice, rate=rate, boundary="WordBoundary")
     timings: list[dict[str, Any]] = []
     with audio_path.open("wb") as audio:
         async for chunk in communicator.stream():
@@ -167,11 +167,11 @@ def scene_windows(data: dict[str, Any], timings: list[dict[str, Any]]) -> list[t
             b = max(a, min(n - 1, int(scene["end_word"])))
         else:
             if i == len(scenes) - 1:
-                a, b = cursor, n - 1
+                a, b = min(cursor, n - 1), n - 1
             else:
                 count = max(1, round(n * max(1, len(scene.get("narration", "").split())) / total_scene_words))
-                a = cursor
-                b = min(n - 1, cursor + count - 1)
+                a = min(cursor, n - 1)
+                b = min(n - 1, a + count - 1)
                 cursor = b + 1
         start = timings[a]["start"]
         end = timings[b]["start"] + timings[b]["duration"]
@@ -239,7 +239,8 @@ def render_video(images: list[Path], windows: list[tuple[float, float]], audio: 
     concat_file.write_text("\n".join(f"file '{p.resolve()}'" for p in clips), encoding="utf-8")
     silent = work_dir / "silent.mp4"
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_file), "-c", "copy", str(silent)])
-    ass_filter = f"ass={str(ass.resolve()).replace(':', r'\:')}"
+    ass_path = str(ass.resolve()).replace(":", r"\:")
+    ass_filter = f"ass={ass_path}"
     run([
         "ffmpeg", "-y", "-i", str(silent), "-i", str(audio), "-vf", ass_filter,
         "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264", "-preset", "veryfast",
