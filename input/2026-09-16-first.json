@@ -7,44 +7,44 @@
     {
       "narration": "Perché 9,99 ti sembra molto meno di 10 euro?",
       "visual": "The recurring businessman compares two hanging price tags, one just below a round-number threshold and one exactly at the threshold, looking surprised.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_01.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_01.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_01.b64",
+      "image_sha256": "b783176a429bf52e9a19ab079b97e8c444bf11fd266691031372591c5953cc56"
     },
     {
       "narration": "Il centesimo di differenza quasi non conta, ma il cervello non legge sempre i prezzi in modo perfettamente razionale.",
       "visual": "The same businessman thinks while a simple brain icon highlights the leftmost digit of two nearby prices.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_02.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_02.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_02.b64",
+      "image_sha256": "45c33baad49b8c1d1c29a28ba43b1cc7c555041b42b056e11c6aadbda6017e24"
     },
     {
       "narration": "Spesso diamo più peso alla cifra di sinistra: 9,99 comincia con nove, mentre 10 comincia con dieci.",
       "visual": "The same businessman stands in a supermarket aisle surrounded by several shelf price tags ending just below round numbers.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_03.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_03.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_03.b64",
+      "image_sha256": "43ed716a46ecc93d18b7c363de63f6676ddec0ed616de1d5b619a915e4bffe41"
     },
     {
       "narration": "Questo effetto è chiamato left-digit bias.",
       "visual": "The same businessman faces a clear mental threshold gate, with a price marker sitting just before the round-number boundary.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_04.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_04.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_04.b64",
+      "image_sha256": "53ac9eebe16e75b15396f0147101d0cec6bcb3387c43825ff81f632bd5d1533f"
     },
     {
       "narration": "Nei test e nei dati di vendita, i prezzi che finiscono in 9 possono influenzare la percezione e, in alcuni contesti, aumentare gli acquisti.",
       "visual": "The same businessman points toward a simple rising purchases chart beside increasingly full shopping bags.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_05.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_05.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_05.b64",
+      "image_sha256": "d92624865cc647b9dcd605652287dbaef92653f534604a3f1b8169f94a1aaba9"
     },
     {
       "narration": "Ma non è una legge universale: categoria, marca e situazione contano.",
       "visual": "The same businessman compares an everyday grocery purchase with a luxury watch to show that context changes the effect.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_06.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_06.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_06.b64",
+      "image_sha256": "6d487864109b73f19e908cddf6dbc0901c0d55fdff1df42c142b56ac57aba6ac"
     },
     {
       "narration": "Il trucco, quindi, non è il centesimo risparmiato. È far sembrare il prezzo appena sotto una soglia mentale.",
       "visual": "The same businessman points to a price tag sitting just below a bold round-number threshold, with a downward arrow suggesting lower perceived price.",
-      "image_svg_source": "assets/generated/2026-09-16-first/scene_07.svg",
-      "image_b64": "work/prepared_assets/2026-09-16-first/scene_07.b64"
+      "image_b64": "assets/generated/2026-09-16-first/scene_07.b64",
+      "image_sha256": "de3b3bfbc08d0d1de41013d1a3989fd6a9481c7de2f27124a3391b288dfc450f"
     }
   ],
   "caption": "Quel centesimo non serve solo a farti risparmiare 👀",
