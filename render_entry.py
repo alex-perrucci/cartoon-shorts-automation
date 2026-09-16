@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math
+import re
 from pathlib import Path
 from typing import Any
 
@@ -11,6 +13,10 @@ BASE_FONT_SIZE = 104
 MIN_FONT_SIZE = 58
 SAFE_TEXT_WIDTH = 820
 MAX_WORDS_PER_CAPTION = 2
+MIN_VIDEO_SECONDS = 60.0
+MAX_VIDEO_SECONDS = 90.0
+TAIL_HOLD_SECONDS = 1.2
+MIN_NARRATION_WORDS = 150
 
 
 def _font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -38,8 +44,6 @@ def _next_group(timings: list[dict[str, Any]], start_index: int) -> list[dict[st
     while len(group) < MAX_WORDS_PER_CAPTION and start_index + len(group) < len(timings):
         candidate = group + [timings[start_index + len(group)]]
         candidate_text = " ".join(str(x["text"]) for x in candidate).upper()
-        # Keep the preferred large subtitle size whenever possible. If the
-        # second word would force a major shrink, display it in the next card.
         if _text_width(candidate_text, 88) > SAFE_TEXT_WIDTH:
             break
         group = candidate
@@ -70,8 +74,6 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
         text = " ".join(str(x["text"]) for x in group).upper()
         font_size = _fit_font_size(text)
         escaped = renderer.ass_escape(text)
-        # Explicit font size makes every card deterministic and guarantees
-        # unusually long words still fit inside the horizontal safe area.
         lines.append(
             f"Dialogue: 0,{renderer.ass_time(start)},{renderer.ass_time(end)},Default,,0,0,0,,"
             f"{{\\fs{font_size}}}{escaped}\n"
@@ -81,8 +83,173 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
     path.write_text("".join(lines), encoding="utf-8")
 
 
-# Keep the mature renderer and replace only the subtitle layout policy.
+def _spoken_tokens(text: str) -> list[str]:
+    return [
+        token.lower().replace("’", "'")
+        for token in re.findall(
+            r"\d+(?:[.,]\d+)*|[A-Za-zÀ-ÖØ-öø-ÿ]+(?:['’][A-Za-zÀ-ÖØ-öø-ÿ]+)*",
+            text,
+        )
+    ]
+
+
+def _scene_counts(data: dict[str, Any]) -> tuple[list[int], int]:
+    full = _spoken_tokens(str(data["narration"]))
+    scene_tokens: list[str] = []
+    counts: list[int] = []
+    for scene in data["scenes"]:
+        tokens = _spoken_tokens(str(scene.get("narration", "")))
+        counts.append(len(tokens))
+        scene_tokens.extend(tokens)
+    if scene_tokens != full:
+        raise ValueError(
+            "scene narration must be an exact sequential partition of full narration; "
+            "this is required for frame-accurate artwork sync"
+        )
+    return counts, len(full)
+
+
+def validate_long_package(data: dict[str, Any], *, require_assets: bool = True) -> None:
+    _original_validate_package(data, require_assets=require_assets)
+    counts, total = _scene_counts(data)
+    if total < MIN_NARRATION_WORDS:
+        raise ValueError(
+            f"narration is too short for a 60+ second short: {total} words; "
+            f"minimum is {MIN_NARRATION_WORDS}"
+        )
+    if any(count <= 0 for count in counts):
+        raise ValueError("every scene must contain at least one spoken word")
+
+
+def scene_windows_exact(
+    data: dict[str, Any], timings: list[dict[str, Any]]
+) -> list[tuple[float, float]]:
+    counts, total_tokens = _scene_counts(data)
+    if not timings:
+        raise ValueError("cannot map scenes without TTS word timings")
+
+    # Build a normalized token stream from Edge word-boundary events. Usually
+    # this matches the narration 1:1. If Edge splits a token differently, the
+    # cumulative fallback below still preserves scene order without drift.
+    timing_tokens: list[str] = []
+    timing_owner: list[int] = []
+    for timing_index, timing in enumerate(timings):
+        parts = _spoken_tokens(str(timing.get("text", ""))) or [str(timing.get("text", "")).lower()]
+        for part in parts:
+            timing_tokens.append(part)
+            timing_owner.append(timing_index)
+
+    full_tokens = _spoken_tokens(str(data["narration"]))
+    exact_token_match = timing_tokens == full_tokens and len(timing_owner) == total_tokens
+
+    windows: list[tuple[float, float]] = []
+    token_cursor = 0
+    for scene_index, count in enumerate(counts):
+        next_cursor = token_cursor + count
+        if exact_token_match:
+            start_idx = timing_owner[token_cursor]
+            end_idx = timing_owner[next_cursor - 1]
+        else:
+            start_idx = min(len(timings) - 1, round(token_cursor * len(timings) / total_tokens))
+            end_exclusive = max(
+                start_idx + 1,
+                round(next_cursor * len(timings) / total_tokens),
+            )
+            end_idx = min(len(timings) - 1, end_exclusive - 1)
+
+        start = float(timings[start_idx]["start"])
+        end = float(timings[end_idx]["start"]) + float(timings[end_idx]["duration"])
+        if scene_index == 0:
+            start = 0.0
+        if scene_index == len(counts) - 1:
+            last_word_end = float(timings[-1]["start"]) + float(timings[-1]["duration"])
+            end = max(end, last_word_end) + TAIL_HOLD_SECONDS
+        windows.append((start, max(start + 0.35, end)))
+        token_cursor = next_cursor
+
+    return windows
+
+
+def render_video_with_tail(
+    images: list[Path],
+    windows: list[tuple[float, float]],
+    audio: Path,
+    ass: Path,
+    output: Path,
+    work_dir: Path,
+) -> None:
+    clips: list[Path] = []
+    for idx, (image, (start, end)) in enumerate(zip(images, windows), start=1):
+        duration = max(0.35, end - start)
+        frames = max(1, math.ceil(duration * renderer.FPS))
+        clip = work_dir / f"clip_{idx:02d}.mp4"
+        vf = (
+            f"scale={renderer.WIDTH}:{renderer.HEIGHT}:force_original_aspect_ratio=increase,"
+            f"crop={renderer.WIDTH}:{renderer.HEIGHT},"
+            f"zoompan=z='min(zoom+0.00045,1.055)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+            f"d={frames}:s={renderer.WIDTH}x{renderer.HEIGHT}:fps={renderer.FPS},format=yuv420p"
+        )
+        renderer.run([
+            "ffmpeg", "-y", "-loop", "1", "-i", str(image), "-vf", vf,
+            "-t", f"{duration:.3f}", "-an", "-c:v", "libx264", "-preset", "veryfast", str(clip),
+        ])
+        clips.append(clip)
+
+    concat_file = work_dir / "concat.txt"
+    concat_file.write_text("\n".join(f"file '{p.resolve()}'" for p in clips), encoding="utf-8")
+    silent = work_dir / "silent.mp4"
+    renderer.run([
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_file),
+        "-c", "copy", str(silent),
+    ])
+    ass_path = str(ass.resolve()).replace(":", r"\:")
+    renderer.run([
+        "ffmpeg", "-y", "-i", str(silent), "-i", str(audio),
+        "-vf", f"ass={ass_path}",
+        "-af", f"apad=pad_dur={TAIL_HOLD_SECONDS}",
+        "-map", "0:v:0", "-map", "1:a:0", "-c:v", "libx264", "-preset", "veryfast",
+        "-crf", "20", "-c:a", "aac", "-b:a", "160k", "-shortest",
+        "-movflags", "+faststart", str(output),
+    ])
+
+
+def qc_60_plus(
+    video: Path,
+    data: dict[str, Any],
+    report_path: Path,
+    image_manifest: list[dict[str, Any]],
+) -> dict[str, Any]:
+    info = renderer.ffprobe_json(video)
+    streams = info.get("streams", [])
+    video_stream = next((s for s in streams if s.get("codec_type") == "video"), {})
+    audio_stream = next((s for s in streams if s.get("codec_type") == "audio"), {})
+    duration = float(info.get("format", {}).get("duration", 0) or 0)
+    checks = {
+        "file_exists": video.exists() and video.stat().st_size > 100_000,
+        "vertical_1080x1920": video_stream.get("width") == renderer.WIDTH
+        and video_stream.get("height") == renderer.HEIGHT,
+        "audio_present": bool(audio_stream),
+        "duration_60_to_90_seconds": MIN_VIDEO_SECONDS <= duration <= MAX_VIDEO_SECONDS,
+        "at_least_6_scenes": len(data["scenes"]) >= 6,
+        "all_scene_images_prepared": len(image_manifest) == len(data["scenes"]),
+        "caption_present": bool(data.get("caption")),
+    }
+    report = {
+        "passed": all(checks.values()),
+        "duration": duration,
+        "checks": checks,
+        "scene_images": image_manifest,
+    }
+    report_path.write_text(renderer.json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return report
+
+
+_original_validate_package = renderer.validate_package
+renderer.validate_package = validate_long_package
 renderer.create_ass = create_safe_ass
+renderer.scene_windows = scene_windows_exact
+renderer.render_video = render_video_with_tail
+renderer.qc = qc_60_plus
 
 
 if __name__ == "__main__":
