@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import math
 import re
 from pathlib import Path
@@ -110,7 +111,7 @@ def _scene_counts(data: dict[str, Any]) -> tuple[list[int], int]:
 
 
 def validate_long_package(data: dict[str, Any], *, require_assets: bool = True) -> None:
-    _original_validate_package(data, require_assets=require_assets)
+    renderer.validate_package(data, require_assets=require_assets)
     counts, total = _scene_counts(data)
     if total < MIN_NARRATION_WORDS:
         raise ValueError(
@@ -128,9 +129,6 @@ def scene_windows_exact(
     if not timings:
         raise ValueError("cannot map scenes without TTS word timings")
 
-    # Build a normalized token stream from Edge word-boundary events. Usually
-    # this matches the narration 1:1. If Edge splits a token differently, the
-    # cumulative fallback below still preserves scene order without drift.
     timing_tokens: list[str] = []
     timing_owner: list[int] = []
     for timing_index, timing in enumerate(timings):
@@ -244,13 +242,37 @@ def qc_60_plus(
     return report
 
 
-_original_validate_package = renderer.validate_package
-renderer.validate_package = validate_long_package
+# Patch only rendering policies used by the production entrypoint. Base validation
+# remains untouched so low-level unit tests can exercise main.py independently.
 renderer.create_ass = create_safe_ass
 renderer.scene_windows = scene_windows_exact
 renderer.render_video = render_video_with_tail
 renderer.qc = qc_60_plus
 
 
+def entry_main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", type=Path)
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--validate-assets", action="store_true")
+    parser.add_argument("--self-test", action="store_true")
+    args = parser.parse_args()
+
+    if args.self_test:
+        return renderer.self_test()
+    if not args.input:
+        parser.error("--input is required unless --self-test is used")
+
+    input_path = args.input if args.input.is_absolute() else renderer.ROOT / args.input
+    data = renderer.json.loads(input_path.read_text(encoding="utf-8"))
+    validate_long_package(data, require_assets=not args.dry_run)
+
+    if args.validate_assets:
+        manifest = renderer.validate_assets(data)
+        print(renderer.json.dumps({"valid": True, "scenes": manifest}, ensure_ascii=False, indent=2))
+        return 0
+    return renderer.process(input_path, dry_run=args.dry_run)
+
+
 if __name__ == "__main__":
-    raise SystemExit(renderer.main())
+    raise SystemExit(entry_main())
