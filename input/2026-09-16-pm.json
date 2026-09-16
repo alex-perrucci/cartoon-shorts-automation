@@ -1,0 +1,59 @@
+{
+  "topic": "Perché il latte è quasi sempre in fondo al supermercato",
+  "hook": "Hai mai notato che il latte è quasi sempre in fondo al supermercato? Non è un caso.",
+  "narration": "Hai mai notato che il latte è quasi sempre in fondo al supermercato? Non è un caso. Il latte è uno dei prodotti che tantissime persone comprano spesso. Proprio per questo il supermercato lo mette lontano dall'ingresso. Così, per arrivarci, sei costretto a passare davanti a decine di altri prodotti. E più cose vedi, più aumenta la possibilità che tu compri qualcosa in più. Magari entri solo per latte e pane, ma nel frattempo vedi snack, offerte, bibite o dolci. Questo trucco si chiama layout strategico. Il punto non è renderti la vita più comoda. Il punto è farti restare più tempo nel negozio e aumentare lo scontrino finale. Quindi no, il latte in fondo non è messo lì a caso. È marketing.",
+  "target_duration_seconds": 35,
+  "language": "it",
+  "style": "simple 2D cartoon explainer",
+  "scenes": [
+    {
+      "scene_number": 1,
+      "narration": "Hai mai notato che il latte è quasi sempre in fondo al supermercato?",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same round-headed businessman character in black suit, inside a supermarket entrance looking confused while searching for milk, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 2,
+      "narration": "Non è un caso.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character realizing something with a surprised expression, a supermarket shelf map behind him, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 3,
+      "narration": "Il latte è uno dei prodotti che tantissime persone comprano spesso.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character with many shoppers all heading toward milk shelves, shopping baskets in hand, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 4,
+      "narration": "Proprio per questo il supermercato lo mette lontano dall'ingresso.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character at the store entrance, milk shelves clearly placed far away at the back of the supermarket, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 5,
+      "narration": "Così, per arrivarci, sei costretto a passare davanti a decine di altri prodotti.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman walking through long supermarket aisles full of snacks, drinks, cereal, candy, and colorful products, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 6,
+      "narration": "E più cose vedi, più aumenta la possibilità che tu compri qualcosa in più.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman adding extra items like chips, soda, and sweets into a shopping cart, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 7,
+      "narration": "Il punto è farti restare più tempo nel negozio e aumentare lo scontrino finale.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman standing at checkout with an unexpectedly full shopping cart and a long receipt, vertical 9:16, no text."
+    },
+    {
+      "scene_number": 8,
+      "narration": "Quindi no, il latte in fondo non è messo lì a caso. È marketing.",
+      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman pointing at the milk section with a knowing expression, a subtle visual emphasis on strategic store layout, vertical 9:16, no text."
+    }
+  ],
+  "caption": "Il latte in fondo al supermercato non è un caso 👀",
+  "hashtags": [
+    "marketing",
+    "supermercato",
+    "business",
+    "curiosita",
+    "vendite",
+    "psychology"
+  ]
+}
