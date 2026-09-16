@@ -51,7 +51,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             INPUT_FILE="${{ inputs.input_file }}"
           else
-            INPUT_FILE="$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^input/.*\.json$' | tail -n 1)"
+            INPUT_FILE="$(git diff-tree --diff-filter=AM --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^input/.*\.json$' | tail -n 1)"
           fi
           if [ -z "$INPUT_FILE" ] || [ ! -f "$INPUT_FILE" ]; then
             echo "Could not resolve input JSON" >&2
@@ -64,7 +64,8 @@ jobs:
         shell: bash
         run: |
           EXTRA=""
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+          PACKAGE_MODE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("render_mode", ""))' "${{ steps.input.outputs.file }}")"
+          if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
             EXTRA="--dry-run"
           fi
           python main.py --input "${{ steps.input.outputs.file }}" $EXTRA
