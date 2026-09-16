@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      TTS_VOICE: it-IT-IsabellaNeural
+      TTS_VOICE: it-IT-DiegoNeural
       TTS_RATE: "+8%"
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -112,9 +112,9 @@ jobs:
               echo "Preparing scheduler-generated SVG scene artwork..."
               python scripts/prepare_svg_assets.py "$INPUT_FILE"
               echo "Validating prepared scene assets before TTS/render..."
-              python main.py --input "$INPUT_FILE" --validate-assets
+              python render_entry.py --input "$INPUT_FILE" --validate-assets
             fi
-            python main.py --input "$INPUT_FILE" $EXTRA
+            python render_entry.py --input "$INPUT_FILE" $EXTRA
           } 2>&1 | tee render.log
 
       - name: Resolve output directory
