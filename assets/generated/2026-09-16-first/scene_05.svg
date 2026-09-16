@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<rect width="1080" height="1920" fill="#F1E8D2"/>
+<g stroke="#151515" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="170" y1="1080" x2="880" y2="1080"/><line x1="170" y1="1080" x2="170" y2="420"/>
+  <polyline points="210,1010 350,930 485,790 625,680 790,470" fill="none" stroke="#F5C842" stroke-width="34"/>
+  <path d="M790 470 l-85 10 l55 65 Z" fill="#F5C842"/>
+  <path d="M220 1210 h180 l-25 285 H245 Z" fill="#FFFDF7"/><path d="M490 1160 h210 l-28 335 H518 Z" fill="#FFFDF7"/><path d="M750 1090 h190 l-25 405 H775 Z" fill="#FFFDF7"/>
+  <path d="M270 1210 q40 -90 80 0 M545 1160 q50 -105 100 0 M795 1090 q45 -100 90 0" fill="none"/>
+</g>
+<g transform="translate(540 1580)" stroke="#151515" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="0" cy="0" r="105" fill="#FFFDF7"/><circle cx="-34" cy="-18" r="9" fill="#151515"/><circle cx="34" cy="-18" r="9" fill="#151515"/><path d="M-32 40 Q0 65 32 40" fill="none"/>
+  <path d="M-48 98 L-92 300 L92 300 L48 98 Z" fill="#151515"/><path d="M-28 102 L0 182 L28 102" fill="#FFFDF7"/>
+</g>
+</svg>
