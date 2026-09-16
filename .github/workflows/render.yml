@@ -109,7 +109,9 @@ jobs:
             if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
               EXTRA="--dry-run"
             else
-              echo "Validating packaged base64 scene assets before TTS/render..."
+              echo "Preparing scheduler-generated SVG scene artwork..."
+              python scripts/prepare_svg_assets.py "$INPUT_FILE"
+              echo "Validating prepared scene assets before TTS/render..."
               python main.py --input "$INPUT_FILE" --validate-assets
             fi
             python main.py --input "$INPUT_FILE" $EXTRA
