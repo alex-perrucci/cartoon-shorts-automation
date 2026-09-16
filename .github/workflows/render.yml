@@ -23,7 +23,7 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       IMAGE_PROVIDER: gemini
-      IMAGE_MODEL: gemini-3.1-flash-image
+      IMAGE_MODEL: gemini-3.1-flash-lite-image
       TTS_VOICE: it-IT-IsabellaNeural
       TTS_RATE: "+8%"
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -61,23 +61,28 @@ jobs:
           echo "Using $INPUT_FILE"
 
       - name: Render
+        id: render
+        continue-on-error: true
         shell: bash
         run: |
+          set -o pipefail
           EXTRA=""
           PACKAGE_MODE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("render_mode", ""))' "${{ steps.input.outputs.file }}")"
           if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
             EXTRA="--dry-run"
           fi
-          python main.py --input "${{ steps.input.outputs.file }}" $EXTRA
+          python main.py --input "${{ steps.input.outputs.file }}" $EXTRA 2>&1 | tee render.log
 
       - name: Resolve output directory
         id: output
+        if: always() && steps.input.outcome == 'success'
         shell: bash
         run: |
           ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "${{ steps.input.outputs.file }}")"
           echo "dir=output/$ID" >> "$GITHUB_OUTPUT"
 
       - name: Upload output artifact
+        if: steps.render.outcome == 'success'
         uses: actions/upload-artifact@v4
         with:
           name: cartoon-short-${{ github.run_id }}
@@ -93,10 +98,13 @@ jobs:
             echo "Telegram not configured; skipping."
             exit 0
           fi
+
           VIDEO="${{ steps.output.outputs.dir }}/final_video.mp4"
           REPORT="${{ steps.output.outputs.dir }}/qc_report.json"
+          INPUT_FILE="${{ steps.input.outputs.file }}"
+
           if [ -f "$VIDEO" ]; then
-            CAPTION="✅ Cartoon short rendered\nInput: ${{ steps.input.outputs.file }}"
+            CAPTION="✅ Cartoon short rendered\nInput: $INPUT_FILE"
             curl --fail --silent --show-error \
               -F "chat_id=$TELEGRAM_CHAT_ID" \
               -F "caption=$CAPTION" \
@@ -108,4 +116,18 @@ jobs:
               -F "document=@$REPORT" \
               -F "caption=❌ Cartoon short failed QC" \
               "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendDocument"
+          elif [ "${{ steps.render.outcome }}" != "success" ]; then
+            ERROR_LINE="$(grep -E '(^|: )(ValueError|RuntimeError|ClientError|Error|ERROR|Exception):|RESOURCE_EXHAUSTED|Traceback' render.log 2>/dev/null | tail -n 1 | cut -c1-1200 || true)"
+            if [ -z "$ERROR_LINE" ]; then
+              ERROR_LINE="Render failed before producing an output file."
+            fi
+            MESSAGE="❌ Cartoon short render failed%0AInput: $INPUT_FILE%0A$ERROR_LINE%0A${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            curl --fail --silent --show-error \
+              --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+              --data-urlencode "text=$MESSAGE" \
+              "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
           fi
+
+      - name: Fail job when render failed
+        if: steps.render.outcome != 'success'
+        run: exit 1
