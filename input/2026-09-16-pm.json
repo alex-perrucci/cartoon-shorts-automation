@@ -1,59 +1,42 @@
 {
-  "topic": "Perché il latte è quasi sempre in fondo al supermercato",
-  "hook": "Hai mai notato che il latte è quasi sempre in fondo al supermercato? Non è un caso.",
-  "narration": "Hai mai notato che il latte è quasi sempre in fondo al supermercato? Non è un caso. Il latte è uno dei prodotti che tantissime persone comprano spesso. Proprio per questo il supermercato lo mette lontano dall'ingresso. Così, per arrivarci, sei costretto a passare davanti a decine di altri prodotti. E più cose vedi, più aumenta la possibilità che tu compri qualcosa in più. Magari entri solo per latte e pane, ma nel frattempo vedi snack, offerte, bibite o dolci. Questo trucco si chiama layout strategico. Il punto non è renderti la vita più comoda. Il punto è farti restare più tempo nel negozio e aumentare lo scontrino finale. Quindi no, il latte in fondo non è messo lì a caso. È marketing.",
-  "target_duration_seconds": 35,
-  "language": "it",
-  "style": "simple 2D cartoon explainer",
+  "id": "2026-09-16-pm-supermarket-milk",
+  "title": "Perché il latte è spesso lontano dall'ingresso",
+  "hook": "Hai mai notato che il latte è spesso lontano dall'ingresso del supermercato?",
+  "narration": "Hai mai notato che il latte è spesso lontano dall'ingresso del supermercato? I prodotti comprati più spesso possono portarti ad attraversare una parte più grande del negozio prima di raggiungerli. Durante il percorso passi davanti a scaffali, offerte e prodotti che magari non avevi previsto di comprare. E ogni esposizione in più è un'altra occasione per aggiungere qualcosa al carrello. La disposizione di un supermercato viene studiata proprio per guidare il percorso dei clienti e rendere visibili più categorie di prodotto. Quindi, quando per prendere una cosa semplice devi attraversare mezzo negozio, non stai vedendo solo scaffali: stai seguendo un percorso progettato per farti scoprire e considerare più acquisti.",
   "scenes": [
     {
-      "scene_number": 1,
-      "narration": "Hai mai notato che il latte è quasi sempre in fondo al supermercato?",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same round-headed businessman character in black suit, inside a supermarket entrance looking confused while searching for milk, vertical 9:16, no text."
+      "narration": "Hai mai notato che il latte è spesso lontano dall'ingresso del supermercato?",
+      "visual": "The recurring businessman stands at a supermarket entrance looking across a long store toward a distant refrigerated dairy section, holding an empty shopping basket."
     },
     {
-      "scene_number": 2,
-      "narration": "Non è un caso.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character realizing something with a surprised expression, a supermarket shelf map behind him, vertical 9:16, no text."
+      "narration": "I prodotti comprati più spesso possono portarti ad attraversare una parte più grande del negozio prima di raggiungerli.",
+      "visual": "The recurring businessman walks through a long supermarket aisle toward a distant milk carton while passing many shelves on both sides."
     },
     {
-      "scene_number": 3,
-      "narration": "Il latte è uno dei prodotti che tantissime persone comprano spesso.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character with many shoppers all heading toward milk shelves, shopping baskets in hand, vertical 9:16, no text."
+      "narration": "Durante il percorso passi davanti a scaffali, offerte e prodotti che magari non avevi previsto di comprare.",
+      "visual": "The recurring businessman walks past displays of snacks, cereal, drinks and household products, glancing at several items with growing curiosity."
     },
     {
-      "scene_number": 4,
-      "narration": "Proprio per questo il supermercato lo mette lontano dall'ingresso.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman character at the store entrance, milk shelves clearly placed far away at the back of the supermarket, vertical 9:16, no text."
+      "narration": "E ogni esposizione in più è un'altra occasione per aggiungere qualcosa al carrello.",
+      "visual": "The recurring businessman starts placing an unplanned snack and drink into his shopping cart while continuing toward the dairy section."
     },
     {
-      "scene_number": 5,
-      "narration": "Così, per arrivarci, sei costretto a passare davanti a decine di altri prodotti.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman walking through long supermarket aisles full of snacks, drinks, cereal, candy, and colorful products, vertical 9:16, no text."
+      "narration": "La disposizione di un supermercato viene studiata proprio per guidare il percorso dei clienti",
+      "visual": "Top-down simplified supermarket layout with the recurring businessman following a winding path through several aisles toward the back of the store."
     },
     {
-      "scene_number": 6,
-      "narration": "E più cose vedi, più aumenta la possibilità che tu compri qualcosa in più.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman adding extra items like chips, soda, and sweets into a shopping cart, vertical 9:16, no text."
+      "narration": "e rendere visibili più categorie di prodotto.",
+      "visual": "The recurring businessman stands at an aisle intersection surrounded by several visually distinct product categories, turning his head to notice each one."
     },
     {
-      "scene_number": 7,
-      "narration": "Il punto è farti restare più tempo nel negozio e aumentare lo scontrino finale.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman standing at checkout with an unexpectedly full shopping cart and a long receipt, vertical 9:16, no text."
+      "narration": "Quindi, quando per prendere una cosa semplice devi attraversare mezzo negozio, non stai vedendo solo scaffali:",
+      "visual": "The recurring businessman finally reaches the milk refrigerator after crossing many aisles, while his cart now contains several extra products."
     },
     {
-      "scene_number": 8,
-      "narration": "Quindi no, il latte in fondo non è messo lì a caso. È marketing.",
-      "image_prompt": "Minimal simple 2D cartoon illustration, beige background, thick black outlines, same businessman pointing at the milk section with a knowing expression, a subtle visual emphasis on strategic store layout, vertical 9:16, no text."
+      "narration": "stai seguendo un percorso progettato per farti scoprire e considerare più acquisti.",
+      "visual": "The recurring businessman at checkout looks surprised at his fuller-than-expected cart while holding one carton of milk as the item he originally wanted."
     }
   ],
-  "caption": "Il latte in fondo al supermercato non è un caso 👀",
-  "hashtags": [
-    "marketing",
-    "supermercato",
-    "business",
-    "curiosita",
-    "vendite",
-    "psychology"
-  ]
+  "caption": "Perché per prendere una cosa finisci per attraversare mezzo supermercato 👀",
+  "hashtags": ["marketing", "supermercato", "curiosita", "business"]
 }
