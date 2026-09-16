@@ -7,52 +7,39 @@
     {
       "narration": "Perché 9,99 ti sembra molto meno di 10 euro?",
       "visual": "The recurring businessman compares two hanging price tags, one just below a round-number threshold and one exactly at the threshold, looking surprised.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_01.b64",
-      "image_sha256": "97419755c62c8807e4f251d11f2f65d64fac63c9f56e3d0476aa3af68fec3eab"
+      "image_b64": "assets/generated/2026-09-16-first/scene_01.b64"
     },
     {
       "narration": "Il centesimo di differenza quasi non conta, ma il cervello non legge sempre i prezzi in modo perfettamente razionale.",
       "visual": "The same businessman thinks while a simple brain icon highlights the leftmost digit of two nearby prices.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_02.b64",
-      "image_sha256": "16d867d37e5a816463f5c5f6cae1b15dae784211598cec2b033ef81da5b1737b"
+      "image_b64": "assets/generated/2026-09-16-first/scene_02.b64"
     },
     {
       "narration": "Spesso diamo più peso alla cifra di sinistra: 9,99 comincia con nove, mentre 10 comincia con dieci.",
       "visual": "The same businessman stands in a supermarket aisle surrounded by several shelf price tags ending just below round numbers.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_03.b64",
-      "image_sha256": "9ea61d43dcd4c03269b6cae43f8e7db3d6339e3720a672e083609c82ab0cedc7"
+      "image_b64": "assets/generated/2026-09-16-first/scene_03.b64"
     },
     {
       "narration": "Questo effetto è chiamato left-digit bias.",
       "visual": "The same businessman faces a clear mental threshold gate, with a price marker sitting just before the round-number boundary.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_04.b64",
-      "image_sha256": "873e0ac1cac16e79c641769a30691058f07412e4a316c46536af66b7e80e739f"
+      "image_b64": "assets/generated/2026-09-16-first/scene_04.b64"
     },
     {
       "narration": "Nei test e nei dati di vendita, i prezzi che finiscono in 9 possono influenzare la percezione e, in alcuni contesti, aumentare gli acquisti.",
       "visual": "The same businessman points toward a simple rising purchases chart beside increasingly full shopping bags.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_05.b64",
-      "image_sha256": "3687d5b443e83bd7275c453dc9b94523dc3c0a5611285ba430af2f7c86a8b3aa"
+      "image_b64": "assets/generated/2026-09-16-first/scene_05.b64"
     },
     {
       "narration": "Ma non è una legge universale: categoria, marca e situazione contano.",
       "visual": "The same businessman compares an everyday grocery purchase with a luxury watch to show that context changes the effect.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_06.b64",
-      "image_sha256": "c2184df89d8cda2f075f8a022cb1847feee06c7bdd9a674f8ac166ae8aed251b"
+      "image_b64": "assets/generated/2026-09-16-first/scene_06.b64"
     },
     {
       "narration": "Il trucco, quindi, non è il centesimo risparmiato. È far sembrare il prezzo appena sotto una soglia mentale.",
       "visual": "The same businessman points to a price tag sitting just below a bold round-number threshold, with a downward arrow suggesting lower perceived price.",
-      "image_b64": "assets/generated/2026-09-16-first/scene_07.b64",
-      "image_sha256": "6780644b5056ec9ce61dcc31b97a4be35df39d7be4de499db7c07e0be112b191"
+      "image_b64": "assets/generated/2026-09-16-first/scene_07.b64"
     }
   ],
   "caption": "Quel centesimo non serve solo a farti risparmiare 👀",
-  "hashtags": [
-    "marketing",
-    "prezzi",
-    "psicologia",
-    "business",
-    "curiosita"
-  ]
+  "hashtags": ["marketing", "prezzi", "psicologia", "business", "curiosita"]
 }
