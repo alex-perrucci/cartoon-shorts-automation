@@ -6,6 +6,7 @@ on:
       - "main.py"
       - "render_entry.py"
       - "requirements.txt"
+      - "scripts/**"
       - "tests/**"
       - "examples/**"
       - ".github/workflows/**"
@@ -14,6 +15,7 @@ on:
       - "main.py"
       - "render_entry.py"
       - "requirements.txt"
+      - "scripts/**"
       - "tests/**"
       - "examples/**"
       - ".github/workflows/**"
@@ -37,7 +39,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Compile
-        run: python -m py_compile main.py render_entry.py tests/test_assets.py tests/test_subtitles.py
+        run: >-
+          python -m py_compile
+          main.py render_entry.py
+          scripts/prepare_svg_assets.py
+          scripts/oauth_youtube.py
+          scripts/oauth_tiktok.py
+          scripts/tiktok_tokens.py
+          scripts/upload_youtube.py
+          scripts/upload_tiktok_draft.py
+          tests/test_assets.py tests/test_subtitles.py
       - name: Unit tests
         run: python -m unittest discover -s tests -v
       - name: Self test
