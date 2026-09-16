@@ -1,52 +1,52 @@
 {
   "id": "2026-09-16-first",
   "title": "Perché 9,99 € sembra molto meno di 10 €",
-  "hook": "Perché 9,99 ti sembra molto meno di 10 euro?",
-  "narration": "Perché 9,99 ti sembra molto meno di 10 euro? Il centesimo di differenza quasi non conta, ma il cervello non legge sempre i prezzi in modo perfettamente razionale. Spesso diamo più peso alla cifra di sinistra: 9,99 comincia con nove, mentre 10 comincia con dieci. Questo effetto è chiamato left-digit bias. Nei test e nei dati di vendita, i prezzi che finiscono in 9 possono influenzare la percezione e, in alcuni contesti, aumentare gli acquisti. Ma non è una legge universale: categoria, marca e situazione contano. Il trucco, quindi, non è il centesimo risparmiato. È far sembrare il prezzo appena sotto una soglia mentale.",
+  "hook": "Quel 9,99 può ingannare la tua percezione.",
+  "narration": "Quel 9,99 può ingannare la tua percezione. La differenza da 10 euro è solo un centesimo, ma il cervello tende a dare più peso alla cifra di sinistra. Così 9,99 parte da nove, mentre 10 scatta nella categoria mentale del dieci. È il cosiddetto left-digit bias. In alcuni contesti, prezzi appena sotto una soglia possono sembrare più convenienti e influenzare la scelta. Non funziona sempre: contano prodotto, marca e situazione. Ma il punto è questo: quel centesimo non serve davvero a farti risparmiare. Serve soprattutto a tenere il prezzo, nella tua testa, appena sotto una soglia psicologica.",
   "scenes": [
     {
-      "narration": "Perché 9,99 ti sembra molto meno di 10 euro?",
-      "visual": "The recurring businessman compares two hanging price tags, one just below a round-number threshold and one exactly at the threshold, looking surprised.",
+      "narration": "Quel 9,99 può ingannare la tua percezione.",
+      "visual": "The recurring businessman compares a 9.99 price tag with a 10.00 price tag as the lower price appears to slip under a bold mental threshold line.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_01.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_01.b64"
     },
     {
-      "narration": "Il centesimo di differenza quasi non conta, ma il cervello non legge sempre i prezzi in modo perfettamente razionale.",
+      "narration": "La differenza da 10 euro è solo un centesimo, ma il cervello tende a dare più peso alla cifra di sinistra.",
       "visual": "The same businessman thinks while a simple brain icon highlights the leftmost digit of two nearby prices.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_02.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_02.b64"
     },
     {
-      "narration": "Spesso diamo più peso alla cifra di sinistra: 9,99 comincia con nove, mentre 10 comincia con dieci.",
-      "visual": "The same businessman stands in a supermarket aisle surrounded by several shelf price tags ending just below round numbers.",
+      "narration": "Così 9,99 parte da nove, mentre 10 scatta nella categoria mentale del dieci.",
+      "visual": "The same businessman stands between a 9.99 tag on one side and a 10.00 tag on the other, with a clear visual threshold separating the two.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_03.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_03.b64"
     },
     {
-      "narration": "Questo effetto è chiamato left-digit bias.",
+      "narration": "È il cosiddetto left-digit bias.",
       "visual": "The same businessman faces a clear mental threshold gate, with a price marker sitting just before the round-number boundary.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_04.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_04.b64"
     },
     {
-      "narration": "Nei test e nei dati di vendita, i prezzi che finiscono in 9 possono influenzare la percezione e, in alcuni contesti, aumentare gli acquisti.",
-      "visual": "The same businessman points toward a simple rising purchases chart beside increasingly full shopping bags.",
+      "narration": "In alcuni contesti, prezzi appena sotto una soglia possono sembrare più convenienti e influenzare la scelta.",
+      "visual": "The same businessman reaches toward the just-below-threshold price while two simple shopping choices sit side by side.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_05.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_05.b64"
     },
     {
-      "narration": "Ma non è una legge universale: categoria, marca e situazione contano.",
+      "narration": "Non funziona sempre: contano prodotto, marca e situazione.",
       "visual": "The same businessman compares an everyday grocery purchase with a luxury watch to show that context changes the effect.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_06.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_06.b64"
     },
     {
-      "narration": "Il trucco, quindi, non è il centesimo risparmiato. È far sembrare il prezzo appena sotto una soglia mentale.",
-      "visual": "The same businessman points to a price tag sitting just below a bold round-number threshold, with a downward arrow suggesting lower perceived price.",
+      "narration": "Ma il punto è questo: quel centesimo non serve davvero a farti risparmiare. Serve soprattutto a tenere il prezzo, nella tua testa, appena sotto una soglia psicologica.",
+      "visual": "The same businessman points to a price tag sitting just below a bold round-number threshold, with the threshold clearly emphasized as the real mechanism.",
       "image_svg_source": "assets/generated/2026-09-16-first/scene_07.svg",
       "image_b64": "work/prepared_assets/2026-09-16-first/scene_07.b64"
     }
   ],
-  "caption": "Quel centesimo non serve solo a farti risparmiare 👀",
+  "caption": "Quel centesimo cambia più la percezione che il prezzo 👀",
   "hashtags": ["marketing", "prezzi", "psicologia", "business", "curiosita"]
 }
