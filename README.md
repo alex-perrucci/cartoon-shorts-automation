@@ -1,44 +1,45 @@
 # Cartoon Shorts Automation
 
-Automated renderer for illustrated TikTok / YouTube Shorts: recurring cartoon character, spoken narration, large word-level captions, subtle motion, QC, GitHub artifacts and optional Telegram delivery.
+Automated renderer for illustrated TikTok / YouTube Shorts: recurring cartoon character, spoken narration, large high-retention captions, subtle motion, QC, GitHub artifacts and optional Telegram delivery.
 
-The editorial + artwork layer lives outside this repository. Scheduled ChatGPT tasks create the topic, script, storyboard and one original scene image per beat. Each image is stored in GitHub as base64 text (`.b64`), so the renderer does not need an external image-generation API or image-model billing.
+The editorial + artwork layer lives outside this repository. Scheduled ChatGPT tasks create the topic, hook, script, storyboard and one original SVG illustration per scene. GitHub Actions rasterizes those SVG files locally, validates the prepared scene assets, synthesizes voice, renders the short and sends the finished MP4 to Telegram when configured.
 
 ## Pipeline
 
-`scheduled ChatGPT task -> script/storyboard -> generated scene images -> base64 scene assets + JSON manifest -> GitHub Actions -> asset validation/decode -> Edge TTS + word timings -> FFmpeg vertical render -> captions -> QC -> GitHub artifact / Telegram`
+`scheduled ChatGPT task -> strong hook + script/storyboard + SVG scenes -> JSON manifest -> GitHub Actions -> SVG rasterization -> asset validation -> male Edge TTS + word timings -> safe-area captions -> FFmpeg vertical render -> QC -> GitHub artifact / Telegram`
 
-## Why base64 assets
+## Why SVG transport
 
-The GitHub connector can reliably write text. Scene images are therefore encoded as base64 text files under `assets/generated/<package-id>/`. During Actions the renderer:
+The GitHub connector writes UTF-8 text reliably. SVG therefore gives the scheduler a lossless text-safe artwork format without requiring a paid image API.
 
-1. validates every referenced asset path;
-2. decodes strict base64;
-3. checks optional SHA-256 integrity;
-4. verifies the decoded bytes are a real image;
-5. rejects tiny or oversized images;
-6. normalizes every scene to `1080x1920` PNG;
-7. only then starts TTS and video rendering.
+For each production package Actions:
 
-This keeps image generation in the scheduled ChatGPT task while leaving deterministic assembly to GitHub Actions.
+1. validates the referenced self-contained SVG files;
+2. rasterizes every scene to a local 1080x1920 image;
+3. creates transient local base64 assets for the existing strict image validator;
+4. verifies image parsing, dimensions and path containment;
+5. synthesizes narration;
+6. generates large captions with pixel-based safe-area fitting;
+7. renders and QC-checks the final MP4.
 
 ## One-time repository setup
 
-Under **Settings -> Secrets and variables -> Actions**, only Telegram delivery is optional:
+Under **Settings -> Secrets and variables -> Actions**, Telegram delivery is optional:
 
 - `TELEGRAM_TOKEN`
 - `TELEGRAM_CHAT_ID`
 
-`GEMINI_API_KEY` is no longer used by the renderer and can be removed from this repository if desired.
+No image-generation API key is required by the renderer.
 
 ## Defaults
 
-- Image source: scheduler-generated base64 scene assets
-- Voice: `it-IT-IsabellaNeural`
+- Artwork source: scheduler-generated self-contained SVG scenes
+- Voice: `it-IT-DiegoNeural` (male)
 - TTS rate: `+8%`
 - Output: `1080x1920`, H.264 + AAC
 - Target duration: `30-65s`
 - Scenes: normally `6-10`
+- Captions: one or two words per card, dynamically sized to stay inside a horizontal safe area
 
 ## Package layout
 
@@ -47,46 +48,42 @@ input/
   2026-09-17-am.json
 assets/generated/
   2026-09-17-am/
-    scene_01.b64
-    scene_02.b64
+    scene_01.svg
+    scene_02.svg
     ...
 ```
 
-Each scene in the JSON references its asset:
+Each scene in the JSON references both the committed SVG and the transient runner asset that Actions prepares:
 
 ```json
 {
   "narration": "...",
   "visual": "The recurring businessman ...",
-  "image_b64": "assets/generated/2026-09-17-am/scene_01.b64",
-  "image_sha256": "...64 hex characters..."
+  "image_svg_source": "assets/generated/2026-09-17-am/scene_01.svg",
+  "image_b64": "work/prepared_assets/2026-09-17-am/scene_01.b64"
 }
 ```
 
-See `AGENTS.md` for the complete scheduled-task contract.
+See `AGENTS.md` for the complete scheduled-task and hook-quality contract.
 
 ## Local tests
 
 ```bash
 pip install -r requirements.txt
-python main.py --self-test
+python render_entry.py --self-test
 python -m unittest discover -s tests -v
-python main.py --input examples/example.json --dry-run
+python render_entry.py --input examples/example.json --dry-run
 ```
 
-`--dry-run` intentionally ignores scene assets and uses local placeholder images while still exercising TTS, timing, FFmpeg rendering, captions, metadata and QC.
+`render_entry.py` is the production entrypoint. It reuses the core renderer while applying the current safe subtitle-layout policy.
 
-For a real package you can validate all scene assets before rendering:
-
-```bash
-python main.py --input input/2026-09-17-am.json --validate-assets
-```
+For a real package the workflow first prepares SVG assets and then validates them before rendering.
 
 ## GitHub Actions
 
-- `CI`: compiles the renderer, runs asset-validation tests, performs the self-test and renders the dry-run example.
-- `Render cartoon short`: starts when an `input/**/*.json` manifest is added/updated, validates packaged scene assets, renders the video, uploads the output artifact for 14 days and sends the final MP4 to Telegram when configured.
+- `CI`: compiles the core renderer and production wrapper, runs asset/subtitle tests, performs the self-test and renders the dry-run example using the production entrypoint.
+- `Render cartoon short`: starts when an `input/**/*.json` manifest is added/updated, prepares SVG scene assets, validates them, renders the video, uploads the output artifact for 14 days and sends the final MP4 to Telegram when configured.
 
-Failed renders retain `render.log` as an Actions artifact and also send a concise failure message to Telegram.
+Failed renders retain `render.log` as an Actions artifact and send a concise failure message to Telegram.
 
-The implementation is intentionally small: no dashboard, database, microservices, in-repository topic generator or paid image API.
+The implementation stays intentionally small: no dashboard, database, microservices, in-repository topic generator or paid image API.
