@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#F3EAD7"/>
+  <g stroke="#111111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="570" y="500" width="360" height="520" rx="60" fill="#111"/>
+    <rect x="630" y="580" width="240" height="170" rx="20" fill="#FFD84D"/>
+    <text x="750" y="700" text-anchor="middle" font-size="88" font-family="DejaVu Sans" fill="#111" stroke="none">POS</text>
+    <circle cx="660" cy="860" r="24" fill="#FFFDF8"/><circle cx="750" cy="860" r="24" fill="#FFFDF8"/><circle cx="840" cy="860" r="24" fill="#FFFDF8"/>
+    <circle cx="330" cy="1010" r="87" fill="#FFFDF8"/>
+    <circle cx="301" cy="1011" r="7" fill="#111"/><circle cx="359" cy="1011" r="7" fill="#111"/>
+    <path d="M302 1048 Q330 1069 361 1045" fill="none"/>
+    <path d="M206 1129 Q330 1102 454 1129 L440 1424 L220 1424 Z" fill="#111"/>
+    <path d="M288 1129 L330 1207 L372 1129" fill="#FFFDF8"/>
+    <path d="M330 1157 L308 1253 L330 1290 L352 1253 Z" fill="#FFFDF8"/>
+    <path d="M256 1424 L243 1598 M404 1424 L417 1598" fill="none"/>
+    <path d="M470 1150 L600 920" fill="none"/>
+    <path d="M120 1550 H960" fill="none"/>
+    <path d="M180 1510 L240 1590 M300 1510 L360 1590 M420 1510 L480 1590 M540 1510 L600 1590 M660 1510 L720 1590 M780 1510 L840 1590" fill="none"/>
+  </g>
+</svg>
