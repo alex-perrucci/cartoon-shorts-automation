@@ -1,0 +1,38 @@
+{
+  "id": "example-001",
+  "title": "Perché vincere alla lotteria può rovinarti",
+  "hook": "Vincere milioni può renderti più povero.",
+  "narration": "Vincere milioni sembra la soluzione a ogni problema, ma spesso cambia tutto troppo in fretta. Appena arrivano i soldi, molte persone aumentano subito lo stile di vita: casa più grande, auto costose, regali, viaggi e spese continue. Il problema è che il capitale sembra infinito, ma non lo è. Se le uscite crescono più velocemente degli investimenti, anche una fortuna enorme può sparire. E quando amici e parenti iniziano a chiedere aiuto, dire di no diventa ancora più difficile. Per questo avere tanti soldi non basta: serve sapere come gestirli.",
+  "scenes": [
+    {
+      "narration": "Vincere milioni sembra la soluzione a ogni problema, ma spesso cambia tutto troppo in fretta.",
+      "visual": "The recurring businessman holds a giant lottery check while confetti falls around him, looking shocked and excited."
+    },
+    {
+      "narration": "Appena arrivano i soldi, molte persone aumentano subito lo stile di vita",
+      "visual": "The same businessman stands between a modest home and a huge luxury villa, choosing the villa."
+    },
+    {
+      "narration": "casa più grande, auto costose, regali, viaggi e spese continue.",
+      "visual": "The same businessman surrounded by a sports car, shopping bags, airplane tickets and expensive watches."
+    },
+    {
+      "narration": "Il problema è che il capitale sembra infinito, ma non lo è.",
+      "visual": "The same businessman watches a huge pile of money shrink into a small stack."
+    },
+    {
+      "narration": "Se le uscite crescono più velocemente degli investimenti, anche una fortuna enorme può sparire.",
+      "visual": "The same businessman beside a simple chart where spending rises sharply while savings falls."
+    },
+    {
+      "narration": "E quando amici e parenti iniziano a chiedere aiuto, dire di no diventa ancora più difficile.",
+      "visual": "The same businessman surrounded by several cartoon people holding out their hands asking for money."
+    },
+    {
+      "narration": "Per questo avere tanti soldi non basta: serve sapere come gestirli.",
+      "visual": "The same businessman calmly organizes money into savings, investing and spending jars at a desk."
+    }
+  ],
+  "caption": "Avere tanti soldi e saperli gestire sono due cose molto diverse.",
+  "hashtags": ["soldi", "finanza", "curiosita", "business"]
+}
