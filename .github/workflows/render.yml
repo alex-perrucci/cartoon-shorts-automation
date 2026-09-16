@@ -17,7 +17,7 @@ on:
         type: boolean
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: cartoon-render-${{ github.ref }}-${{ github.sha }}
@@ -26,10 +26,16 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     env:
       TTS_VOICE: it-IT-DiegoNeural
       TTS_RATE: "-4%"
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+      TIKTOK_TOKEN_KEY: ${{ secrets.TIKTOK_TOKEN_KEY }}
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
 
@@ -61,7 +67,7 @@ jobs:
           )
 
           if [ "${#INPUT_FILES[@]}" -eq 0 ]; then
-            echo "No added/modified input manifest in this push; likely a delete/rename cleanup. Skipping render."
+            echo "No added/modified input manifest in this push; skipping render."
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -135,56 +141,89 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - name: Upload failure log
-        if: steps.input.outputs.skip != 'true' && steps.render.outcome != 'success'
+      - name: Upload private draft to YouTube
+        id: youtube
+        if: github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT_FILE="${{ steps.input.outputs.file }}"
+          VIDEO="${{ steps.output.outputs.dir }}/final_video.mp4"
+          if [ -z "${YOUTUBE_CLIENT_ID:-}" ] || [ -z "${YOUTUBE_CLIENT_SECRET:-}" ] || [ -z "${YOUTUBE_REFRESH_TOKEN:-}" ]; then
+            echo "YouTube OAuth not configured; skipping private upload."
+            exit 0
+          fi
+          if ! python -c 'import json,sys; d=json.load(open(sys.argv[1], encoding="utf-8")); raise SystemExit(0 if isinstance(d.get("youtube"), dict) else 1)' "$INPUT_FILE"; then
+            echo "Manifest has no youtube metadata; skipping private upload."
+            exit 0
+          fi
+          python scripts/upload_youtube.py --video "$VIDEO" --manifest "$INPUT_FILE" | tee youtube-upload.log
+
+      - name: Upload draft to TikTok inbox
+        id: tiktok
+        if: github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          VIDEO="${{ steps.output.outputs.dir }}/final_video.mp4"
+          if [ -z "${TIKTOK_CLIENT_KEY:-}" ] || [ -z "${TIKTOK_CLIENT_SECRET:-}" ] || [ -z "${TIKTOK_TOKEN_KEY:-}" ]; then
+            echo "TikTok OAuth not configured; skipping draft upload."
+            exit 0
+          fi
+          if [ ! -f .auth/tiktok_tokens.enc ]; then
+            echo "TikTok encrypted token state is not seeded; skipping draft upload."
+            exit 0
+          fi
+          python scripts/upload_tiktok_draft.py --video "$VIDEO" | tee tiktok-upload.log
+
+      - name: Persist rotated TikTok token state
+        if: always() && github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f .auth/tiktok_tokens.enc ] || git diff --quiet -- .auth/tiktok_tokens.enc; then
+            echo "TikTok token state unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .auth/tiktok_tokens.enc
+          git commit -m "chore: rotate encrypted TikTok token state"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Upload failure logs
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         uses: actions/upload-artifact@v4
         with:
           name: cartoon-short-failure-${{ github.run_id }}
-          path: render.log
+          path: |
+            render.log
+            youtube-upload.log
+            tiktok-upload.log
           if-no-files-found: ignore
           retention-days: 7
 
-      - name: Send to Telegram when configured
-        if: always() && steps.input.outputs.skip != 'true'
+      - name: Send failure to Telegram when configured
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         shell: bash
         run: |
           set -u
           if [ -z "${TELEGRAM_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
-            echo "Telegram not configured; skipping."
+            echo "Telegram not configured; skipping failure notification."
             exit 0
           fi
-
-          OUTPUT_DIR="${{ steps.output.outputs.dir }}"
-          VIDEO="${OUTPUT_DIR:+$OUTPUT_DIR/final_video.mp4}"
-          REPORT="${OUTPUT_DIR:+$OUTPUT_DIR/qc_report.json}"
           INPUT_FILE="${{ steps.input.outputs.file }}"
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          MESSAGE=$(printf '❌ Cartoon short pipeline issue\nInput: %s\nRender: %s\nYouTube: %s\nTikTok: %s\n%s' \
+            "$INPUT_FILE" "${{ steps.render.outcome }}" "${{ steps.youtube.outcome }}" "${{ steps.tiktok.outcome }}" "$RUN_URL")
+          curl --fail --silent --show-error \
+            --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
+            --data-urlencode "text=$MESSAGE" \
+            "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
 
-          if [ -n "$VIDEO" ] && [ -f "$VIDEO" ]; then
-            CAPTION=$(printf '✅ Cartoon short rendered\nInput: %s' "$INPUT_FILE")
-            curl --fail --silent --show-error \
-              -F "chat_id=$TELEGRAM_CHAT_ID" \
-              -F "caption=$CAPTION" \
-              -F "video=@$VIDEO" \
-              "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendVideo"
-          elif [ -n "$REPORT" ] && [ -f "$REPORT" ]; then
-            curl --fail --silent --show-error \
-              -F "chat_id=$TELEGRAM_CHAT_ID" \
-              -F "document=@$REPORT" \
-              -F "caption=❌ Cartoon short failed QC" \
-              "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendDocument"
-          elif [ "${{ steps.render.outcome }}" != "success" ]; then
-            ERROR_LINE="$(grep -E '(^|: )(ValueError|RuntimeError|Error|ERROR|Exception):|Traceback' render.log 2>/dev/null | tail -n 1 | cut -c1-1200 || true)"
-            if [ -z "$ERROR_LINE" ]; then
-              ERROR_LINE="Render failed before producing an output file."
-            fi
-            MESSAGE=$(printf '❌ Cartoon short render failed\nInput: %s\n%s\n%s' "$INPUT_FILE" "$ERROR_LINE" "$RUN_URL")
-            curl --fail --silent --show-error \
-              --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
-              --data-urlencode "text=$MESSAGE" \
-              "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
-          fi
-
-      - name: Fail job when render failed
-        if: steps.input.outputs.skip != 'true' && steps.render.outcome != 'success'
+      - name: Fail job when render or social upload failed
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         run: exit 1
