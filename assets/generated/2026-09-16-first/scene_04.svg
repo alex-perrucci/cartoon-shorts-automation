@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<rect width="1080" height="1920" fill="#F1E8D2"/>
+<g stroke="#151515" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M250 350 H830 V1040 H250 Z" fill="#FFFDF7"/>
+  <line x1="540" y1="350" x2="540" y2="1040"/>
+  <line x1="250" y1="1040" x2="180" y2="1190"/><line x1="830" y1="1040" x2="900" y2="1190"/>
+</g>
+<text x="540" y="740" text-anchor="middle" font-family="Arial,sans-serif" font-size="300" font-weight="900" fill="#151515">10</text>
+<g stroke="#F5C842" stroke-width="30" stroke-linecap="round"><line x1="175" y1="1160" x2="475" y2="1160"/><path d="M475 1160 l-65 -50 m65 50 l-65 50"/></g>
+<rect x="125" y="1030" width="240" height="125" rx="28" fill="#FFFDF7" stroke="#151515" stroke-width="16"/>
+<text x="245" y="1115" text-anchor="middle" font-family="Arial,sans-serif" font-size="72" font-weight="900" fill="#151515">9,99</text>
+<g transform="translate(540 1390)" stroke="#151515" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+ <circle r="120" fill="#FFFDF7"/><circle cx="-38" cy="-20" r="10" fill="#151515"/><circle cx="38" cy="-20" r="10" fill="#151515"/><path d="M-30 45 Q0 60 30 45" fill="none"/>
+ <path d="M-55 110 L-110 370 L110 370 L55 110 Z" fill="#151515"/><path d="M-32 115 L0 205 L32 115" fill="#FFFDF7"/>
+ <line x1="-80" y1="205" x2="-210" y2="40"/><line x1="80" y1="205" x2="210" y2="40"/>
+</g>
+</svg>
