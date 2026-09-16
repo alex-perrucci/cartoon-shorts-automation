@@ -106,7 +106,10 @@ def generate_gemini_image(path: Path, prompt: str) -> None:
         contents=contents,
         config=types.GenerateContentConfig(
             response_modalities=["IMAGE"],
-            response_format={"image": {"aspect_ratio": "9:16", "image_size": "1K"}},
+            image_config=types.ImageConfig(
+                aspect_ratio="9:16",
+                image_size="1K",
+            ),
         ),
     )
     for part in response.parts:
