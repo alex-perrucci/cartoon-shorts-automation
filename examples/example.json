@@ -1,38 +1,38 @@
 {
   "id": "example-001",
   "title": "Perché vincere alla lotteria può rovinarti",
-  "hook": "Vincere milioni può renderti più povero.",
-  "narration": "Vincere milioni sembra la soluzione a ogni problema, ma spesso cambia tutto troppo in fretta. Appena arrivano i soldi, molte persone aumentano subito lo stile di vita: casa più grande, auto costose, regali, viaggi e spese continue. Il problema è che il capitale sembra infinito, ma non lo è. Se le uscite crescono più velocemente degli investimenti, anche una fortuna enorme può sparire. E quando amici e parenti iniziano a chiedere aiuto, dire di no diventa ancora più difficile. Per questo avere tanti soldi non basta: serve sapere come gestirli.",
+  "hook": "Vincere milioni può accelerare i tuoi errori.",
+  "narration": "Vincere milioni sembra la soluzione a ogni problema, ma può diventare un acceleratore di errori. Appena arrivano i soldi, la tentazione è alzare subito lo stile di vita: casa più grande, auto costose, viaggi, regali e spese che prima sembravano assurde. Il problema è che una fortuna enorme sembra infinita solo finché non inizi a trattarla come se lo fosse davvero. Se le uscite crescono più velocemente degli investimenti, il capitale si assottiglia mese dopo mese. Poi arrivano richieste di aiuto, prestiti ad amici, parenti da sistemare e decisioni prese per non sembrare tirchi. A quel punto dire di no diventa più difficile proprio perché tutti sanno che hai soldi. E se non hai un piano, il patrimonio finisce per finanziare cento piccole scelte impulsive. Quindi no, avere milioni non ti rende automaticamente ricco per sempre. Ti dà solo più margine per fare errori molto più costosi. Il denaro cambia la scala delle decisioni, non elimina il bisogno di disciplina.",
   "scenes": [
     {
-      "narration": "Vincere milioni sembra la soluzione a ogni problema, ma spesso cambia tutto troppo in fretta.",
-      "visual": "The recurring businessman holds a giant lottery check while confetti falls around him, looking shocked and excited."
+      "narration": "Vincere milioni sembra la soluzione a ogni problema, ma può diventare un acceleratore di errori.",
+      "visual": "The recurring businessman holds a giant lottery check while a warning sign appears behind the confetti."
     },
     {
-      "narration": "Appena arrivano i soldi, molte persone aumentano subito lo stile di vita",
-      "visual": "The same businessman stands between a modest home and a huge luxury villa, choosing the villa."
+      "narration": "Appena arrivano i soldi, la tentazione è alzare subito lo stile di vita: casa più grande, auto costose, viaggi, regali e spese che prima sembravano assurde.",
+      "visual": "The same businessman is surrounded by a luxury house, sports car, airplane and shopping bags."
     },
     {
-      "narration": "casa più grande, auto costose, regali, viaggi e spese continue.",
-      "visual": "The same businessman surrounded by a sports car, shopping bags, airplane tickets and expensive watches."
+      "narration": "Il problema è che una fortuna enorme sembra infinita solo finché non inizi a trattarla come se lo fosse davvero. Se le uscite crescono più velocemente degli investimenti, il capitale si assottiglia mese dopo mese.",
+      "visual": "The same businessman watches a mountain of money shrink while a spending arrow rises faster than an investment arrow."
     },
     {
-      "narration": "Il problema è che il capitale sembra infinito, ma non lo è.",
-      "visual": "The same businessman watches a huge pile of money shrink into a small stack."
+      "narration": "Poi arrivano richieste di aiuto, prestiti ad amici, parenti da sistemare e decisioni prese per non sembrare tirchi.",
+      "visual": "The same businessman is surrounded by friends and relatives extending hands while he holds an open wallet."
     },
     {
-      "narration": "Se le uscite crescono più velocemente degli investimenti, anche una fortuna enorme può sparire.",
-      "visual": "The same businessman beside a simple chart where spending rises sharply while savings falls."
+      "narration": "A quel punto dire di no diventa più difficile proprio perché tutti sanno che hai soldi. E se non hai un piano, il patrimonio finisce per finanziare cento piccole scelte impulsive.",
+      "visual": "The same businessman stands behind a leaking money tank feeding many small impulsive purchases."
     },
     {
-      "narration": "E quando amici e parenti iniziano a chiedere aiuto, dire di no diventa ancora più difficile.",
-      "visual": "The same businessman surrounded by several cartoon people holding out their hands asking for money."
+      "narration": "Quindi no, avere milioni non ti rende automaticamente ricco per sempre. Ti dà solo più margine per fare errori molto più costosi.",
+      "visual": "The same businessman balances a huge money bag against an equally huge pile of expensive mistakes."
     },
     {
-      "narration": "Per questo avere tanti soldi non basta: serve sapere come gestirli.",
-      "visual": "The same businessman calmly organizes money into savings, investing and spending jars at a desk."
+      "narration": "Il denaro cambia la scala delle decisioni, non elimina il bisogno di disciplina.",
+      "visual": "The same businessman calmly organizes money into spending, saving and investing containers at a desk."
     }
   ],
-  "caption": "Avere tanti soldi e saperli gestire sono due cose molto diverse.",
+  "caption": "Più soldi non significano automaticamente meno errori.",
   "hashtags": ["soldi", "finanza", "curiosita", "business"]
 }
