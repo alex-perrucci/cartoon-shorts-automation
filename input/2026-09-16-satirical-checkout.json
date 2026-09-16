@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-16-satirical-checkout",
+  "title": "La cassa è l'ultima trappola",
+  "hook": "La cassa è l'ultima trappola.",
+  "narration": "La cassa è l'ultima trappola. Dopo aver riempito il carrello, ti ritrovi ad aspettare proprio accanto a snack, caramelle e bibite: cose piccole, facili da prendere e abbastanza economiche da sembrare innocue. Non è casuale. La zona checkout è un punto inevitabile del percorso, e la ricerca mostra che il posizionamento lì può favorire acquisti impulsivi. Il trucco è nel momento: non stai più girando per scegliere, stai aspettando di pagare. E quando hai già speso cinquanta euro, altri due sembrano niente. Quindi no, la cassa non serve solo a incassare. Serve anche a provare a venderti l'ultima cosa che non cercavi.",
+  "scenes": [
+    {
+      "narration": "La cassa è l'ultima trappola.",
+      "visual": "The recurring businessman is boxed into a supermarket checkout lane that visually feels like a trap, surrounded by impulse products.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_01.b64"
+    },
+    {
+      "narration": "Dopo aver riempito il carrello, ti ritrovi ad aspettare proprio accanto a snack, caramelle e bibite: cose piccole, facili da prendere e abbastanza economiche da sembrare innocue.",
+      "visual": "The same businessman waits at checkout beside dense shelves of small snacks and drinks within easy reach.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_02.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_02.b64"
+    },
+    {
+      "narration": "Non è casuale.",
+      "visual": "The same businessman compares a tiny low-cost impulse item with his full shopping cart, showing why the extra purchase feels harmless.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_03.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_03.b64"
+    },
+    {
+      "narration": "La zona checkout è un punto inevitabile del percorso, e la ricerca mostra che il posizionamento lì può favorire acquisti impulsivi.",
+      "visual": "The checkout path becomes a funnel that every shopper must pass through, with impulse products positioned along both sides.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_04.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_04.b64"
+    },
+    {
+      "narration": "Il trucco è nel momento: non stai più girando per scegliere, stai aspettando di pagare.",
+      "visual": "The same businessman absent-mindedly reaches toward a snack while waiting, no longer actively shopping.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_05.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_05.b64"
+    },
+    {
+      "narration": "E quando hai già speso cinquanta euro, altri due sembrano niente.",
+      "visual": "A large fifty-euro receipt dominates the frame while a tiny two-euro impulse purchase looks insignificant beside it, with the same protagonist pointing at the contrast.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_06.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_06.b64"
+    },
+    {
+      "narration": "Quindi no, la cassa non serve solo a incassare. Serve anche a provare a venderti l'ultima cosa che non cercavi.",
+      "visual": "The same businessman realizes the checkout is both a payment point and one final sales display, with a clear visual reveal.",
+      "image_svg_source": "assets/generated/2026-09-16-satirical-checkout/scene_07.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satirical-checkout/scene_07.b64"
+    }
+  ],
+  "caption": "La spesa non finisce finché non passi la cassa 👀",
+  "hashtags": ["marketing", "supermercato", "psicologia", "business", "curiosita"]
+}
