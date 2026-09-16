@@ -20,7 +20,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: cartoon-render-${{ github.ref }}-${{ github.event_name }}-${{ inputs.input_file || github.sha }}
+  group: cartoon-render-${{ github.ref }}-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -38,16 +38,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Resolve input file
         id: input
         shell: bash
@@ -55,18 +45,58 @@ jobs:
           set -euo pipefail
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             INPUT_FILE="${{ inputs.input_file }}"
-          else
-            INPUT_FILE="$(git diff-tree --diff-filter=AM --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^input/.*\.json$' | tail -n 1 || true)"
+            if [ -z "$INPUT_FILE" ] || [ ! -f "$INPUT_FILE" ]; then
+              echo "Could not resolve requested input JSON: $INPUT_FILE" >&2
+              exit 1
+            fi
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "file=$INPUT_FILE" >> "$GITHUB_OUTPUT"
+            echo "Using $INPUT_FILE"
+            exit 0
           fi
-          if [ -z "$INPUT_FILE" ] || [ ! -f "$INPUT_FILE" ]; then
-            echo "Could not resolve input JSON" >&2
+
+          mapfile -t INPUT_FILES < <(
+            git diff-tree --diff-filter=AM --no-commit-id --name-only -r "$GITHUB_SHA" \
+              | grep '^input/.*\.json$' || true
+          )
+
+          if [ "${#INPUT_FILES[@]}" -eq 0 ]; then
+            echo "No added/modified input manifest in this push; likely a delete/rename cleanup. Skipping render."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "${#INPUT_FILES[@]}" -gt 1 ]; then
+            printf 'Expected exactly one added/modified input manifest, found %s:\n' "${#INPUT_FILES[@]}" >&2
+            printf ' - %s\n' "${INPUT_FILES[@]}" >&2
             exit 1
           fi
+
+          INPUT_FILE="${INPUT_FILES[0]}"
+          if [ ! -f "$INPUT_FILE" ]; then
+            echo "Resolved manifest does not exist: $INPUT_FILE" >&2
+            exit 1
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
           echo "file=$INPUT_FILE" >> "$GITHUB_OUTPUT"
           echo "Using $INPUT_FILE"
 
+      - uses: actions/setup-python@v5
+        if: steps.input.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Install FFmpeg
+        if: steps.input.outputs.skip != 'true'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install dependencies
+        if: steps.input.outputs.skip != 'true'
+        run: pip install -r requirements.txt
+
       - name: Render
         id: render
+        if: steps.input.outputs.skip != 'true'
         continue-on-error: true
         shell: bash
         run: |
@@ -84,7 +114,7 @@ jobs:
 
       - name: Resolve output directory
         id: output
-        if: always() && steps.input.outcome == 'success'
+        if: always() && steps.input.outputs.skip != 'true' && steps.input.outcome == 'success'
         shell: bash
         run: |
           set -euo pipefail
@@ -101,7 +131,7 @@ jobs:
           retention-days: 14
 
       - name: Upload failure log
-        if: steps.render.outcome != 'success'
+        if: steps.input.outputs.skip != 'true' && steps.render.outcome != 'success'
         uses: actions/upload-artifact@v4
         with:
           name: cartoon-short-failure-${{ github.run_id }}
@@ -110,7 +140,7 @@ jobs:
           retention-days: 7
 
       - name: Send to Telegram when configured
-        if: always()
+        if: always() && steps.input.outputs.skip != 'true'
         shell: bash
         run: |
           set -u
@@ -151,5 +181,5 @@ jobs:
           fi
 
       - name: Fail job when render failed
-        if: steps.render.outcome != 'success'
+        if: steps.input.outputs.skip != 'true' && steps.render.outcome != 'success'
         run: exit 1
