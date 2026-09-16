@@ -11,19 +11,23 @@ on:
         required: true
         type: string
       dry_run:
-        description: "Use placeholder images instead of Gemini"
+        description: "Use local placeholder images instead of packaged scene assets"
         required: false
         default: false
         type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cartoon-render-${{ github.ref }}-${{ github.event_name }}-${{ inputs.input_file || github.sha }}
+  cancel-in-progress: false
 
 jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      IMAGE_PROVIDER: gemini
-      IMAGE_MODEL: gemini-3.1-flash-lite-image
       TTS_VOICE: it-IT-IsabellaNeural
       TTS_RATE: "+8%"
       TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
@@ -48,10 +52,11 @@ jobs:
         id: input
         shell: bash
         run: |
+          set -euo pipefail
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             INPUT_FILE="${{ inputs.input_file }}"
           else
-            INPUT_FILE="$(git diff-tree --diff-filter=AM --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^input/.*\.json$' | tail -n 1)"
+            INPUT_FILE="$(git diff-tree --diff-filter=AM --no-commit-id --name-only -r "$GITHUB_SHA" | grep '^input/.*\.json$' | tail -n 1 || true)"
           fi
           if [ -z "$INPUT_FILE" ] || [ ! -f "$INPUT_FILE" ]; then
             echo "Could not resolve input JSON" >&2
@@ -65,19 +70,24 @@ jobs:
         continue-on-error: true
         shell: bash
         run: |
-          set -o pipefail
+          set -euo pipefail
+          INPUT_FILE="${{ steps.input.outputs.file }}"
           EXTRA=""
-          PACKAGE_MODE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("render_mode", ""))' "${{ steps.input.outputs.file }}")"
+          PACKAGE_MODE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("render_mode", ""))' "$INPUT_FILE")"
           if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
             EXTRA="--dry-run"
+          else
+            echo "Validating packaged base64 scene assets before TTS/render..."
+            python main.py --input "$INPUT_FILE" --validate-assets
           fi
-          python main.py --input "${{ steps.input.outputs.file }}" $EXTRA 2>&1 | tee render.log
+          python main.py --input "$INPUT_FILE" $EXTRA 2>&1 | tee render.log
 
       - name: Resolve output directory
         id: output
         if: always() && steps.input.outcome == 'success'
         shell: bash
         run: |
+          set -euo pipefail
           ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "${{ steps.input.outputs.file }}")"
           echo "dir=output/$ID" >> "$GITHUB_OUTPUT"
 
@@ -90,38 +100,50 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - name: Upload failure log
+        if: steps.render.outcome != 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartoon-short-failure-${{ github.run_id }}
+          path: render.log
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Send to Telegram when configured
         if: always()
         shell: bash
         run: |
-          if [ -z "$TELEGRAM_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+          set -u
+          if [ -z "${TELEGRAM_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
             echo "Telegram not configured; skipping."
             exit 0
           fi
 
-          VIDEO="${{ steps.output.outputs.dir }}/final_video.mp4"
-          REPORT="${{ steps.output.outputs.dir }}/qc_report.json"
+          OUTPUT_DIR="${{ steps.output.outputs.dir }}"
+          VIDEO="${OUTPUT_DIR:+$OUTPUT_DIR/final_video.mp4}"
+          REPORT="${OUTPUT_DIR:+$OUTPUT_DIR/qc_report.json}"
           INPUT_FILE="${{ steps.input.outputs.file }}"
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-          if [ -f "$VIDEO" ]; then
-            CAPTION="✅ Cartoon short rendered\nInput: $INPUT_FILE"
+          if [ -n "$VIDEO" ] && [ -f "$VIDEO" ]; then
+            CAPTION=$(printf '✅ Cartoon short rendered\nInput: %s' "$INPUT_FILE")
             curl --fail --silent --show-error \
               -F "chat_id=$TELEGRAM_CHAT_ID" \
               -F "caption=$CAPTION" \
               -F "video=@$VIDEO" \
               "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendVideo"
-          elif [ -f "$REPORT" ]; then
+          elif [ -n "$REPORT" ] && [ -f "$REPORT" ]; then
             curl --fail --silent --show-error \
               -F "chat_id=$TELEGRAM_CHAT_ID" \
               -F "document=@$REPORT" \
               -F "caption=❌ Cartoon short failed QC" \
               "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendDocument"
           elif [ "${{ steps.render.outcome }}" != "success" ]; then
-            ERROR_LINE="$(grep -E '(^|: )(ValueError|RuntimeError|ClientError|Error|ERROR|Exception):|RESOURCE_EXHAUSTED|Traceback' render.log 2>/dev/null | tail -n 1 | cut -c1-1200 || true)"
+            ERROR_LINE="$(grep -E '(^|: )(ValueError|RuntimeError|Error|ERROR|Exception):|Traceback' render.log 2>/dev/null | tail -n 1 | cut -c1-1200 || true)"
             if [ -z "$ERROR_LINE" ]; then
               ERROR_LINE="Render failed before producing an output file."
             fi
-            MESSAGE="❌ Cartoon short render failed%0AInput: $INPUT_FILE%0A$ERROR_LINE%0A${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            MESSAGE=$(printf '❌ Cartoon short render failed\nInput: %s\n%s\n%s' "$INPUT_FILE" "$ERROR_LINE" "$RUN_URL")
             curl --fail --silent --show-error \
               --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" \
               --data-urlencode "text=$MESSAGE" \
