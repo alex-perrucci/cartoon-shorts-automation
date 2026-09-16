@@ -5,3 +5,8 @@ __pycache__/
 output/
 work/
 .DS_Store
+.secrets/
+client_secret*.json
+.auth/*.json
+.auth/*.tmp
+.auth/*.plain
