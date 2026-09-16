@@ -1,14 +1,13 @@
 # Editorial task contract
 
-This repository does NOT invent its own topics or generate scene artwork at render time. Scheduled ChatGPT tasks are the editorial + image-generation layer.
+This repository does NOT invent its own topics or generate creative artwork at render time. Scheduled ChatGPT tasks are the editorial + artwork layer.
 
 Each scheduled run must create one complete content package consisting of:
 
 - exactly one new UTF-8 JSON manifest under `input/`, such as `input/2026-09-17-am.json`;
-- one base64 text asset per scene under `assets/generated/<package-id>/`, such as `scene_01.b64`;
-- every `.b64` file must contain the base64 encoding of the raw PNG/JPEG/WebP image bytes, with no Markdown fences and no explanatory text.
+- exactly one original SVG illustration per scene under `assets/generated/<package-id>/`, such as `scene_01.svg`.
 
-The render workflow starts when the JSON manifest is committed. Therefore the package must be committed atomically when possible. If the GitHub connector cannot make one atomic multi-file commit, create every `.b64` asset first and create the `input/*.json` manifest LAST so Actions never sees an incomplete package.
+The render workflow starts when the JSON manifest is committed. Create every SVG asset first and commit the `input/*.json` manifest LAST. An atomic multi-file commit is also acceptable. Never expose Actions to a manifest whose referenced SVG files do not yet exist.
 
 ## Editorial rules
 
@@ -21,25 +20,26 @@ Before writing a package:
 5. The first sentence must work as a strong spoken hook within about two seconds.
 6. Write natural Italian narration intended for TTS, normally about 80-125 words and 35-60 seconds after synthesis.
 7. Split it into 6-10 scenes. Each scene should correspond to a meaningful narration beat, not arbitrary equal chunks.
-8. Write every `visual` prompt in English. It describes the action/props and is also the prompt used when creating the scene artwork.
-9. Generate exactly one original vertical illustration for every scene. Preserve the same recurring protagonist and visual grammar across the package: simple 2D editorial cartoon, warm cream/beige background, thick black outlines, sparse props, black suit/white shirt/black tie, minimal shading, no embedded captions, no watermark, no logos.
+8. Write every `visual` description in English.
+9. Create exactly one original vertical SVG illustration for every scene. Preserve the same recurring protagonist and visual grammar across the package: simple 2D editorial cartoon, warm cream/beige background, thick black outlines, sparse props, black suit/white shirt/black tie, minimal shading, no watermark, no third-party logos. Text inside the artwork should be avoided except when it is essential to the concept, such as a price or number being explained.
 10. Keep scenes visually distinct while preserving the protagonist.
 11. Caption should be short. Hashtags should be few and relevant, not spammy.
 
-## Asset rules
+## Artwork transport rules
 
-For every generated scene image:
+SVG is the canonical transport format because it is UTF-8 text and can be committed losslessly through the GitHub connector.
 
-1. Prefer PNG, JPEG, or WebP source images at a useful vertical resolution. Minimum accepted source side is 256 px.
-2. Encode the RAW image bytes as standard base64 text.
-3. Save the base64 text as `assets/generated/<package-id>/scene_XX.b64`.
-4. Compute SHA-256 over the RAW decoded image bytes, not over the base64 text.
-5. Put the lowercase 64-character SHA-256 digest in `image_sha256`.
-6. Put the repository-relative `.b64` path in `image_b64`.
-7. Never reuse a `.b64` file from an unrelated package just to make validation pass.
-8. Do not commit binary image files; the renderer reconstructs normalized PNGs inside the GitHub runner.
+For every scene:
 
-The renderer rejects missing assets, invalid base64, path traversal, corrupt images, tiny images, oversized assets, and SHA-256 mismatches before TTS/rendering.
+1. Save the artwork as `assets/generated/<package-id>/scene_XX.svg`.
+2. Use a `1080x1920` viewBox/canvas (9:16 vertical).
+3. Keep the SVG self-contained: no external images, remote fonts, scripts, network references, or embedded third-party assets.
+4. Put its repository-relative path in `image_svg_source`.
+5. Set `image_b64` to the ephemeral runner path `work/prepared_assets/<package-id>/scene_XX.b64`.
+6. Do NOT create or commit that `.b64` file. `scripts/prepare_svg_assets.py` rasterizes the SVG to PNG inside GitHub Actions and creates the `.b64` file locally before the normal asset validator runs.
+7. `image_sha256` is optional. Do not include a precomputed digest unless it was calculated from the exact PNG bytes produced by the same rasterization step. The renderer always computes the actual SHA-256 of the prepared image internally.
+
+The renderer still performs strict base64 decoding, image parsing, path containment, source-size limits and normalization to 1080x1920 before TTS/rendering.
 
 ## Required schema
 
@@ -52,9 +52,9 @@ The renderer rejects missing assets, invalid base64, path traversal, corrupt ima
   "scenes": [
     {
       "narration": "the narration beat represented by this scene",
-      "visual": "English prompt describing this scene",
-      "image_b64": "assets/generated/2026-09-17-am/scene_01.b64",
-      "image_sha256": "64-character lowercase sha256 of the raw image bytes"
+      "visual": "English description of this scene",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_01.b64"
     }
   ],
   "caption": "TikTok/Shorts caption",
@@ -62,7 +62,7 @@ The renderer rejects missing assets, invalid base64, path traversal, corrupt ima
 }
 ```
 
-`image_base64` inline is accepted by the renderer only as a compatibility fallback, but scheduled tasks MUST use separate `.b64` files so manifests stay readable.
+Legacy committed `.b64` assets and inline `image_base64` remain supported by the renderer for compatibility, but scheduled tasks MUST use SVG transport.
 
 ## Quality bar before push
 
@@ -71,10 +71,10 @@ The renderer rejects missing assets, invalid base64, path traversal, corrupt ima
 - no unsupported statistics or fake quotations;
 - no repeated topic from recent packages;
 - 6-10 usable visual scenes;
-- every visual prompt matches what is being narrated;
-- every scene has its own generated `.b64` asset and SHA-256;
+- every visual description matches what is narrated;
+- every scene has its own valid self-contained SVG asset;
 - narration is at least 55 words;
-- valid JSON, no Markdown fences in the JSON or `.b64` files;
-- all referenced asset paths stay under the repository and exist before the manifest is committed.
+- valid JSON and valid XML/SVG;
+- all `image_svg_source` paths stay under the repository and exist before the manifest is committed.
 
 During normal scheduled editorial runs, do not modify renderer code or workflow files.
