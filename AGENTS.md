@@ -17,13 +17,25 @@ Before writing a package:
 2. Pick a topic that can be explained visually and understood without context.
 3. Prefer evergreen curiosity, money/business mechanisms, psychology, technology, unusual systems, or useful surprising facts. Do not fabricate factual claims.
 4. Verify factual claims when they are not common knowledge.
-5. The first sentence must work as a strong spoken hook within about two seconds.
-6. Write natural Italian narration intended for TTS, normally about 80-125 words and 35-60 seconds after synthesis.
-7. Split it into 6-10 scenes. Each scene should correspond to a meaningful narration beat, not arbitrary equal chunks.
-8. Write every `visual` description in English.
-9. Create exactly one original vertical SVG illustration for every scene. Preserve the same recurring protagonist and visual grammar across the package: simple 2D editorial cartoon, warm cream/beige background, thick black outlines, sparse props, black suit/white shirt/black tie, minimal shading, no watermark, no third-party logos. Text inside the artwork should be avoided except when it is essential to the concept, such as a price or number being explained.
-10. Keep scenes visually distinct while preserving the protagonist.
-11. Caption should be short. Hashtags should be few and relevant, not spammy.
+5. The opening hook is a hard quality gate. It should normally be 4-9 spoken words, land in roughly the first 1-2 seconds, create immediate tension/surprise/consequence, and make a viewer want the explanation. Prefer a concrete counterintuitive statement, hidden mechanism, direct consequence, or surprising contrast. Avoid slow setup, greetings, generic framing, and weak descriptive questions such as `Perché X succede?` unless the wording itself contains a genuinely surprising contradiction. The hook should feel closer to `Quel centesimo cambia come percepisci il prezzo.` than to `Perché 9,99 sembra meno di 10?`.
+6. Deliver the first useful explanatory beat immediately after the hook. Do not spend the first 5 seconds repeating or rephrasing the question.
+7. Write natural Italian narration intended for TTS, normally about 80-125 words and 35-60 seconds after synthesis.
+8. Split it into 6-10 scenes. Each scene should correspond to a meaningful narration beat, not arbitrary equal chunks.
+9. Scene 1 must visually reinforce the hook immediately with one clear focal idea; no generic establishing shot.
+10. Write every `visual` description in English.
+11. Create exactly one original vertical SVG illustration for every scene. Preserve the same recurring protagonist and visual grammar across the package: simple 2D editorial cartoon, warm cream/beige background, thick black outlines, sparse props, black suit/white shirt/black tie, minimal shading, no watermark, no third-party logos. Text inside the artwork should be avoided except when it is essential to the concept, such as a price or number being explained.
+12. Keep scenes visually distinct while preserving the protagonist.
+13. Caption should be short. Hashtags should be few and relevant, not spammy.
+
+## Hook quality check before push
+
+Reject and rewrite the package before committing if any of these are true:
+
+- the first sentence is merely the topic phrased as a question;
+- the viewer needs prior context to understand why the opening matters;
+- the hook contains filler such as `hai mai notato`, `oggi ti spiego`, `forse non sai`, or similar generic setup when a stronger direct claim is possible;
+- the payoff promised by the hook is not actually delivered by the narration;
+- scene 1 does not make the opening idea visually obvious.
 
 ## Artwork transport rules
 
@@ -47,8 +59,8 @@ The renderer still performs strict base64 decoding, image parsing, path containm
 {
   "id": "2026-09-17-am",
   "title": "internal title",
-  "hook": "first spoken sentence",
-  "narration": "complete narration",
+  "hook": "short high-tension first spoken sentence",
+  "narration": "complete narration beginning with the hook",
   "scenes": [
     {
       "narration": "the narration beat represented by this scene",
@@ -66,7 +78,8 @@ Legacy committed `.b64` assets and inline `image_base64` remain supported by the
 
 ## Quality bar before push
 
-- hook is immediately understandable;
+- hook is immediately understandable and passes the hook quality gate above;
+- narration begins with exactly that hook and reaches the first explanation immediately;
 - narration has a clear payoff;
 - no unsupported statistics or fake quotations;
 - no repeated topic from recent packages;
