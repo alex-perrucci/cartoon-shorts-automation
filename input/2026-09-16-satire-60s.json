@@ -1,0 +1,58 @@
+{
+  "id": "2026-09-16-satire-60s",
+  "title": "Proprio alla fine ti fottono meglio",
+  "hook": "Proprio alla fine ti fottono meglio.",
+  "narration": "Proprio alla fine ti fottono meglio. Hai già girato mezzo supermercato, il cervello vuole solo pagare e andarsene, e davanti alla cassa compaiono snack, gomme, bibite e tutte quelle cazzatine che cinque minuti prima non cercavi nemmeno. Non è magia: la zona checkout è un punto obbligato, stretto, lento e pieno di roba facile da prendere al volo. In pratica sei fermo, hai il portafoglio già aperto e il negozio ti mette l'ultima tentazione sotto il naso. Geniale per loro, meno per il tuo scontrino, che intanto ingrassa zitto zitto. Gli studi sul retail mostrano che il posizionamento alla cassa è legato agli acquisti impulsivi, soprattutto per prodotti piccoli e immediati. E la parte più comica è questa: magari hai passato dieci minuti a confrontare due confezioni per risparmiare cinquanta centesimi, poi butti due euro su una barretta perché ti ha guardato male dal display. Quindi sì: la spesa sembrava finita. In realtà mancava ancora l'ultimo mini-boss. E indovina dove vive? Esatto: davanti al POS.",
+  "scenes": [
+    {
+      "narration": "Proprio alla fine ti fottono meglio.",
+      "visual": "The recurring businessman reaches the checkout while two product racks close around him like a final trap, shocked expression, checkout counter directly ahead.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_01.b64"
+    },
+    {
+      "narration": "Hai già girato mezzo supermercato, il cervello vuole solo pagare e andarsene, e davanti alla cassa compaiono snack, gomme, bibite e tutte quelle cazzatine che cinque minuti prima non cercavi nemmeno.",
+      "visual": "The tired recurring businessman pushes a cart after a long supermarket journey while checkout shelves around him are packed with snacks, gum and drinks.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_02.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_02.b64"
+    },
+    {
+      "narration": "Non è magia: la zona checkout è un punto obbligato, stretto, lento e pieno di roba facile da prendere al volo.",
+      "visual": "A narrow funnel-shaped checkout lane forces the recurring businessman past small easy-to-grab products, with a clear downward route arrow.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_03.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_03.b64"
+    },
+    {
+      "narration": "In pratica sei fermo, hai il portafoglio già aperto e il negozio ti mette l'ultima tentazione sotto il naso. Geniale per loro, meno per il tuo scontrino, che intanto ingrassa zitto zitto.",
+      "visual": "The recurring businessman stands still with an open wallet while a snack is placed directly under his nose and an exaggerated receipt grows longer beside him.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_04.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_04.b64"
+    },
+    {
+      "narration": "Gli studi sul retail mostrano che il posizionamento alla cassa è legato agli acquisti impulsivi, soprattutto per prodotti piccoli e immediati.",
+      "visual": "The recurring businessman reaches impulsively toward a small checkout product while a simple visual cue connects prominent placement to a quick grab.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_05.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_05.b64"
+    },
+    {
+      "narration": "E la parte più comica è questa: magari hai passato dieci minuti a confrontare due confezioni per risparmiare cinquanta centesimi, poi butti due euro su una barretta perché ti ha guardato male dal display.",
+      "visual": "The recurring businessman proudly saves fifty cents comparing products, then immediately reaches toward a two-euro snack bar at checkout, an ironic contrast.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_06.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_06.b64"
+    },
+    {
+      "narration": "Quindi sì: la spesa sembrava finita. In realtà mancava ancora l'ultimo mini-boss.",
+      "visual": "The recurring businessman reaches what looks like the supermarket finish line, only to face a small cartoon checkout-register mini-boss wearing a crown.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_07.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_07.b64"
+    },
+    {
+      "narration": "E indovina dove vive? Esatto: davanti al POS.",
+      "visual": "The recurring businessman smirks and points at a large POS terminal staged like the final boss at the end of the checkout lane.",
+      "image_svg_source": "assets/generated/2026-09-16-satire-60s/scene_08.svg",
+      "image_b64": "work/prepared_assets/2026-09-16-satire-60s/scene_08.b64"
+    }
+  ],
+  "caption": "Pensavi di aver finito? La cassa aveva altri piani.",
+  "hashtags": ["supermercato", "marketing", "psicologia", "business"]
+}
