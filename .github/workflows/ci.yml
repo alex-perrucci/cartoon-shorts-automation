@@ -4,12 +4,14 @@ on:
   push:
     paths:
       - "main.py"
+      - "render_entry.py"
       - "requirements.txt"
       - "tests/**"
       - ".github/workflows/**"
   pull_request:
     paths:
       - "main.py"
+      - "render_entry.py"
       - "requirements.txt"
       - "tests/**"
       - ".github/workflows/**"
@@ -20,6 +22,9 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      TTS_VOICE: it-IT-DiegoNeural
+      TTS_RATE: "+8%"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,10 +35,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Compile
-        run: python -m py_compile main.py tests/test_assets.py
+        run: python -m py_compile main.py render_entry.py tests/test_assets.py tests/test_subtitles.py
       - name: Unit tests
         run: python -m unittest discover -s tests -v
       - name: Self test
-        run: python main.py --self-test
-      - name: Dry-run example render
-        run: python main.py --input examples/example.json --dry-run
+        run: python render_entry.py --self-test
+      - name: Dry-run production render
+        run: python render_entry.py --input examples/example.json --dry-run
