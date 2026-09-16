@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#F3EAD7"/>
+  <g stroke="#111111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="540" cy="942" r="86" fill="#FFFDF8"/>
+    <circle cx="511" cy="944" r="7" fill="#111"/><circle cx="569" cy="944" r="7" fill="#111"/>
+    <path d="M513 980 Q540 1001 571 976" fill="none"/>
+    <path d="M419 1059 Q540 1032 662 1059 L648 1347 L432 1347 Z" fill="#111"/>
+    <path d="M499 1059 L540 1136 L581 1059" fill="#FFFDF8"/>
+    <path d="M540 1086 L518 1181 L540 1217 L562 1181 Z" fill="#FFFDF8"/>
+    <path d="M468 1347 L455 1518 M612 1347 L626 1518" fill="none"/>
+    <rect x="140" y="330" width="300" height="360" rx="35" fill="#FFFDF8"/>
+    <rect x="640" y="330" width="300" height="360" rx="35" fill="#FFFDF8"/>
+    <text x="290" y="530" text-anchor="middle" font-size="92" font-family="DejaVu Sans" fill="#111" stroke="none">−0,50€</text>
+    <text x="790" y="530" text-anchor="middle" font-size="92" font-family="DejaVu Sans" fill="#111" stroke="none">+2€</text>
+    <path d="M240 760 Q540 620 840 760" fill="none"/>
+    <rect x="725" y="720" width="130" height="210" rx="30" fill="#FFD84D"/>
+    <path d="M435 1200 L250 980 M645 1200 L790 900" fill="none"/>
+  </g>
+</svg>
