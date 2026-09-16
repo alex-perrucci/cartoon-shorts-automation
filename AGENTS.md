@@ -5,7 +5,8 @@ This repository does NOT invent its own topics or generate creative artwork at r
 Each scheduled run must create one complete content package consisting of:
 
 - exactly one new UTF-8 JSON manifest under `input/`, such as `input/2026-09-17-am.json`;
-- exactly one original SVG illustration per scene under `assets/generated/<package-id>/`, such as `scene_01.svg`.
+- exactly one original SVG illustration per scene under `assets/generated/<package-id>/`, such as `scene_01.svg`;
+- platform-specific publishing metadata for YouTube and TikTok.
 
 The render workflow starts when the JSON manifest is committed. Create every SVG asset first and commit the `input/*.json` manifest LAST. An atomic multi-file commit is also acceptable. Never expose Actions to a manifest whose referenced SVG files do not yet exist.
 
@@ -36,7 +37,29 @@ Before writing a package:
 15. Write every `visual` description in English and make it depict that scene's exact spoken beat, not merely the overall topic.
 16. Create exactly one original vertical SVG illustration for every scene. Preserve the same recurring protagonist and visual grammar across the package: simple 2D editorial cartoon, warm cream/beige background, thick black outlines, sparse props, black suit/white shirt/black tie, minimal shading, no watermark, no third-party logos. Text inside the artwork should be avoided except when essential to the concept.
 17. Keep scenes visually distinct while preserving the protagonist.
-18. Caption should be short and continue the satirical/revealing angle. Hashtags should be few and relevant, not spammy.
+18. The legacy top-level `caption` and `hashtags` remain required by the renderer. Keep them concise and aligned with the platform metadata below.
+
+## Platform metadata
+
+Every new scheduled package MUST include both `youtube` and `tiktok` objects.
+
+### YouTube
+
+- `youtube.title`: punchy, specific and curiosity-driven, max 100 characters. It should read like a strong Shorts title, not a generic file name.
+- `youtube.description`: 1-3 concise sentences that explain the value of the short without spoiling every beat.
+- `youtube.hashtags`: normally 3-5 relevant hashtags. Do not spam broad unrelated tags.
+- `youtube.tags`: normally 5-12 useful search phrases/keywords without `#`.
+- Do not mechanically copy the TikTok caption into the YouTube title.
+
+YouTube is uploaded automatically as `private`, so metadata must already be production-ready before the manifest is pushed.
+
+### TikTok
+
+- `tiktok.caption`: short, conversational and satirical. It can extend the joke/reveal rather than repeat the hook verbatim.
+- `tiktok.hashtags`: normally 3-6 relevant hashtags.
+- Do not add generic spam such as `#fyp` unless it is genuinely useful to the chosen strategy.
+
+The TikTok Content Posting `video.upload` inbox/draft endpoint does not accept a video caption in its upload payload. The metadata is still generated and retained in the manifest for the final TikTok editing step. Do not pretend the draft API populated it automatically.
 
 ## Hook templates
 
@@ -83,8 +106,6 @@ For every scene:
 6. Do NOT create or commit that `.b64` file. `scripts/prepare_svg_assets.py` rasterizes the SVG to PNG inside GitHub Actions and creates the `.b64` file locally before the normal asset validator runs.
 7. `image_sha256` is optional. Do not include a precomputed digest unless it was calculated from the exact PNG bytes produced by the same rasterization step. The renderer always computes the actual SHA-256 internally.
 
-The renderer still performs strict base64 decoding, image parsing, path containment, source-size limits and normalization to 1080x1920 before TTS/rendering.
-
 ## Required schema
 
 ```json
@@ -101,8 +122,18 @@ The renderer still performs strict base64 decoding, image parsing, path containm
       "image_b64": "work/prepared_assets/2026-09-17-am/scene_01.b64"
     }
   ],
-  "caption": "TikTok/Shorts caption",
-  "hashtags": ["tag1", "tag2"]
+  "caption": "legacy short caption",
+  "hashtags": ["tag1", "tag2"],
+  "youtube": {
+    "title": "YouTube Shorts title",
+    "description": "YouTube description",
+    "hashtags": ["marketing", "psicologia", "soldi"],
+    "tags": ["marketing", "psicologia dei consumi", "trucchi supermercato"]
+  },
+  "tiktok": {
+    "caption": "TikTok-ready caption",
+    "hashtags": ["marketing", "psicologia", "supermercato"]
+  }
 }
 ```
 
@@ -120,6 +151,8 @@ Legacy committed `.b64` assets and inline `image_base64` remain supported by the
 - 7-10 usable visual scenes;
 - every visual description matches the exact words spoken during that scene;
 - every scene has its own valid self-contained SVG asset;
+- `youtube` metadata is complete and within limits;
+- `tiktok` caption and hashtags are complete;
 - valid JSON and valid XML/SVG;
 - all `image_svg_source` paths stay under the repository and exist before the manifest is committed.
 
