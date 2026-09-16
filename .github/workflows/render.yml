@@ -104,13 +104,16 @@ jobs:
           INPUT_FILE="${{ steps.input.outputs.file }}"
           EXTRA=""
           PACKAGE_MODE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("render_mode", ""))' "$INPUT_FILE")"
-          if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
-            EXTRA="--dry-run"
-          else
-            echo "Validating packaged base64 scene assets before TTS/render..."
-            python main.py --input "$INPUT_FILE" --validate-assets
-          fi
-          python main.py --input "$INPUT_FILE" $EXTRA 2>&1 | tee render.log
+
+          {
+            if { [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; } || [ "$PACKAGE_MODE" = "dry_run" ]; then
+              EXTRA="--dry-run"
+            else
+              echo "Validating packaged base64 scene assets before TTS/render..."
+              python main.py --input "$INPUT_FILE" --validate-assets
+            fi
+            python main.py --input "$INPUT_FILE" $EXTRA
+          } 2>&1 | tee render.log
 
       - name: Resolve output directory
         id: output
