@@ -1,201 +1,206 @@
 # Editorial task contract
 
-This repository does NOT invent its own topics or generate creative artwork at render time. Scheduled ChatGPT tasks are the editorial + artwork layer.
+Scheduled ChatGPT tasks are the editorial + artwork layer. The renderer does not invent topics or artwork.
 
-`AGENTS.md` is authoritative for package/editorial rules. `VISUAL_BIBLE_V2.md` is authoritative for the current art direction. Every scheduled run MUST read both before creating content. If an older prompt conflicts with either file, the repository files win.
+`AGENTS.md` is authoritative for packaging/editorial rules. `VISUAL_BIBLE_V2.md` is authoritative for art direction. Every scheduled run MUST read both before creating anything. Repository rules override older scheduler wording.
 
-Each scheduled run must create one complete content package consisting of:
+## Package per scheduled run
 
-- exactly one new UTF-8 JSON manifest under `input/`, such as `input/2026-09-17-am.json`;
-- exactly one original self-contained SVG illustration per scene under `assets/generated/<package-id>/`;
-- platform-specific publishing metadata for YouTube and TikTok.
+Create exactly one complete package:
 
-The render workflow starts when the JSON manifest is committed. Create every SVG asset first and commit the `input/*.json` manifest LAST. An atomic multi-file commit is also acceptable. Never expose Actions to a manifest whose referenced SVG files do not yet exist.
+- one new UTF-8 manifest under `input/YYYY-MM-DD-am.json` or `input/YYYY-MM-DD-pm.json`;
+- original self-contained SVG artwork under `assets/generated/<package-id>/`;
+- production-ready YouTube + TikTok metadata.
 
-## Editorial identity
+Create all SVGs first and the manifest LAST, unless using one atomic commit. Never expose Actions to a manifest that references missing artwork.
 
-The channel voice is critical, satirical, irreverent, provocative and anti-manipulation. The recurring promise is: expose a hidden commercial, psychological, product-design or platform mechanism in plain Italian and make the viewer feel `ah, quindi è fatto apposta`.
+## Before creating content
 
-The benchmark tone is closer to `Proprio alla fine ti fottono meglio.` than to a neutral explainer such as `Perché succede questa cosa?`. Controlled profanity is allowed when it makes the hook or punchline stronger and still sounds natural. The narration may mock the mechanism, the marketing logic or the absurdity of the situation, but it must not invent crimes, fraud, intent or facts that the evidence does not support.
+1. Inspect recent `input/` manifests and avoid repeating topic, hook, fact or visual sequence unless explicitly doing an A/B revision.
+2. Inspect the latest `Render cartoon short` workflow. If it failed because of renderer/configuration, do not enqueue another package; report the blocker.
+3. Pick one evergreen Italian topic that is visually explainable without prior context.
+4. Prefer hidden business mechanisms, retail/pricing psychology, subscriptions, product/platform design, money, technology or useful surprising systems.
+5. Verify non-obvious factual claims. Never invent fraud, crimes, intent, statistics or certainty unsupported by evidence.
 
-## Editorial rules
+## Editorial identity — HARD gate
 
-Before writing a package:
+Voice: critical, satirical, irreverent, provocative, anti-manipulation. Benchmark: closer to `Proprio alla fine ti fottono meglio.` than to a neutral explainer.
 
-1. Inspect recent files under `input/` and avoid repeating the same topic, hook, core fact or visual sequence unless explicitly creating a revised A/B test.
-2. Inspect the latest `Render cartoon short` workflow result. If the latest render failed because of a renderer/configuration problem, do not enqueue another package; report the blocker instead.
-3. Pick a topic that can be explained visually and understood without context.
-4. Prefer hidden business mechanisms, retail tricks, pricing psychology, subscriptions, app/platform design, money, technology, unusual systems or useful surprising facts. Do not fabricate factual claims.
-5. Verify factual claims when they are not common knowledge.
-6. The opening hook is a HARD quality gate. It should normally be 4-9 spoken words, land in roughly the first 1-2 seconds, and sound like a reveal, accusation, contradiction or punchline rather than a lesson title.
-7. Prefer hooks in the spirit of `Proprio alla fine ti fottono meglio.`, `Quel prezzo è lì per fregarti.`, `Ti fanno pagare perché sperano che dimentichi.`, `L'app non vuole che tu esca.` The exact wording must fit the evidence.
-8. Avoid weak openings such as `Hai mai notato`, `Oggi ti spiego`, `Forse non sai`, `Lo sapevi che`, or a generic `Perché X?` when a sharper factual statement is possible.
-9. Narration must begin with EXACTLY the `hook` field and deliver the first useful explanatory beat immediately.
-10. HARD DURATION TARGET: final video at least 60 seconds. Write normally 165-190 Italian words and NEVER fewer than 150 words. Aim for roughly 60-80 seconds with the production voice.
-11. Use short spoken sentences, punchy transitions and controlled sarcasm. It should feel like a sharp mini-rant with an explanation inside it, not a school lesson.
-12. Build a mini conflict: viewer vs hidden mechanism. Explain the mechanism, show a concrete example, explain the consequence, add at least one genuine satirical jab, and close with a memorable payoff.
-13. Split narration into 7-10 meaningful scenes. Scene 1 must visually reinforce the hook immediately with one obvious focal idea; no generic establishing shot.
-14. CRITICAL SYNC RULE: concatenating every `scene.narration` in order must reproduce the complete `narration` exactly, word for word and in the same order.
-15. Each scene should cover one semantic beat. Change the image when the spoken idea changes, not at arbitrary equal intervals.
-16. Write every `visual` description in English and make it depict that scene's exact spoken beat, not merely the overall topic.
-17. Keep the legacy top-level `caption` and `hashtags`; they remain required by the renderer.
+Controlled profanity (`fottono`, `fregano`, `inculata`, `spillarti soldi`) is allowed when natural and factually defensible.
 
-## V2 artwork contract — HARD quality gate
+Hook rules:
 
-Read and follow `VISUAL_BIBLE_V2.md` in full before drawing anything.
+- normally 4-9 spoken words;
+- immediate reveal/accusation/contradiction/punchline;
+- narration begins with EXACTLY the hook;
+- no weak `Hai mai notato`, `Oggi ti spiego`, `Forse non sai`, `Lo sapevi che`, or bland `Perché X?` when a stronger factual line exists.
 
-The old simplistic SVG look is retired. New scheduled packages MUST use the V2 visual language:
+Narration rules:
 
-- professional hand-sketched editorial comic;
-- expressive recurring young-adult protagonist;
-- messy dark hair, readable eyes/eyebrows, angular stylised face, black hoodie/casual jacket;
-- warm cream paper base, black ink/dark clothing, restrained red accent;
-- confident organic Bézier linework, imperfect hand-ink feel, flat/cel colour and restrained 2-3 tone shading;
-- believable hands, shoulders, face and clothing folds;
-- strong acting: pose, gaze, hands and facial expression must match the exact spoken beat;
-- meaningful environmental context and props without clutter;
-- continuity across scenes while changing pose, expression, camera angle and object focus deliberately.
+- target 165-190 Italian words; NEVER fewer than 150;
+- final video must be at least 60 seconds;
+- mini conflict: viewer vs hidden mechanism;
+- explain mechanism, concrete example, consequence, at least one genuine satirical jab, memorable payoff;
+- short spoken sentences and punchy transitions;
+- split into 7-10 meaningful semantic scenes;
+- Scene 1 must visually reinforce the hook immediately.
 
-Explicitly reject:
+CRITICAL SYNC RULE: concatenating every `scene.narration` in order must reproduce the full `narration` exactly, word for word and in the same order.
 
-- stick figures;
-- human anatomy assembled visibly from circles/rectangles/straight-line limbs;
-- childish clip-art/cartoon construction;
-- semi-photorealism, glossy anime, 3D or plastic rendering;
-- the same neutral standing pose repeated across scenes;
-- a static character staring at an object that has not yet entered the visual sequence;
-- scenes that rely on text boxes because the drawing itself does not explain the beat.
+Each `visual` description must be in English and depict that exact spoken beat.
 
-### Motion-ready staging
+## V2 visual system — HARD gate
 
-Every scene is a key pose in a limited-animation storyboard, even though scheduled transport remains one SVG per scene today.
+Read `VISUAL_BIBLE_V2.md` in full.
 
-When one action continues across scenes, create a believable progression: notice object -> turn eyes/head -> inspect new object -> compare -> react -> address viewer. The character must visibly change acting between consecutive frames. The renderer's zoom/pan is only polish; never rely on camera movement to fake character motion.
+The old simplistic SVG character is retired. Every new scene must look like a professionally drawn hand-sketched editorial comic:
 
-### Artwork text
+- recurring young-adult protagonist;
+- messy dark hair, readable expressive eyes/eyebrows, angular stylised face;
+- black hoodie/casual jacket;
+- warm cream paper base, black/dark ink masses, restrained red accents;
+- organic Bézier paths and confident imperfect hand-ink lines;
+- believable face, hands, shoulders and clothing folds;
+- restrained 2-3 tone cel shading/hatching;
+- pose, gaze, hands and expression must act the narration;
+- strong vertical composition and contextual props;
+- preserve character identity while varying pose, expression, angle and object focus.
 
-Avoid embedded text unless it is essential. Good uses are prices, weights, tiny UI labels or a very short 2-6 word punchline. Never paste narration paragraphs into the artwork or duplicate burned-in subtitles.
+Reject before push: stick figures, anatomy visibly assembled from circles/rectangles/straight limbs, childish clip-art, glossy anime, semi-photorealism, 3D/plastic rendering, repeated neutral poses, continuity errors, or scenes that need paragraphs of embedded text to explain themselves.
 
-## Hook quality check before push
+## V2 pose-to-pose motion
 
-Reject and rewrite the package before committing if any of these are true:
+The renderer supports optional pose keyframes INSIDE a semantic scene. Use them to create actual limited character motion instead of relying on camera zoom.
 
-- the first sentence is merely the topic phrased as a question;
-- the opening sounds educational/neutral rather than revealing, critical or satirical;
-- the viewer needs prior context to understand why the opening matters;
-- the hook uses generic filler when a stronger direct claim is possible;
-- the hook promises manipulation or intent that the narration/evidence cannot support;
-- the payoff promised by the hook is not delivered;
-- scene 1 does not make the opening idea visually obvious.
+For character-led scenes, normally create **2-3 keyframes** (maximum 4). Each keyframe is a full 1080x1920 SVG key pose of the same scene/character/environment, with a meaningful acting change such as:
 
-Ask one final question before push: `Would this line make someone stop scrolling because it sounds like somebody is exposing a trick and taking the piss out of it?` If not, rewrite it.
+`notice -> eyes/head turn -> inspect -> compare -> react -> address viewer`
+
+Do not create fake changes where only text moves. Across keyframes, change at least one meaningful element: gaze, head angle, mouth/expression, hand/arm action, body lean, prop position or object focus.
+
+For a purely diagram/object/insert scene where character acting would add nothing, keyframes are optional and a single hero SVG is allowed.
+
+### Keyframe transport
+
+Every scene keeps the legacy primary asset fields for backward compatibility:
+
+- `image_svg_source`
+- `image_b64`
+
+When `keyframes` is present, it MUST contain 2-4 objects. The primary fields SHOULD point to the first keyframe asset. Each keyframe object contains its own `image_svg_source` and transient `image_b64` path.
+
+Naming convention:
+
+- `assets/generated/<package-id>/scene_01_pose_01.svg`
+- `assets/generated/<package-id>/scene_01_pose_02.svg`
+- `assets/generated/<package-id>/scene_01_pose_03.svg`
+
+and transient runner paths:
+
+- `work/prepared_assets/<package-id>/scene_01_pose_01.b64`
+- etc.
+
+The renderer divides the semantic scene window across these key poses and cuts between them in order, while retaining subtle camera motion. Therefore order the keyframes as a coherent action progression.
+
+## SVG transport rules
+
+SVG is the only scheduled-task artwork transport format.
+
+For every SVG:
+
+- 1080x1920 canvas/viewBox;
+- valid UTF-8 XML;
+- self-contained local vector primitives/paths;
+- no scripts, `foreignObject`, remote URLs, external fonts/images, file URLs, raster data URIs, PNG/JPEG/WebP, inline base64 or third-party assets;
+- prefer organic `<path>` shapes for visible anatomy;
+- use round joins/caps and layered cel-shading groups;
+- optional artwork text only when essential: prices, weights, tiny UI labels or short 2-6 word punchlines.
+
+Do NOT create/commit `.b64`; `scripts/prepare_svg_assets.py` rasterizes SVGs inside Actions. Normally omit `image_sha256`.
 
 ## Platform metadata
 
-Every new scheduled package MUST include both `youtube` and `tiktok` objects.
+Every package MUST include:
 
 ### YouTube
 
-- `youtube.title`: punchy, specific, curiosity-driven, max 100 characters.
-- `youtube.description`: 1-3 concise sentences explaining the value without spoiling every beat.
-- `youtube.hashtags`: normally 3-5 relevant hashtags; no broad spam.
-- `youtube.tags`: normally 5-12 useful search phrases/keywords without `#`.
-- Do not mechanically copy the TikTok caption into the YouTube title.
+- punchy Shorts title <=100 chars;
+- concise 1-3 sentence description;
+- 3-5 relevant hashtags;
+- 5-12 useful search tags;
+- do not mechanically copy the TikTok caption.
 
-YouTube is uploaded automatically as `private`, so metadata must already be production-ready before the manifest is pushed.
+YouTube upload is private, so metadata must be production-ready before push.
 
 ### TikTok
 
-- `tiktok.caption`: short, conversational and satirical; it can extend the joke/reveal rather than repeat the hook verbatim.
-- `tiktok.hashtags`: normally 3-6 relevant hashtags.
-- Do not add generic spam such as `#fyp` unless genuinely useful.
+- short conversational/satirical caption;
+- 3-6 relevant hashtags;
+- no generic spam such as `#fyp` unless genuinely useful.
 
-The TikTok Content Posting draft endpoint does not populate the caption/hashtags from this manifest. Still generate and retain them accurately for the final edit.
+TikTok draft upload does not populate caption/hashtags automatically; still retain them in the manifest.
 
-## Hook templates
-
-Templates are inspiration, not mandatory copy. Rotate structures:
-
-1. `Proprio alla fine ti fottono meglio.`
-2. `Ti stanno fregando così.`
-3. `Questa cosa è fatta apposta.`
-4. `Non stai scegliendo davvero tu.`
-5. `Quel prezzo è una trappola.`
-6. `Ti fanno spendere di più così.`
-7. `Sembra comodo. Invece ti frega.`
-8. `La vera inculata arriva dopo.`
-9. `Questo trucco vive della tua distrazione.`
-10. `Paghi perché sperano che dimentichi.`
-
-Do not mechanically reuse the same template in consecutive packages.
-
-## Artwork transport rules
-
-SVG is the canonical scheduled-task transport format because it is UTF-8 text and can be committed losslessly through the GitHub connector.
-
-For every scene:
-
-1. Save artwork as `assets/generated/<package-id>/scene_XX.svg`.
-2. Use a `1080x1920` viewBox/canvas (9:16 vertical).
-3. Keep SVG self-contained: no external images, remote fonts, scripts, network references, `foreignObject`, file URLs, raster data URIs or embedded third-party assets.
-4. Put its repository-relative path in `image_svg_source`.
-5. Set `image_b64` to `work/prepared_assets/<package-id>/scene_XX.b64`.
-6. Do NOT create/commit that `.b64`; `scripts/prepare_svg_assets.py` rasterizes the SVG inside Actions and creates it transiently.
-7. Normally omit `image_sha256`; include it only if calculated from the exact rasterized PNG bytes.
-8. Follow the SVG craft rules in `VISUAL_BIBLE_V2.md`: organic `<path>` silhouettes for anatomy, layered groups, round joins/caps, controlled cel shading and sparse sketch/hatching accents.
+Keep legacy top-level `caption` and `hashtags` too.
 
 ## Required schema
 
 ```json
 {
-  "id": "2026-09-17-am",
+  "id": "2026-09-18-am",
   "title": "internal title",
-  "hook": "short critical/satirical first spoken sentence",
-  "narration": "complete 150+ word narration beginning exactly with the hook",
+  "hook": "short satirical first spoken sentence",
+  "narration": "complete 150+ word narration beginning exactly with hook",
   "scenes": [
     {
-      "narration": "exact consecutive slice of the complete narration",
-      "visual": "English description matching this exact spoken beat and V2 acting/staging",
-      "image_svg_source": "assets/generated/2026-09-17-am/scene_01.svg",
-      "image_b64": "work/prepared_assets/2026-09-17-am/scene_01.b64"
+      "narration": "exact sequential narration slice",
+      "visual": "English description of exact beat and acting progression",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_02.b64"
+        }
+      ]
     }
   ],
-  "caption": "legacy short caption",
+  "caption": "legacy caption",
   "hashtags": ["tag1", "tag2"],
   "youtube": {
-    "title": "YouTube Shorts title",
+    "title": "YouTube title",
     "description": "YouTube description",
     "hashtags": ["marketing", "psicologia", "soldi"],
-    "tags": ["marketing", "psicologia dei consumi", "trucchi supermercato"]
+    "tags": ["marketing", "psicologia dei consumi", "prezzi"]
   },
   "tiktok": {
-    "caption": "TikTok-ready caption",
-    "hashtags": ["marketing", "psicologia", "supermercato"]
+    "caption": "TikTok caption",
+    "hashtags": ["marketing", "psicologia", "soldi"]
   }
 }
 ```
 
-Legacy committed `.b64` assets and inline `image_base64` remain supported for compatibility, but scheduled tasks MUST use SVG transport.
+Legacy packages without `keyframes` remain supported.
 
-## Quality bar before push
+## Final quality gate before push
 
-Reject/redraw/rewrite before committing unless ALL applicable checks pass:
+Reject/rewrite/redraw unless ALL applicable checks pass:
 
-- hook is immediately understandable and genuinely critical/satirical;
-- narration begins exactly with hook and reaches explanation immediately;
-- 150+ words, targeted for 60-80 seconds;
-- scene narrations concatenate exactly to full narration;
-- clear payoff and at least one real satirical jab;
-- no unsupported statistics, fake quotations or invented allegations;
-- 7-10 meaningful scenes;
-- every visual matches its exact spoken beat;
-- every scene has its own valid self-contained SVG;
-- protagonist passes the V2 professional-character test in `VISUAL_BIBLE_V2.md`;
-- expressions, gaze, hands and poses change meaningfully with the sequence;
-- no childish geometry, clip-art anatomy, glossy anime or photoreal rendering;
-- YouTube metadata complete and within limits;
-- TikTok caption/hashtags complete;
-- valid JSON and XML/SVG;
-- all `image_svg_source` paths exist before manifest commit.
+- hook is sharp, understandable and evidence-compatible;
+- narration starts exactly with hook and is 150+ words;
+- scene narrations exactly reconstruct full narration;
+- 7-10 semantic scenes;
+- factual claims verified where needed;
+- every visual matches its spoken beat;
+- every referenced SVG exists before manifest commit;
+- protagonist passes `VISUAL_BIBLE_V2.md` professional-quality test;
+- character-led scenes normally have 2-3 coherent pose keyframes;
+- keyframes genuinely change acting/focus and do not introduce continuity errors;
+- no childish geometry, glossy anime or realism drift;
+- YouTube/TikTok metadata complete;
+- valid JSON and XML/SVG.
 
-During a normal scheduled editorial run, do not modify renderer code, workflow files, `AGENTS.md` or `VISUAL_BIBLE_V2.md`.
+During a normal scheduled run, do not modify renderer/workflow code, `AGENTS.md` or `VISUAL_BIBLE_V2.md`.
