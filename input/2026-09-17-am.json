@@ -1,0 +1,68 @@
+{
+  "id": "2026-09-17-am",
+  "title": "La prova gratis vive della tua dimenticanza",
+  "hook": "Gratis, finché non ti dimentichi.",
+  "narration": "Gratis, finché non ti dimentichi. Le prove gratuite sembrano un regalo, ma spesso funzionano con un dettaglio molto comodo per chi vende: se non fai niente, alla scadenza parte l’abbonamento a pagamento. Questa si chiama opzione negativa: il tuo silenzio diventa il permesso di continuare a fatturare. E infatti la FTC americana riceve ancora migliaia di reclami ogni anno su rinnovi e cancellazioni. Il meccanismo è perfetto per la nostra memoria da pesce rosso. Ti iscrivi oggi, inserisci la carta, pensi «poi vedo», e sette o trenta giorni dopo hai già dimenticato pure il nome dell’app. Il servizio invece no. Lui si ricorda benissimo della tua carta. Che memoria commovente. E se cancellare richiede più passaggi, menu nascosti o offerte per convincerti a restare, ogni ostacolo aumenta la possibilità che tu rimandi ancora. Non significa che ogni prova gratuita sia una fregatura: se durata, prezzo e rinnovo sono chiari, può essere comodissima. Il problema nasce quando l’inerzia lavora più per il venditore che per te. Quindi quando leggi «prova gratis», guarda subito cosa succede dopo, quanto costa e dove si cancella. Gratis può esserlo davvero. La tua dimenticanza, invece, è un modello di business.",
+  "scenes": [
+    {
+      "narration": "Gratis, finché non ti dimentichi.",
+      "visual": "The recurring businessman stares at a huge free-trial card showing zero euros while a saved payment card quietly waits beside it.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_01.b64"
+    },
+    {
+      "narration": "Le prove gratuite sembrano un regalo, ma spesso funzionano con un dettaglio molto comodo per chi vende: se non fai niente, alla scadenza parte l’abbonamento a pagamento.",
+      "visual": "A free-trial panel turns into a paid monthly subscription after seven days while the recurring businessman watches the price appear.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_02.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_02.b64"
+    },
+    {
+      "narration": "Questa si chiama opzione negativa: il tuo silenzio diventa il permesso di continuare a fatturare. E infatti la FTC americana riceve ancora migliaia di reclami ogni anno su rinnovi e cancellazioni.",
+      "visual": "The recurring businessman does nothing while a large arrow labeled by the concept of inaction leads directly to an automatic recurring charge.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_03.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_03.b64"
+    },
+    {
+      "narration": "Il meccanismo è perfetto per la nostra memoria da pesce rosso. Ti iscrivi oggi, inserisci la carta, pensi «poi vedo», e sette o trenta giorni dopo hai già dimenticato pure il nome dell’app.",
+      "visual": "The recurring businessman signs up, says he will think about it later, and a clock races forward while the forgotten trial remains active.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_04.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_04.b64"
+    },
+    {
+      "narration": "Il servizio invece no. Lui si ricorda benissimo della tua carta. Che memoria commovente.",
+      "visual": "The recurring businessman has forgotten the app, while the subscription service proudly holds onto a clearly remembered saved payment card with an ironic smile cue.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_05.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_05.b64"
+    },
+    {
+      "narration": "E se cancellare richiede più passaggi, menu nascosti o offerte per convincerti a restare, ogni ostacolo aumenta la possibilità che tu rimandi ancora.",
+      "visual": "The recurring businessman tries to cancel but faces a vertical obstacle course of extra confirmation screens, retention offers and hidden steps.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_06.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_06.b64"
+    },
+    {
+      "narration": "Non significa che ogni prova gratuita sia una fregatura: se durata, prezzo e rinnovo sono chiari, può essere comodissima. Il problema nasce quando l’inerzia lavora più per il venditore che per te.",
+      "visual": "The recurring businessman calmly compares a transparent honest free-trial offer with the concept of convenience, emphasizing that clear terms can be useful.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_07.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_07.b64"
+    },
+    {
+      "narration": "Quindi quando leggi «prova gratis», guarda subito cosa succede dopo, quanto costa e dove si cancella. Gratis può esserlo davvero. La tua dimenticanza, invece, è un modello di business.",
+      "visual": "The recurring businessman checks three things before accepting a free trial: end date, future price and cancellation path, then looks knowingly at the viewer.",
+      "image_svg_source": "assets/generated/2026-09-17-am/scene_08.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-am/scene_08.b64"
+    }
+  ],
+  "caption": "Gratis sì. Ma controlla cosa succede quando smette di esserlo.",
+  "hashtags": ["abbonamenti", "marketing", "psicologia", "soldi"],
+  "youtube": {
+    "title": "La prova gratis spera che tu te ne dimentichi",
+    "description": "Le prove gratuite possono essere utili, ma il rinnovo automatico cambia tutto se te ne dimentichi. Ecco perché conviene controllare subito durata, prezzo e cancellazione.",
+    "hashtags": ["abbonamenti", "marketing", "psicologia", "soldi"],
+    "tags": ["prova gratuita", "abbonamenti", "rinnovo automatico", "free trial", "marketing", "psicologia dei consumi", "soldi", "subscription"]
+  },
+  "tiktok": {
+    "caption": "La prova è gratis. La tua memoria, a quanto pare, vale un abbonamento.",
+    "hashtags": ["abbonamenti", "marketing", "psicologia", "soldi"]
+  }
+}
