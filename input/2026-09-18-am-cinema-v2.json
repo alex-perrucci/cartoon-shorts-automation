@@ -1,0 +1,174 @@
+{
+  "id": "2026-09-18-am-cinema-v2",
+  "title": "Cinema, bibite e l’effetto esca",
+  "hook": "Al cinema, il medio può fregarti senza vendersi.",
+  "narration": "Al cinema, il medio può fregarti senza vendersi. Immagina il banco snack: bibita piccola 6 euro, media 8,50, grande 9. Guardata da sola, la grande sembra cara. Poi vedi la media e il cervello cambia domanda: non più “voglio spendere nove euro?”, ma “per cinquanta centesimi in più, perché non prendere la grande?”. Questo è un esempio di effetto esca: una terza opzione, meno attraente rispetto a una delle altre, può spostare la preferenza verso quella che la domina. Il medio non deve diventare il bestseller. Gli basta rendere il grande più facile da giustificare. E no, questo non vuol dire che ogni cinema costruisca il menu apposta per fregarti: i prezzi qui sono solo un esempio. Il punto è il confronto relativo. Se entri pensando prima a quanta bibita vuoi davvero, il menu deve convincerti sul bisogno, non solo sul salto di prezzo. Quindi guarda quantità, prezzo totale e differenza reale. Perché a volte l’opzione che scegli non vince per quello che offre. Vince perché quella accanto è stata messa lì a farla sembrare furba.",
+  "scenes": [
+    {
+      "narration": "Al cinema, il medio può fregarti senza vendersi.",
+      "visual": "Wide cinema concession context. The recurring V2 protagonist enters frame under a visible CINEMA sign and snack counter, notices the three-size drink menu, then side-eyes the highlighted middle option.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_01_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_01_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_01_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_01_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_01_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Immagina il banco snack: bibita piccola 6 euro, media 8,50, grande 9.",
+      "visual": "At the same cinema counter, three real drink cups and the menu show PICCOLA 6 €, MEDIA 8,50 €, GRANDE 9 €. The protagonist inspects the sizes, then points from medium to large as the tiny price jump becomes salient.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_02_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_02_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_02_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_02_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_02_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_02_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Guardata da sola, la grande sembra cara. Poi vedi la media e il cervello cambia domanda: non più “voglio spendere nove euro?”, ma “per cinquanta centesimi in più, perché non prendere la grande?”.",
+      "visual": "The protagonist first reacts to the large drink at 9 € as expensive, then shifts gaze back to the 8,50 € medium and realizes the comparison has changed. Keep the concession counter, popcorn machine and menu continuity.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_03_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_03_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_03_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_03_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_03_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_03_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Questo è un esempio di effetto esca: una terza opzione, meno attraente rispetto a una delle altre, può spostare la preferenza verso quella che la domina.",
+      "visual": "Inside the same cinema, the middle option is highlighted first, then the large option. The protagonist points between them while a small safe label names EFFETTO ESCA; the visual explains asymmetric comparison rather than abstract cards.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_04_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_04_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_04_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_04_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_04_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_04_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Il medio non deve diventare il bestseller. Gli basta rendere il grande più facile da giustificare.",
+      "visual": "The middle drink remains physically present on the counter while the protagonist moves from a skeptical open-hand gesture to confidently indicating the large. Show that the middle can influence without being chosen.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_05_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_05_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_05_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_05_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_05_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_05_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "E no, questo non vuol dire che ogni cinema costruisca il menu apposta per fregarti: i prezzi qui sono solo un esempio. Il punto è il confronto relativo.",
+      "visual": "Same cinema environment, calmer framing. The protagonist opens both hands and the art explicitly labels PREZZI ESEMPIO / ILLUSTRATIVI in a contained safe box, making clear this is an illustration and not a claim about every cinema.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_06_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_06_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_06_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_06_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_06_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_06_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Se entri pensando prima a quanta bibita vuoi davvero, il menu deve convincerti sul bisogno, non solo sul salto di prezzo. Quindi guarda quantità, prezzo totale e differenza reale.",
+      "visual": "The protagonist pauses before the menu and asks how much drink he actually wants; then he looks at prices only after deciding the need. Use real cups, counter, staff silhouette and cinema signage.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_07_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_07_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_07_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_07_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_07_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_07_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Perché a volte l’opzione che scegli non vince per quello che offre. Vince perché quella accanto è stata messa lì a farla sembrare furba.",
+      "visual": "Direct-to-camera cinema payoff. The protagonist stands beside the same three cups and menu, first showing that the price did not change, then pointing back toward the comparison context. End with a contained CAMBIA IL CONFRONTO visual message.",
+      "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_08_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_08_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_08_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_08_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-18-am-cinema-v2/scene_08_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-18-am-cinema-v2/scene_08_pose_02.b64"
+        }
+      ]
+    }
+  ],
+  "caption": "Al cinema il medio può fare il suo lavoro anche se non lo scegli.",
+  "hashtags": [
+    "effettoesca",
+    "cinema",
+    "marketing",
+    "psicologia",
+    "prezzi"
+  ],
+  "youtube": {
+    "title": "Perché al cinema il prezzo medio può spingerti sul grande",
+    "description": "Un esempio semplice al banco snack per capire l’effetto esca: il confronto tra opzioni può cambiare come percepisci lo stesso prezzo. I prezzi mostrati nel video sono illustrativi.",
+    "hashtags": [
+      "effettoesca",
+      "marketing",
+      "cinema",
+      "psicologia"
+    ],
+    "tags": [
+      "effetto esca",
+      "decoy effect",
+      "cinema",
+      "prezzi cinema",
+      "marketing",
+      "psicologia dei prezzi",
+      "economia comportamentale",
+      "consumer psychology"
+    ]
+  },
+  "tiktok": {
+    "caption": "Il medio non deve vincere. Gli basta farti guardare il grande in modo diverso.",
+    "hashtags": [
+      "effettoesca",
+      "cinema",
+      "marketing",
+      "psicologia",
+      "soldi"
+    ]
+  }
+}

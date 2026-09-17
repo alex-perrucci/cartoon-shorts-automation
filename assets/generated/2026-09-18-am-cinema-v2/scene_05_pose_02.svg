@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<title>2026-09-18-am-cinema-v2 scene 5 pose 2</title>
+<rect width="1080" height="1920" fill="#F5E8CE"/>
+<rect x="0" y="0" width="1080" height="270" fill="#1D1B1A"/>
+<path d="M0 270 L1080 210 L1080 0 L0 0 Z" fill="#262321"/>
+<g opacity=".9">
+  <ellipse cx="180" cy="135" rx="24" ry="14" fill="#FFD58A"/>
+  <ellipse cx="515" cy="105" rx="24" ry="14" fill="#FFD58A"/>
+  <ellipse cx="860" cy="88" rx="24" ry="14" fill="#FFD58A"/>
+</g>
+<path d="M0 270 C240 242 510 260 1080 210" fill="none" stroke="#C7A46D" stroke-width="5" opacity=".5"/>
+
+<!-- left cinema context -->
+<g id="cinema-context">
+  <path d="M60 305 Q75 285 365 292 L352 470 Q342 493 78 485 Z" fill="#251F1C" stroke="#171512" stroke-width="9"/>
+  <text x="205" y="392" text-anchor="middle" font-family="Arial,sans-serif" font-size="68" font-weight="900" fill="#F8E5C1">CINEMA</text>
+  <path d="M95 430 C160 420 260 438 325 423" fill="none" stroke="#D74332" stroke-width="11" stroke-linecap="round"/>
+  <path d="M65 520 Q80 500 318 512 L305 860 Q292 882 81 870 Z" fill="#302925" stroke="#171512" stroke-width="8"/>
+  <path d="M95 548 L277 548 L264 812 L108 812 Z" fill="#8E694B" stroke="#171512" stroke-width="6"/>
+  <circle cx="186" cy="660" r="72" fill="#1E1B1A"/>
+  <path d="M126 760 C165 710 218 706 250 756" fill="#1E1B1A"/>
+  <text x="186" y="588" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="800" fill="#F5E8CE">FILM</text>
+</g>
+
+<!-- snack counter depth -->
+<g id="snack-counter">
+  <path d="M0 1460 C240 1410 635 1438 1080 1398 L1080 1920 L0 1920 Z" fill="#2A2421" stroke="#171512" stroke-width="10"/>
+  <path d="M0 1505 C360 1470 720 1480 1080 1445" fill="none" stroke="#A46C46" stroke-width="18"/>
+  <rect x="545" y="1115" width="238" height="300" rx="14" fill="#4B4039" stroke="#171512" stroke-width="8"/>
+  <rect x="570" y="1140" width="188" height="176" rx="8" fill="#FFF1CE" stroke="#171512" stroke-width="6"/>
+  <g fill="#F0C66A" stroke="#171512" stroke-width="4">
+    <circle cx="605" cy="1200" r="18"/><circle cx="645" cy="1184" r="20"/><circle cx="686" cy="1202" r="19"/>
+    <circle cx="720" cy="1182" r="17"/><circle cx="625" cy="1234" r="19"/><circle cx="670" cy="1238" r="22"/><circle cx="715" cy="1228" r="18"/>
+  </g>
+  <rect x="575" y="1322" width="178" height="68" rx="8" fill="#D74332"/>
+  <text x="664" y="1368" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#FFF8E9">POPCORN</text>
+  <!-- staff silhouette -->
+  <circle cx="900" cy="1232" r="55" fill="#171512"/>
+  <path d="M842 1290 Q900 1248 958 1290 L980 1426 L820 1440 Z" fill="#171512"/>
+  <path d="M854 1200 Q900 1160 946 1200" fill="none" stroke="#6E5545" stroke-width="18"/>
+</g>
+
+<!-- menu board -->
+<g id="menu-board">
+  <path d="M405 300 Q422 280 1010 294 L1020 1030 Q1006 1052 420 1040 Z" fill="#282321" stroke="#171512" stroke-width="10" stroke-linejoin="round"/>
+  <text x="710" y="380" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="#F9E7C5">MENU BIBITE</text>
+  <path d="M470 414 C620 400 830 418 958 405" fill="none" stroke="#D74332" stroke-width="10" stroke-linecap="round"/>
+  <g>
+    <rect x="452" y="462" width="505" height="138" rx="16" fill="#FFF8E9" stroke="#171512" stroke-width="6"/>
+    <text x="492" y="535" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="#171512">PICCOLA</text>
+    <text x="874" y="540" text-anchor="end" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="#171512">6 €</text>
+  </g>
+  <g>
+    <rect x="452" y="630" width="505" height="138" rx="16" fill="#FFF8E9" stroke="#171512" stroke-width="6"/>
+    <text x="492" y="703" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="#171512">MEDIA</text>
+    <text x="874" y="708" text-anchor="end" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="#171512">8,50 €</text>
+  </g>
+  <g>
+    <rect x="452" y="798" width="505" height="138" rx="16" fill="#D74332" stroke="#171512" stroke-width="6"/>
+    <text x="492" y="871" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="#FFF8E9">GRANDE</text>
+    <text x="874" y="876" text-anchor="end" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="#FFF8E9">9 €</text>
+  </g>
+</g>
+
+<!-- counter props -->
+<g transform="translate(420 1375) scale(0.7)">
+    <path d="M10 20 Q75 4 140 20 L126 226 Q76 248 26 226 Z" fill="#FFF6E5" stroke="#171512" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M20 42 L133 31 L129 77 L24 88 Z" fill="#D74332"/>
+    <path d="M28 98 L128 86 L124 131 L32 143 Z" fill="#D74332"/>
+    <path d="M36 152 L121 141 L118 184 L39 194 Z" fill="#D74332"/>
+    <text x="75" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#171512">S</text>
+    <path d="M104 12 L128 -78" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+  </g>
+<g transform="translate(760 1345) scale(0.88)">
+    <path d="M10 20 Q75 4 140 20 L126 226 Q76 248 26 226 Z" fill="#FFF6E5" stroke="#171512" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M20 42 L133 31 L129 77 L24 88 Z" fill="#D74332"/>
+    <path d="M28 98 L128 86 L124 131 L32 143 Z" fill="#D74332"/>
+    <path d="M36 152 L121 141 L118 184 L39 194 Z" fill="#D74332"/>
+    <text x="75" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#171512">M</text>
+    <path d="M104 12 L128 -78" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+  </g>
+<g transform="translate(910 1300) scale(1.08)">
+    <path d="M10 20 Q75 4 140 20 L126 226 Q76 248 26 226 Z" fill="#FFF6E5" stroke="#171512" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M20 42 L133 31 L129 77 L24 88 Z" fill="#D74332"/>
+    <path d="M28 98 L128 86 L124 131 L32 143 Z" fill="#D74332"/>
+    <path d="M36 152 L121 141 L118 184 L39 194 Z" fill="#D74332"/>
+    <text x="75" y="222" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#171512">L</text>
+    <path d="M104 12 L128 -78" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+  </g>
+<g id="character" transform="translate(80 730) scale(0.95)">
+    <path d="M118 1024 C86 902 92 771 153 682 C191 627 340 622 389 686 C452 770 458 901 428 1025 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M180 705 C214 748 316 751 356 704 C341 669 325 647 270 645 C216 645 194 665 180 705 Z" fill="#2B2927" stroke="#171512" stroke-width="9"/>
+    <path d="M225 578 C230 628 224 656 206 684 C244 720 305 723 341 684 C324 654 320 625 326 578 Z" fill="#D88A60" stroke="#171512" stroke-width="9"/>
+    <g transform="rotate(5 280 365)">
+      <path d="M156 254 C165 182 223 133 307 136 C392 140 443 204 437 304 C430 417 374 538 282 559 C202 552 155 470 141 366 C134 319 136 281 156 254 Z" fill="#F1B17F" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+      <path d="M144 341 C106 326 97 371 114 408 C129 439 157 432 170 404" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+      <path d="M143 292 C122 235 151 172 207 135 C245 87 319 72 362 116 C417 108 456 155 448 207 C478 240 456 292 425 311 C404 266 382 234 347 210 C332 248 298 267 258 264 C225 284 186 302 143 292 Z" fill="#161616" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+      <path d="M174 214 C208 165 244 142 286 132 C257 171 248 198 250 233 M258 133 C309 96 357 109 391 147 C348 142 316 166 295 214 M333 151 C385 140 418 171 422 212" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+      <path d="M184 324 Q229 288 276 324 Q231 361 184 324 Z" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+      <path d="M297 321 Q339 285 384 322 Q341 358 297 321 Z" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+      <ellipse cx="257" cy="325" rx="13" ry="18" fill="#171512"/>
+      <ellipse cx="362" cy="323" rx="13" ry="18" fill="#171512"/>
+      <path d="M181 277 Q229 252 276 273" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+      <path d="M297 288 Q340 263 385 286" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+      <path d="M286 329 C279 369 267 393 282 406 C299 420 322 408 329 394" fill="none" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+      <path d="M183 410 C202 444 219 465 242 478" fill="none" stroke="#D88A60" stroke-width="12" opacity=".45" stroke-linecap="round"/>
+      <path d="M253 408 Q298 438 344 402" fill="none" stroke="#171512" stroke-width="9" stroke-linecap="round"/>
+      <path d="M177 456 l18 10 M185 475 l18 10 M365 415 l18 -9 M372 433 l18 -8" stroke="#171512" stroke-width="4" opacity=".35"/>
+    </g>
+    <path d="M385 710 C505 694 590 642 674 568 C701 545 733 554 742 580 C748 600 736 615 715 628 C618 690 548 780 412 805 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+    <path d="M675 565 C710 540 765 512 842 504 C867 502 880 524 867 545 C855 565 820 566 788 574 C821 584 852 600 857 622 C861 642 840 658 821 647 C789 630 754 616 714 616 C688 616 668 592 675 565 Z" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+    <path d="M147 818 C190 843 208 900 208 968 M389 816 C349 849 332 905 332 974" fill="none" stroke="#4C4742" stroke-width="6"/>
+    <text x="270" y="928" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#F8EEDD">TI FREGANO</text>
+    <text x="270" y="958" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#F8EEDD">COSÌ</text>
+    <path d="M224 972 L316 962" stroke="#D74332" stroke-width="7" stroke-linecap="round"/>
+  </g><g><rect x="590" y="1080" width="390" height="150" rx="18" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+  <text x="785" y="1138.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="900" fill="#171512">RENDE FACILE</text><text x="785" y="1188" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="900" fill="#D74332">IL CONFRONTO</text></g></svg>
