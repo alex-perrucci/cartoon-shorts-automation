@@ -1,0 +1,68 @@
+{
+  "id": "2026-09-17-pm",
+  "title": "Shrinkflation: stessi euro, meno prodotto",
+  "hook": "Il prezzo sembra uguale. Il prodotto no.",
+  "narration": "Il prezzo sembra uguale. Il prodotto no. Quando una confezione passa, per esempio, da 500 a 450 grammi senza un taglio proporzionale del prezzo, stai vedendo la shrinkflation: meno prodotto nella stessa fascia di prezzo. Non è magia nera, è matematica con una confezione carina davanti. Tu ricordi il prezzo abituale, riconosci colori e formato, e al volo confronti meno facilmente il peso netto. Risultato: sullo scaffale può sembrare che non sia cambiato quasi nulla, mentre il prezzo al chilo è salito. E qui arriva la parte che ti frega meglio: se guardi solo il cartellino grande, confronti euro contro euro; se guardi il prezzo per unità, confronti davvero quanto stai comprando. In Europa il prezzo per unità di misura serve proprio a rendere più facile questo confronto, anche se esistono eccezioni. Quindi una confezione leggermente più magra non significa automaticamente fregatura o illegalità. Ma per il tuo portafoglio il risultato può essere identico: spendi uguale e porti a casa meno. La difesa è noiosa ma devastante: ignora la confezione, guarda grammi e prezzo al chilo. Il marketing veste bene. La matematica lo spoglia.",
+  "scenes": [
+    {
+      "narration": "Il prezzo sembra uguale. Il prodotto no.",
+      "visual": "The recurring businessman compares two nearly identical packages with the same shelf price but visibly different net weights, immediately exposing the mismatch.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_01.b64"
+    },
+    {
+      "narration": "Quando una confezione passa, per esempio, da 500 a 450 grammi senza un taglio proporzionale del prezzo, stai vedendo la shrinkflation: meno prodotto nella stessa fascia di prezzo.",
+      "visual": "The recurring businessman sees a 500 gram package shrink to 450 grams while the displayed price stays in the same range.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_02.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_02.b64"
+    },
+    {
+      "narration": "Non è magia nera, è matematica con una confezione carina davanti. Tu ricordi il prezzo abituale, riconosci colori e formato, e al volo confronti meno facilmente il peso netto.",
+      "visual": "A familiar attractive package distracts the recurring businessman while the smaller net-weight figure is visually secondary, illustrating recognition versus careful quantity comparison.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_03.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_03.b64"
+    },
+    {
+      "narration": "Risultato: sullo scaffale può sembrare che non sia cambiato quasi nulla, mentre il prezzo al chilo è salito.",
+      "visual": "Two shelf products show the same selling price while a unit-price indicator rises, with the recurring businessman noticing the hidden increase.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_04.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_04.b64"
+    },
+    {
+      "narration": "E qui arriva la parte che ti frega meglio: se guardi solo il cartellino grande, confronti euro contro euro; se guardi il prezzo per unità, confronti davvero quanto stai comprando.",
+      "visual": "The recurring businessman ignores the large headline price and points instead to a clear price-per-kilogram comparison that reveals the true difference.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_05.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_05.b64"
+    },
+    {
+      "narration": "In Europa il prezzo per unità di misura serve proprio a rendere più facile questo confronto, anche se esistono eccezioni.",
+      "visual": "A clean shelf-label comparison centers on price per unit of measurement while the recurring businessman uses it to compare products fairly.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_06.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_06.b64"
+    },
+    {
+      "narration": "Quindi una confezione leggermente più magra non significa automaticamente fregatura o illegalità. Ma per il tuo portafoglio il risultato può essere identico: spendi uguale e porti a casa meno.",
+      "visual": "The recurring businessman compares before and after packages without accusing wrongdoing, then sees that the same spending now buys a visibly smaller quantity.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_07.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_07.b64"
+    },
+    {
+      "narration": "La difesa è noiosa ma devastante: ignora la confezione, guarda grammi e prezzo al chilo. Il marketing veste bene. La matematica lo spoglia.",
+      "visual": "The recurring businessman confidently checks grams and price per kilogram while decorative packaging becomes irrelevant, ending on a visual triumph of math over marketing.",
+      "image_svg_source": "assets/generated/2026-09-17-pm/scene_08.svg",
+      "image_b64": "work/prepared_assets/2026-09-17-pm/scene_08.b64"
+    }
+  ],
+  "caption": "Stessi euro, meno roba: guarda il prezzo al chilo.",
+  "hashtags": ["shrinkflation", "marketing", "spesa", "soldi"],
+  "youtube": {
+    "title": "Il prezzo è uguale, ma dentro c’è meno: come funziona la shrinkflation",
+    "description": "La confezione sembra la stessa, ma il peso può scendere e il costo reale salire. Il confronto utile è quello per unità di misura, non solo il prezzo grande sul cartellino.",
+    "hashtags": ["shrinkflation", "marketing", "spesa", "soldi"],
+    "tags": ["shrinkflation", "riduflazione", "prezzo al chilo", "spesa supermercato", "prezzi", "marketing", "consumatori", "risparmiare sulla spesa"]
+  },
+  "tiktok": {
+    "caption": "La confezione fa la dieta. Il tuo scontrino stranamente no.",
+    "hashtags": ["shrinkflation", "spesa", "marketing", "soldi", "supermercato"]
+  }
+}
