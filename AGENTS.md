@@ -66,7 +66,15 @@ The old simplistic SVG character is retired. Every new scene must look like a pr
 - strong vertical composition and contextual props;
 - preserve character identity while varying pose, expression, angle and object focus.
 
-Reject before push: stick figures, anatomy visibly assembled from circles/rectangles/straight limbs, childish clip-art, glossy anime, semi-photorealism, 3D/plastic rendering, repeated neutral poses, continuity errors, or scenes that need paragraphs of embedded text to explain themselves.
+Reject before push: stick figures, anatomy visibly assembled from circles/rectangles/straight limbs, childish clip-art, glossy anime, semi-photorealism, 3D/plastic rendering, repeated neutral poses, continuity errors, contextless/empty backgrounds, or scenes that need paragraphs of embedded text to explain themselves.
+
+V2.1 CONTEXT + TEXT-SAFETY ARE HARD GATES:
+- when a topic has a recognisable real-world setting, establish it clearly with relevant environment/props rather than floating cards on cream;
+- prefer one concrete recurring example across multiple scenes (e.g. cinema concession counter + drink/popcorn menu for pricing psychology);
+- embedded artwork text must be short, inside dedicated boxes/signs, manually wrapped and comfortably padded;
+- zero text-on-text overlap, zero clipped words, zero text crossing a sign/panel border, zero headline covering the protagonist/hero object;
+- if text does not fit, shorten it rather than shrinking it into unreadability;
+- every scene should make visual sense before subtitles are read.
 
 ## V2 pose-to-pose motion
 
@@ -200,6 +208,8 @@ Reject/rewrite/redraw unless ALL applicable checks pass:
 - character-led scenes normally have 2-3 coherent pose keyframes;
 - keyframes genuinely change acting/focus and do not introduce continuity errors;
 - no childish geometry, glossy anime or realism drift;
+- setting/context is immediately recognisable where applicable;
+- all embedded text passes the V2.1 no-overflow/no-overlap safe-layout gate;
 - YouTube/TikTok metadata complete;
 - valid JSON and XML/SVG.
 
