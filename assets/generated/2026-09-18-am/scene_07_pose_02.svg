@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<title>2026-09-18-am scene 7 pose 2</title>
+<rect width="1080" height="1920" fill="#F7EDD9"/>
+<path d="M0 170 C230 140 430 190 650 150 S910 125 1080 170" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".42"/>
+<path d="M0 1740 C250 1695 470 1760 700 1720 S930 1700 1080 1748" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".35"/>
+<path d="M80 1660 C350 1600 730 1650 1010 1608" fill="none" stroke="#D9C7A7" stroke-width="16" opacity=".45"/><g id="background-shelves" opacity=".82">
+<path d="M40 370 L550 340 L550 1510 L30 1540 Z" fill="#D7C6A9" stroke="#171512" stroke-width="8"/>
+<path d="M42 700 L548 670 M38 1035 L550 1004 M35 1360 L550 1330" stroke="#635D56" stroke-width="14"/>
+<g fill="#D74332" stroke="#171512" stroke-width="5">
+<path d="M82 470 L170 455 L180 625 L91 634 Z"/><path d="M206 452 L300 440 L309 615 L217 626 Z"/><path d="M340 436 L440 425 L448 604 L351 616 Z"/>
+<path d="M74 815 L165 804 L173 968 L82 977 Z"/><path d="M208 799 L304 788 L312 960 L218 969 Z"/><path d="M351 782 L445 773 L452 949 L360 957 Z"/>
+</g>
+</g><g id="character" transform="translate(185 720) scale(1.02 1.02)">
+<!-- hoodie torso -->
+<path d="M118 1024 C86 902 92 771 153 682 C191 627 340 622 389 686 C452 770 458 901 428 1025 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M178 704 C212 746 315 749 357 703 C344 664 329 641 267 640 C211 641 191 663 178 704 Z" fill="#292725" stroke="#171512" stroke-width="9"/>
+<path d="M199 714 C213 757 229 803 235 879" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<path d="M340 714 C324 760 309 810 304 882" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<!-- neck -->
+<path d="M225 574 C230 628 225 658 205 684 C242 719 306 722 342 685 C323 653 319 620 326 574 Z" fill="#D8895F" stroke="#171512" stroke-width="9"/>
+<!-- head -->
+<g id="head" transform="rotate(6 275 360)">
+<path d="M155 250 C164 177 225 127 311 132 C395 137 445 202 438 302 C430 420 371 543 279 559 C199 550 154 466 139 362 C132 314 134 277 155 250 Z" fill="#F1B17F" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<!-- ear -->
+<path d="M144 337 C105 321 95 369 113 407 C128 438 157 430 169 402" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<!-- hair mass -->
+<path d="M142 286 C120 230 150 168 205 131 C242 81 318 67 361 112 C418 105 458 153 449 205 C480 240 458 293 425 309 C407 264 382 229 345 207 C333 246 296 264 259 261 C225 282 187 296 142 286 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M171 209 C207 158 243 135 286 127 C257 163 247 195 249 231" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M254 127 C309 89 360 106 392 144 C344 139 316 164 293 211" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M330 146 C387 135 420 168 424 210 C397 184 374 182 350 199" fill="none" stroke="#5B3A2A" stroke-width="7" stroke-linecap="round"/>
+<!-- eyes -->
+<path d="M185 322 Q229 285 276 322 Q231 361 185 322 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<path d="M296 319 Q339 282 384 320 Q340 358 296 319 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<ellipse cx="246" cy="324" rx="13" ry="18" fill="#171512"/>
+<ellipse cx="350" cy="322" rx="13" ry="18" fill="#171512"/>
+<!-- brows -->
+<path d="M181 277 Q229 253 276 275" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<path d="M296 284 Q340 259 385 282" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<!-- nose -->
+<path d="M286 326 C280 367 267 392 282 405 C298 419 322 407 329 393" fill="none" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+<!-- cheek shadow -->
+<path d="M181 406 C203 444 218 465 243 478" fill="none" stroke="#D8895F" stroke-width="12" opacity=".5" stroke-linecap="round"/>
+<!-- mouth -->
+<path d="M258 384 Q304 410 347 372" fill="none" stroke="#171512" stroke-width="9" stroke-linecap="round"/>
+<!-- hatching -->
+<path d="M177 455 l18 10 M184 473 l18 10 M365 414 l18 -9 M372 432 l18 -8" stroke="#171512" stroke-width="4" opacity=".45"/>
+</g>
+<g id="right-arm">
+<path d="M388 690 C510 670 602 610 676 525 C696 502 727 507 739 533 C748 551 740 568 721 580 C636 650 562 739 414 790 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+<path d="M670 520 C704 494 755 455 833 438 C857 433 871 454 860 474 C849 494 810 498 778 511 C812 515 848 523 858 544 C867 564 848 583 827 576 C790 563 754 551 713 556 C689 560 666 543 670 520 Z" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<path d="M768 504 C804 497 843 500 865 492" fill="none" stroke="#171512" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g id="left-arm">
+<path d="M150 688 C72 740 54 866 85 1005 L194 1012 C177 915 195 829 254 766 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+</g>
+<!-- hoodie folds -->
+<path d="M147 815 C190 841 209 896 208 968 M389 813 C349 847 331 905 332 974" fill="none" stroke="#4B4743" stroke-width="6"/>
+</g><g id="menu-board">
+<path d="M640 350 Q620 366 624 404 L632 1146 Q640 1170 680 1162 L1002 1166 Q1023 1158 1018 1120 L1012 392 Q1010 356 970 358 Z" fill="#242220" stroke="#171512" stroke-width="10" stroke-linejoin="round"/>
+<text x="662" y="445" font-family="Arial,sans-serif" font-size="62" font-weight="900" fill="#FFF9ED">POI PREZZI</text>
+<path d="M658 472 C770 459 880 482 978 467" fill="none" stroke="#D74332" stroke-width="12" stroke-linecap="round"/>
+<path d="M655 485 Q670 465 703 474 L978 478 Q1000 495 986 532 L978 624 Q968 647 935 638 L692 643 Q662 642 658 612 Z" fill="#FFF9ED" stroke="#171512" stroke-width="7" stroke-linejoin="round"/>
+<text x="692" y="565" font-family="Arial,sans-serif" font-size="52" font-weight="800" fill="#171512">PICCOLA</text>
+<text x="848" y="576" font-family="Arial,sans-serif" font-size="56" font-weight="900" fill="#171512">3 €</text>
+<path d="M655 670 Q670 650 703 659 L978 663 Q1000 680 986 717 L978 809 Q968 832 935 823 L692 828 Q662 827 658 797 Z" fill="#FFF9ED" stroke="#171512" stroke-width="7" stroke-linejoin="round"/>
+<text x="692" y="750" font-family="Arial,sans-serif" font-size="52" font-weight="800" fill="#171512">MEDIA</text>
+<text x="848" y="761" font-family="Arial,sans-serif" font-size="56" font-weight="900" fill="#171512">5,50 €</text>
+<path d="M655 855 Q670 835 703 844 L978 848 Q1000 865 986 902 L978 994 Q968 1017 935 1008 L692 1013 Q662 1012 658 982 Z" fill="#FFF9ED" stroke="#171512" stroke-width="7" stroke-linejoin="round"/>
+<text x="692" y="935" font-family="Arial,sans-serif" font-size="52" font-weight="800" fill="#171512">GRANDE</text>
+<text x="848" y="946" font-family="Arial,sans-serif" font-size="56" font-weight="900" fill="#171512">6 €</text>
+</g><g id="banner"><path d="M75 108 Q99 90 755 111 L775 268 Q755 293 90 285 Z" fill="#FFF9ED" stroke="#171512" stroke-width="9" stroke-linejoin="round"/><text x="113" y="178" font-family="Arial,sans-serif" font-size="58" font-weight="900" fill="#171512">DOPO GUARDA</text><text x="113" y="250" font-family="Arial,sans-serif" font-size="58" font-weight="900" fill="#D74332">IL PREZZO</text></g></svg>

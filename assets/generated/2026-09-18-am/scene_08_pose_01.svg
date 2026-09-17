@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<title>2026-09-18-am scene 8 pose 1</title>
+<rect width="1080" height="1920" fill="#F7EDD9"/>
+<path d="M0 170 C230 140 430 190 650 150 S910 125 1080 170" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".42"/>
+<path d="M0 1740 C250 1695 470 1760 700 1720 S930 1700 1080 1748" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".35"/>
+<path d="M80 1660 C350 1600 730 1650 1010 1608" fill="none" stroke="#D9C7A7" stroke-width="16" opacity=".45"/><g id="finish-cards">
+<path d="M645 420 Q670 390 950 410 L962 675 Q942 696 666 686 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<text x="690" y="518" font-family="Arial,sans-serif" font-size="43" font-weight="900" fill="#171512">ESCA</text>
+<text x="690" y="594" font-family="Arial,sans-serif" font-size="62" font-weight="900" fill="#D74332">≠ SCELTA</text>
+</g><g id="character" transform="translate(170 690) scale(1.04 1.04)">
+<!-- hoodie torso -->
+<path d="M118 1024 C86 902 92 771 153 682 C191 627 340 622 389 686 C452 770 458 901 428 1025 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M178 704 C212 746 315 749 357 703 C344 664 329 641 267 640 C211 641 191 663 178 704 Z" fill="#292725" stroke="#171512" stroke-width="9"/>
+<path d="M199 714 C213 757 229 803 235 879" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<path d="M340 714 C324 760 309 810 304 882" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<!-- neck -->
+<path d="M225 574 C230 628 225 658 205 684 C242 719 306 722 342 685 C323 653 319 620 326 574 Z" fill="#D8895F" stroke="#171512" stroke-width="9"/>
+<!-- head -->
+<g id="head" transform="rotate(0 275 360)">
+<path d="M155 250 C164 177 225 127 311 132 C395 137 445 202 438 302 C430 420 371 543 279 559 C199 550 154 466 139 362 C132 314 134 277 155 250 Z" fill="#F1B17F" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<!-- ear -->
+<path d="M144 337 C105 321 95 369 113 407 C128 438 157 430 169 402" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<!-- hair mass -->
+<path d="M142 286 C120 230 150 168 205 131 C242 81 318 67 361 112 C418 105 458 153 449 205 C480 240 458 293 425 309 C407 264 382 229 345 207 C333 246 296 264 259 261 C225 282 187 296 142 286 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M171 209 C207 158 243 135 286 127 C257 163 247 195 249 231" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M254 127 C309 89 360 106 392 144 C344 139 316 164 293 211" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M330 146 C387 135 420 168 424 210 C397 184 374 182 350 199" fill="none" stroke="#5B3A2A" stroke-width="7" stroke-linecap="round"/>
+<!-- eyes -->
+<path d="M185 322 Q229 285 276 322 Q231 361 185 322 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<path d="M296 319 Q339 282 384 320 Q340 358 296 319 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<ellipse cx="236" cy="324" rx="13" ry="18" fill="#171512"/>
+<ellipse cx="340" cy="322" rx="13" ry="18" fill="#171512"/>
+<!-- brows -->
+<path d="M181 275 Q229 251 276 273" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<path d="M296 286 Q340 261 385 284" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<!-- nose -->
+<path d="M286 326 C280 367 267 392 282 405 C298 419 322 407 329 393" fill="none" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+<!-- cheek shadow -->
+<path d="M181 406 C203 444 218 465 243 478" fill="none" stroke="#D8895F" stroke-width="12" opacity=".5" stroke-linecap="round"/>
+<!-- mouth -->
+<path d="M260 372 Q303 350 346 384 Q305 425 260 372" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<!-- hatching -->
+<path d="M177 455 l18 10 M184 473 l18 10 M365 414 l18 -9 M372 432 l18 -8" stroke="#171512" stroke-width="4" opacity=".45"/>
+</g>
+<g id="right-arm">
+<path d="M388 690 C510 670 602 610 676 525 C696 502 727 507 739 533 C748 551 740 568 721 580 C636 650 562 739 414 790 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+<path d="M670 520 C704 494 755 455 833 438 C857 433 871 454 860 474 C849 494 810 498 778 511 C812 515 848 523 858 544 C867 564 848 583 827 576 C790 563 754 551 713 556 C689 560 666 543 670 520 Z" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<path d="M768 504 C804 497 843 500 865 492" fill="none" stroke="#171512" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g id="left-arm">
+<path d="M150 688 C72 740 54 866 85 1005 L194 1012 C177 915 195 829 254 766 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+</g>
+<!-- hoodie folds -->
+<path d="M147 815 C190 841 209 896 208 968 M389 813 C349 847 331 905 332 974" fill="none" stroke="#4B4743" stroke-width="6"/>
+</g><g id="banner"><path d="M70 110 Q94 92 920 113 L940 210 Q920 235 85 227 Z" fill="#FFF9ED" stroke="#171512" stroke-width="9" stroke-linejoin="round"/><text x="108" y="180" font-family="Arial,sans-serif" font-size="58" font-weight="900" fill="#D74332">L’ESCA NON DEVE VINCERE.</text></g></svg>

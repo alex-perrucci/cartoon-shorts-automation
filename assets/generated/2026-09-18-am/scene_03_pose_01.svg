@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<title>2026-09-18-am scene 3 pose 1</title>
+<rect width="1080" height="1920" fill="#F7EDD9"/>
+<path d="M0 170 C230 140 430 190 650 150 S910 125 1080 170" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".42"/>
+<path d="M0 1740 C250 1695 470 1760 700 1720 S930 1700 1080 1748" fill="none" stroke="#E6D6B8" stroke-width="8" opacity=".35"/>
+<path d="M80 1660 C350 1600 730 1650 1010 1608" fill="none" stroke="#D9C7A7" stroke-width="16" opacity=".45"/><g id="pricing-cards">
+<path d="M600 450 Q620 420 940 438 L958 710 Q942 738 620 727 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<text x="650" y="535" font-family="Arial,sans-serif" font-size="44" font-weight="900" fill="#171512">PICCOLA</text><text x="817" y="620" font-family="Arial,sans-serif" font-size="72" font-weight="900" fill="#171512">3 €</text>
+<path d="M575 760 Q600 730 956 747 L970 1024 Q950 1050 604 1040 Z" fill="#D74332" stroke="#171512" stroke-width="8"/>
+<text x="630" y="850" font-family="Arial,sans-serif" font-size="44" font-weight="900" fill="#FFF9ED">MEDIA</text><text x="790" y="948" font-family="Arial,sans-serif" font-size="68" font-weight="900" fill="#FFF9ED">5,50 €</text>
+<path d="M555 1080 Q586 1050 970 1067 L988 1394 Q964 1422 582 1408 Z" fill="#FFF9ED" stroke="#171512" stroke-width="9"/>
+<text x="615" y="1180" font-family="Arial,sans-serif" font-size="48" font-weight="900" fill="#171512">GRANDE</text><text x="815" y="1292" font-family="Arial,sans-serif" font-size="78" font-weight="900" fill="#171512">6 €</text>
+</g><g id="character" transform="translate(35 705) scale(0.93 0.93)">
+<!-- hoodie torso -->
+<path d="M118 1024 C86 902 92 771 153 682 C191 627 340 622 389 686 C452 770 458 901 428 1025 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M178 704 C212 746 315 749 357 703 C344 664 329 641 267 640 C211 641 191 663 178 704 Z" fill="#292725" stroke="#171512" stroke-width="9"/>
+<path d="M199 714 C213 757 229 803 235 879" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<path d="M340 714 C324 760 309 810 304 882" fill="none" stroke="#56504A" stroke-width="6" opacity=".8"/>
+<!-- neck -->
+<path d="M225 574 C230 628 225 658 205 684 C242 719 306 722 342 685 C323 653 319 620 326 574 Z" fill="#D8895F" stroke="#171512" stroke-width="9"/>
+<!-- head -->
+<g id="head" transform="rotate(0 275 360)">
+<path d="M155 250 C164 177 225 127 311 132 C395 137 445 202 438 302 C430 420 371 543 279 559 C199 550 154 466 139 362 C132 314 134 277 155 250 Z" fill="#F1B17F" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<!-- ear -->
+<path d="M144 337 C105 321 95 369 113 407 C128 438 157 430 169 402" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<!-- hair mass -->
+<path d="M142 286 C120 230 150 168 205 131 C242 81 318 67 361 112 C418 105 458 153 449 205 C480 240 458 293 425 309 C407 264 382 229 345 207 C333 246 296 264 259 261 C225 282 187 296 142 286 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+<path d="M171 209 C207 158 243 135 286 127 C257 163 247 195 249 231" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M254 127 C309 89 360 106 392 144 C344 139 316 164 293 211" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+<path d="M330 146 C387 135 420 168 424 210 C397 184 374 182 350 199" fill="none" stroke="#5B3A2A" stroke-width="7" stroke-linecap="round"/>
+<!-- eyes -->
+<path d="M185 322 Q229 285 276 322 Q231 361 185 322 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<path d="M296 319 Q339 282 384 320 Q340 358 296 319 Z" fill="#FFF9ED" stroke="#171512" stroke-width="8"/>
+<ellipse cx="247" cy="324" rx="13" ry="18" fill="#171512"/>
+<ellipse cx="351" cy="322" rx="13" ry="18" fill="#171512"/>
+<!-- brows -->
+<path d="M181 273 Q229 249 276 271" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<path d="M296 288 Q340 263 385 286" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+<!-- nose -->
+<path d="M286 326 C280 367 267 392 282 405 C298 419 322 407 329 393" fill="none" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+<!-- cheek shadow -->
+<path d="M181 406 C203 444 218 465 243 478" fill="none" stroke="#D8895F" stroke-width="12" opacity=".5" stroke-linecap="round"/>
+<!-- mouth -->
+<path d="M250 382 C286 365 316 367 342 378" fill="none" stroke="#171512" stroke-width="9" stroke-linecap="round"/>
+<!-- hatching -->
+<path d="M177 455 l18 10 M184 473 l18 10 M365 414 l18 -9 M372 432 l18 -8" stroke="#171512" stroke-width="4" opacity=".45"/>
+</g>
+<path d="M156 689 C74 746 66 882 96 1010 L205 1004 C189 906 216 825 289 783 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+<path d="M389 690 C467 747 494 872 463 1007 L354 1004 C370 908 348 827 286 781 Z" fill="#171717" stroke="#171512" stroke-width="10"/>
+<path d="M347 566 C398 540 444 566 447 611 C449 650 420 674 381 661 L333 642 C306 631 300 594 322 578 Z" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+<path d="M370 614 C344 594 337 566 349 541" fill="none" stroke="#171512" stroke-width="7" stroke-linecap="round"/>
+<!-- hoodie folds -->
+<path d="M147 815 C190 841 209 896 208 968 M389 813 C349 847 331 905 332 974" fill="none" stroke="#4B4743" stroke-width="6"/>
+</g><g id="banner"><path d="M70 110 Q94 92 940 113 L960 270 Q940 295 85 287 Z" fill="#FFF9ED" stroke="#171512" stroke-width="9" stroke-linejoin="round"/><text x="108" y="180" font-family="Arial,sans-serif" font-size="58" font-weight="900" fill="#171512">LA TERZA OPZIONE</text><text x="108" y="252" font-family="Arial,sans-serif" font-size="58" font-weight="900" fill="#D74332">CAMBIA IL CONFRONTO</text></g></svg>

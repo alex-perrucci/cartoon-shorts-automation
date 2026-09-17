@@ -1,0 +1,100 @@
+{
+  "id": "2026-09-18-am",
+  "title": "Effetto esca: il prezzo in mezzo ti spinge su",
+  "hook": "Quel prezzo in mezzo ti spinge su.",
+  "narration": "Quel prezzo in mezzo ti spinge su. Guarda tre bibite: piccola 3 euro, media 5,50, grande 6. La media è abbastanza cara da far sembrare la grande quasi ovvia: “per cinquanta centesimi in più, tanto vale”. Il punto non è che il medio debba vendere. Una terza opzione può cambiare il confronto tra le altre due. In economia comportamentale esiste l’effetto esca: in certi set di scelta, aggiungere un’alternativa costruita per essere meno attraente rispetto a un’opzione può aumentare la preferenza per quella opzione. Non significa che ogni menu con tre taglie sia una trappola, né che il prezzo decida al posto tuo. Significa che il contesto può spostare il metro con cui giudichi. Prima pensavi “sei euro per una bibita?”. Dopo guardi la media e pensi “solo cinquanta centesimi in più”. Stesso prezzo finale, confronto diverso. Il medio può quindi lavorare anche se quasi nessuno lo sceglie: rende il grande più facile da giustificare. La difesa è semplice: prima decidi quanta roba ti serve, poi guarda i prezzi. L’esca non deve vincere. Le basta farti cambiare gara.",
+  "scenes": [
+    {
+      "narration": "Quel prezzo in mezzo ti spinge su.",
+      "visual": "The recurring V2 protagonist studies a three-size drinks menu; pose 1 gives the red middle price a suspicious side-eye, pose 2 turns and points toward the large option as the comparison shifts.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_01_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_01_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Guarda tre bibite: piccola 3 euro, media 5,50, grande 6. La media è abbastanza cara da far sembrare la grande quasi ovvia: “per cinquanta centesimi in più, tanto vale”.",
+      "visual": "The protagonist sees small €3, medium €5.50 and large €6 beside three cup sizes; across the two poses he moves from inspecting the menu to noticing how little separates medium and large.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_02_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_02_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_02_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_02_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_02_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_02_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Il punto non è che il medio debba vendere. Una terza opzione può cambiare il confronto tra le altre due. In economia comportamentale esiste l’effetto esca: in certi set di scelta, aggiungere un’alternativa costruita per essere meno attraente rispetto a un’opzione può aumentare la preferenza per quella opzione.",
+      "visual": "The protagonist first faces three price cards, then points from the middle option toward the large one; the scene visually shows that adding a third comparison can change how the target option feels.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_03_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_03_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_03_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_03_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_03_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_03_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Non significa che ogni menu con tre taglie sia una trappola, né che il prezzo decida al posto tuo. Significa che il contesto può spostare il metro con cui giudichi.",
+      "visual": "The protagonist changes from a wary palm-up gesture to a calmer direct pose; the message is that a three-size menu is not automatically a trap and context can influence without deciding for the viewer.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_04_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_04_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_04_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_04_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_04_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_04_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Prima pensavi “sei euro per una bibita?”. Dopo guardi la media e pensi “solo cinquanta centesimi in più”. Stesso prezzo finale, confronto diverso.",
+      "visual": "The protagonist compares €6 alone against 'only 50 cents more than medium'; his gaze and pointing hand shift from the standalone price to the relative comparison.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_05_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_05_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_05_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_05_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_05_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_05_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Il medio può quindi lavorare anche se quasi nessuno lo sceglie: rende il grande più facile da giustificare.",
+      "visual": "The protagonist shows the middle option as a reference point, then gestures toward the large option; the middle can do its job even when it is not the final choice.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_06_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_06_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_06_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_06_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_06_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_06_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "La difesa è semplice: prima decidi quanta roba ti serve, poi guarda i prezzi.",
+      "visual": "The protagonist first asks how much he actually needs, then looks at the prices only afterward, making quantity-before-price the practical defense.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_07_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_07_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_07_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_07_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_07_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_07_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "L’esca non deve vincere. Le basta farti cambiare gara.",
+      "visual": "The protagonist closes direct to camera: first separating 'decoy' from 'choice', then landing the payoff that the decoy only needs to change the race.",
+      "image_svg_source": "assets/generated/2026-09-18-am/scene_08_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-18-am/scene_08_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_08_pose_01.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_08_pose_01.b64"},
+        {"image_svg_source": "assets/generated/2026-09-18-am/scene_08_pose_02.svg","image_b64": "work/prepared_assets/2026-09-18-am/scene_08_pose_02.b64"}
+      ]
+    }
+  ],
+  "caption": "Quel prezzo in mezzo non deve venderti nulla: gli basta farti guardare il grande con occhi diversi.",
+  "hashtags": ["effettoesca","marketing","prezzi","psicologia"],
+  "youtube": {
+    "title": "Il prezzo in mezzo può farti scegliere quello grande",
+    "description": "Tre taglie, tre prezzi e un confronto che cambia. L’effetto esca mostra come il contesto delle alternative possa spostare la preferenza senza decidere al posto tuo.",
+    "hashtags": ["effettoesca","marketing","prezzi","psicologia"],
+    "tags": ["effetto esca","decoy effect","marketing","psicologia dei prezzi","prezzi","scelte di consumo","economia comportamentale","consumer behavior"]
+  },
+  "tiktok": {
+    "caption": "Il medio magari non deve vincere. Deve solo farti pensare che il grande sia furbo.",
+    "hashtags": ["effettoesca","marketing","prezzi","psicologia","soldi"]
+  }
+}
