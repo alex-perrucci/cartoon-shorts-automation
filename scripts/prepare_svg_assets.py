@@ -4,7 +4,6 @@ import argparse
 import base64
 import io
 import json
-import shutil
 from pathlib import Path
 
 import cairosvg
@@ -30,14 +29,14 @@ def resolve_repo_path(value: str, *, field: str) -> Path:
     return resolved
 
 
-def render_svg(svg_path: Path, *, scene_no: int) -> bytes:
+def render_svg(svg_path: Path, *, label: str) -> bytes:
     if not svg_path.is_file():
-        raise ValueError(f"scene {scene_no} SVG asset not found: {svg_path.relative_to(ROOT)}")
+        raise ValueError(f"{label} SVG asset not found: {svg_path.relative_to(ROOT)}")
     if svg_path.suffix.lower() != ".svg":
-        raise ValueError(f"scene {scene_no} image_svg_source must point to a .svg file")
+        raise ValueError(f"{label} image_svg_source must point to a .svg file")
     raw_svg = svg_path.read_bytes()
     if not raw_svg or len(raw_svg) > MAX_SVG_BYTES:
-        raise ValueError(f"scene {scene_no} SVG asset is empty or too large")
+        raise ValueError(f"{label} SVG asset is empty or too large")
     try:
         png = cairosvg.svg2png(
             bytestring=raw_svg,
@@ -47,8 +46,34 @@ def render_svg(svg_path: Path, *, scene_no: int) -> bytes:
         with Image.open(io.BytesIO(png)) as image:
             image.verify()
     except Exception as exc:
-        raise ValueError(f"scene {scene_no} SVG could not be rendered") from exc
+        raise ValueError(f"{label} SVG could not be rendered") from exc
     return png
+
+
+def _prepare_asset(asset: dict, *, label: str, prepared_targets: set[Path]) -> bool:
+    source = asset.get("image_svg_source")
+    if not source:
+        return False
+    target = asset.get("image_b64")
+    if not target:
+        raise ValueError(f"{label} with image_svg_source must also define image_b64")
+
+    svg_path = resolve_repo_path(str(source), field=f"{label} image_svg_source")
+    target_path = resolve_repo_path(str(target), field=f"{label} image_b64")
+    if target_path.suffix.lower() != ".b64":
+        raise ValueError(f"{label} image_b64 must point to a .b64 file")
+    if not str(target_path.relative_to(ROOT)).startswith("work/prepared_assets/"):
+        raise ValueError(f"{label} generated image_b64 must live under work/prepared_assets/")
+
+    if target_path in prepared_targets:
+        return False
+
+    png = render_svg(svg_path, label=label)
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    target_path.write_text(base64.b64encode(png).decode("ascii"), encoding="ascii")
+    prepared_targets.add(target_path)
+    print(f"Prepared {label}: {source} -> {target} ({len(png)} PNG bytes)")
+    return True
 
 
 def prepare(manifest_path: Path) -> int:
@@ -58,32 +83,26 @@ def prepare(manifest_path: Path) -> int:
     if not isinstance(scenes, list) or not scenes:
         raise ValueError("manifest has no scenes")
 
-    generated_roots: set[Path] = set()
+    prepared_targets: set[Path] = set()
     prepared = 0
     for idx, scene in enumerate(scenes, start=1):
-        source = scene.get("image_svg_source")
-        if not source:
-            continue
-        target = scene.get("image_b64")
-        if not target:
-            raise ValueError(f"scene {idx} with image_svg_source must also define image_b64")
-
-        svg_path = resolve_repo_path(str(source), field=f"scene {idx} image_svg_source")
-        target_path = resolve_repo_path(str(target), field=f"scene {idx} image_b64")
-        if target_path.suffix.lower() != ".b64":
-            raise ValueError(f"scene {idx} image_b64 must point to a .b64 file")
-        if not str(target_path.relative_to(ROOT)).startswith("work/prepared_assets/"):
-            raise ValueError(f"scene {idx} generated image_b64 must live under work/prepared_assets/")
-
-        generated_roots.add(ROOT / "work" / "prepared_assets" / str(data.get("id", "package")))
-        png = render_svg(svg_path, scene_no=idx)
-        target_path.parent.mkdir(parents=True, exist_ok=True)
-        target_path.write_text(base64.b64encode(png).decode("ascii"), encoding="ascii")
-        prepared += 1
-        print(f"Prepared scene {idx}: {source} -> {target} ({len(png)} PNG bytes)")
+        if _prepare_asset(scene, label=f"scene {idx}", prepared_targets=prepared_targets):
+            prepared += 1
+        keyframes = scene.get("keyframes") or []
+        if keyframes and not isinstance(keyframes, list):
+            raise ValueError(f"scene {idx} keyframes must be an array")
+        for pose_index, keyframe in enumerate(keyframes, start=1):
+            if not isinstance(keyframe, dict):
+                raise ValueError(f"scene {idx} keyframe {pose_index} must be an object")
+            if _prepare_asset(
+                keyframe,
+                label=f"scene {idx} keyframe {pose_index}",
+                prepared_targets=prepared_targets,
+            ):
+                prepared += 1
 
     if prepared == 0:
-        print("No SVG-backed scenes to prepare; existing image_b64 assets will be used.")
+        print("No SVG-backed scenes/keyframes to prepare; existing image_b64 assets will be used.")
     return prepared
 
 
