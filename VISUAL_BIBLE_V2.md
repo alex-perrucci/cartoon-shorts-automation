@@ -1,155 +1,175 @@
-# Ti fregano così — Visual Bible V2
+# Ti fregano così — Visual Bible V2.1
 
 This file is the visual authority for every newly scheduled cartoon short. `AGENTS.md` defines editorial/packaging rules; this file defines how the artwork must look and act.
 
-## North star
+## Canonical visual target
 
-Target a polished **hand-sketched editorial comic**: professional, expressive, slightly rough, instantly readable on a phone.
+The approved target is a **polished hand-sketched editorial comic**, like a professionally illustrated vertical magazine/cartoon storyboard.
 
-Not realism. Not glossy anime. Not 3D. Not clip-art. Not a child's drawing.
+The canonical mental reference is the approved cinema concession sketch:
+- recurring young man with messy black hair, expressive large-but-not-chibi eyes, angular face and black hoodie;
+- convincing location: cinema snack counter, warm practical lights, menu boards, popcorn machine, customers, posters and props;
+- energetic black ink with slightly imperfect hand-drawn contours;
+- warm cream paper base, deep charcoal/black, warm skin, restrained red accents, amber environmental light;
+- strong comic-panel staging and facial acting;
+- typography that feels hand-lettered but is **clean, deliberate and fully contained**;
+- enough detail to feel premium, never so much that the frame becomes noisy on a phone.
 
-Think of a strong magazine/cartoon storyboard: confident ink, warm flat colour, good anatomy, clear facial acting, dynamic composition, and one satirical visual point per frame.
+**Sketchy does NOT mean crude, unfinished, childish, ugly, wobbly, low-detail or improvised.**
+The target is `beautiful finished illustration with visible sketch/ink character`, not `rough draft`.
 
-## Hard visual gate
+## Hard quality gate
 
-Reject and redraw before push if:
-
-- the protagonist is visibly built from circles, rectangles or stick limbs;
-- face, hands or anatomy look childish, generic or mechanically assembled;
-- rendering drifts toward photorealism, glossy anime, plastic 3D or airbrushed skin;
-- pose/expression do not communicate the spoken beat;
-- the character simply stands next to a label;
-- all frames reuse the same pose/camera angle;
-- text is explaining what the illustration failed to show;
-- the background is empty without a compositional reason;
-- continuity is wrong (for example the character reacts to an object before it appears).
+Reject and redraw before push if any of these are true:
+- the protagonist looks like clip-art, a stick figure, primitive SVG geometry or a children's drawing;
+- the face/hands/anatomy feel mechanically assembled;
+- the frame feels empty, generic or contextless;
+- the viewer cannot tell WHERE the scene happens;
+- the illustration merely places the character beside a label instead of staging an event;
+- the environment has no relevant props, people, surfaces, signage or depth;
+- the character is frozen while the narration describes an action;
+- consecutive poses only change text/zoom;
+- text overlaps text, characters, prices, panel borders or important artwork;
+- any word is clipped, squeezed, unreadable or runs outside its intended box;
+- the frame depends on a paragraph of embedded text to explain the mechanism;
+- rendering drifts into photorealism, glossy anime, plastic 3D or generic corporate vector art.
 
 Every frame should look like it came from the same accomplished cartoonist.
 
 ## Recurring protagonist
 
 Use one recognisable young-adult protagonist throughout the channel:
-
 - male-presenting, early-twenties feel;
-- slim/average build with believable neck, shoulder and hand anatomy;
-- messy dark brown/black hair with a strong silhouette and hand-drawn locks;
-- expressive dark eyebrows;
-- large readable eyes, but never chibi;
-- angular stylised jaw/nose;
-- black hoodie or black casual jacket;
-- optional small white `TI FREGANO COSÌ` chest mark when composition allows.
+- slim/average build with believable neck, shoulders, elbows and hands;
+- messy dark brown/black hair with layered hand-drawn locks and a strong silhouette;
+- expressive dark eyebrows and readable eye direction;
+- large expressive eyes but never chibi;
+- angular stylised cheek/jaw/nose;
+- black hoodie or casual black jacket;
+- optional small white `TI FREGANO COSÌ` chest mark;
+- warm skin with one darker cel-shadow tone.
 
-No suit/tie as the default V2 costume.
-
-Preserve identity while changing acting aggressively. He is a recurring character, not a frozen mascot.
+He should feel like the same person in every frame while acting differently.
 
 ## Acting language
 
-The character must **act the narration**.
+The protagonist must **perform the narration**:
+- look at the exact object currently being discussed;
+- head turn before pointing;
+- lean toward a suspicious price/menu;
+- side-eye when something feels manipulative;
+- use hands to compare sizes/options;
+- react after the relevant object appears, never before;
+- direct-to-camera only for viewer address or payoff;
+- use knowing/sarcastic expressions rather than constant anger.
 
-Useful beats:
+Prominent hands need readable fingers, grip and palm structure.
 
-- side-eye at a suspicious price/UI;
-- raised eyebrow and tightened mouth;
-- lean closer to inspect;
-- compare two objects at different heights;
-- palm-up `ma mi prendi per il culo?` gesture;
-- head/eyes turn toward a new object;
-- point at the mechanism, not randomly at camera;
-- direct-to-camera only when narration addresses the viewer or lands the payoff;
-- finish with a knowing/confident expression rather than generic rage.
+## Environment-first storytelling — HARD gate
 
-Hands matter. Prominent hands need readable fingers, grip and palm structure, not mittens or straight sticks.
+Every semantic scene must establish a **specific real-world context** when the topic benefits from one.
+
+Examples:
+- cinema pricing -> concession counter, glowing cinema sign, menu board, popcorn tubs, drink cups, staff/customer silhouettes, movie posters;
+- supermarket -> shelf, price labels, baskets, products, aisle perspective;
+- subscription -> phone/laptop interface in a believable room/work setting;
+- delivery fee -> app + food bag + doorstep/courier context.
+
+A background is not decoration: it is evidence for what the viewer is looking at.
+
+For explanatory shorts, prefer a concrete recurring example across multiple scenes instead of abstract cards floating in empty cream space.
 
 ## Drawing language
 
-### Line work
-
-- strong hand-inked contours;
-- organic cubic Bézier paths for face, hair, clothes, hands and important props;
-- small irregularities are desirable: drawn, not CAD-perfect;
-- heavier outer silhouette, lighter interior detail;
-- sparse hatching, fold lines, motion ticks and sketch accents;
-- round line joins/caps where appropriate.
-
-### Shape construction
-
-Primitive SVG shapes are fine for signs, shelves and simple props. Do **not** use them as the visible construction language for human anatomy.
-
-Hair needs a designed silhouette with layered locks. Faces need a real cheek/jaw contour plus separate nose, eyebrow and eye shapes. Clothes need shoulder/elbow/torso folds so they feel worn by a body.
+### Ink
+- strong hand-inked outer contours;
+- smaller interior strokes for folds/details;
+- organic cubic Bézier paths for face, hair, clothes, hands and hero props;
+- slight line irregularity, never sloppy;
+- sparse hatching, motion ticks and sketch accents;
+- round joins/caps.
 
 ### Colour
+Core:
+- paper `#F3E6CC`, `#F7EDD9`;
+- ink `#171512`;
+- charcoal `#171717`, `#292725`;
+- skin around `#E7A16F`, `#F1B17F` + one darker shade;
+- red accent `#D74332`, `#C93228`;
+- cinema/environment amber/brown/cream tones where relevant.
 
-Core palette:
-
-- paper: `#F3E6CC`, `#F7EDD9`;
-- ink: `#171512`;
-- dark clothing: `#171717`, `#292725`;
-- skin base: around `#E7A16F`, `#F1B17F` plus one darker shadow tone;
-- red accent: `#D74332`, `#C93228`;
-- muted environmental greys/browns.
-
-Use flat colour with restrained 2-3 tone cel shading or sparse hatching. Avoid heavy gradients, plastic highlights and pseudo-3D skin.
+Use flat colour with restrained 2-3 tone cel shading. No glossy gradients on skin.
 
 ## Composition
 
-Every 1080x1920 frame needs one dominant idea:
+Every 1080x1920 frame should have:
+1. one dominant protagonist action;
+2. one unmistakable contextual environment;
+3. one mechanism/object focus;
+4. foreground/midground/background when useful;
+5. intentional negative space for subtitles and any essential embedded text.
 
-1. one clear protagonist action or object comparison;
-2. one contextual element explaining where/why;
-3. one accent element for the mechanism/punchline (price, arrow, receipt, app button, crossed label, etc.).
-
-Use foreground/midground/background when useful. Simplify anything that does not serve the beat.
-
-Vary framing intentionally:
-
+Vary framing:
 - medium close-up;
 - waist-up action;
-- over-the-shoulder inspection;
-- object comparison insert;
-- wider contextual frame;
+- over-the-shoulder menu inspection;
+- wider environment reveal;
+- object insert;
 - direct-to-camera payoff.
 
-## Text inside artwork
+Do not render every scene as the same waist-up character plus a box on the right.
 
-Text is secondary.
+## Text-safe layout — HARD gate
 
-Good uses: a price, weight, tiny UI label, or 2-6 word punchline.
+Embedded artwork text is allowed only when it improves the visual story: location signs, prices, product sizes, very short headlines, tiny labels.
 
-Bad uses: narration paragraphs, duplicated subtitles, or multiple explanation boxes because the drawing is unclear.
+### Rules
+- keep all embedded text inside a dedicated safe box or sign;
+- minimum outer canvas safety margin: **70 px**;
+- minimum box inner padding: **28 px**;
+- manually wrap text before rendering; do not rely on overflow/clipping;
+- maximum **2 main text blocks** per frame, excluding tiny natural environmental labels;
+- headline target: **2-6 words**;
+- a sign/menu may contain short rows such as `PICCOLO 6 €`, `MEDIO 8,50 €`, `GRANDE 9 €`;
+- text must never overlap another text element;
+- text must never cover the protagonist's face/hands or the hero object;
+- avoid long sentences inside art; narration belongs in subtitles;
+- if copy does not fit comfortably, SHORTEN THE COPY rather than shrinking it until unreadable.
 
-The image should make sense before the viewer reads embedded text.
+### Pre-push visual check
+For each SVG, verify by inspection/calculation that:
+- every text x/y position stays inside its intended rectangle;
+- line spacing leaves visible breathing room;
+- no two text bounding regions intersect;
+- no text is clipped by the 1080x1920 viewport;
+- no word crosses a panel/sign border.
 
-## Satirical visual grammar
+Any overflow = automatic redraw.
 
-The art exposes the mechanism, not merely decorates the narration.
+## Concrete-example grammar
 
-Examples:
+The short should teach through something the viewer recognises.
 
-- same `2,49 €` tag under visibly smaller packaging;
-- cancel button shrinking while renewal grows;
-- points/loyalty metaphorically becoming a leash or maze;
-- `gratis` in front while a recurring charge appears behind;
-- a dominant default option physically crowding out opt-out.
+For example, for decoy pricing at a cinema:
+1. establish the cinema/snack counter;
+2. protagonist sees three drink or popcorn sizes;
+3. show an **illustrative** price ladder (for example 6 €, 8,50 €, 9 €);
+4. protagonist first judges the large as expensive;
+5. then compares it with the middle option;
+6. the relative difference becomes visually salient;
+7. explain that this is an illustration of context/decoy effects, not a claim that every cinema uses the tactic;
+8. close with a practical viewer check.
 
-Visual metaphors must remain factually faithful. Never imply fraud/criminality without evidence.
+The environment, objects and acting should carry most of this explanation.
 
-## Pose-to-pose limited animation
+## Pose-to-pose animation
 
-Character-led semantic scenes should normally contain **2-3 full-frame key poses** (maximum 4). Each key pose is a self-contained 1080x1920 SVG using the same character, environment and object continuity.
+Character-led semantic scenes normally use **2-3 full-frame key poses** (maximum 4).
 
-The goal is meaningful acting progression, not decorative movement.
+Good sequence:
+`enter context -> notice -> inspect -> compare -> react -> address viewer`
 
-Good progression:
-
-1. notices the 200 g packet;
-2. eyes/head turn to the price;
-3. sees the 150 g packet and expression changes;
-4. holds both together to compare;
-5. turns to camera for payoff.
-
-Within one semantic scene, each successive keyframe must change at least one meaningful element:
-
+Each new pose must change one or more:
 - gaze;
 - head angle;
 - mouth/expression;
@@ -158,59 +178,49 @@ Within one semantic scene, each successive keyframe must change at least one mea
 - prop position;
 - object focus.
 
-Do not make a 'new pose' where only a caption or arrow changes.
+Keep the same environment and object continuity inside a semantic scene. Never fake character motion with zoom/pan alone.
 
-Pure diagram/object/insert scenes may use a single hero SVG if character acting adds nothing.
-
-The renderer cuts through key poses in order while applying subtle camera movement. Therefore storyboard them as a coherent action sequence. Never rely on zoom/pan to fake character animation.
-
-## Scene-to-scene continuity
+## Scene continuity
 
 Preserve:
-
-- face/hair identity;
-- outfit family;
-- ink/shading language;
-- cream + black + red palette;
-- object continuity when one example spans multiple scenes.
+- face/hair/outfit;
+- drawing language;
+- palette;
+- cinema/store/room continuity when an example spans scenes;
+- menu prices/objects from one frame to the next unless narration intentionally changes them.
 
 Change deliberately:
+- pose;
+- expression;
+- camera;
+- object focus;
+- depth;
+- composition.
 
-- pose and expression;
-- gaze and hand action;
-- camera distance/angle;
-- object position/focus;
-- background emphasis.
-
-The full short should feel like a storyboard sequence, not unrelated illustrations and not copies of the same frame.
+The full short should feel like a coherent comic sequence, not eight unrelated posters.
 
 ## SVG craft requirements
 
-Scheduled artwork must remain self-contained SVG.
+Scheduled artwork remains self-contained 1080x1920 SVG:
+- valid UTF-8 XML;
+- local vector primitives and paths only;
+- organic paths for visible anatomy;
+- grouped layers for environment/character/props/text;
+- CairoSVG-friendly;
+- no scripts, foreignObject, external images/fonts/network references or raster data URIs.
 
-For character art:
+## Final V2.1 checklist
 
-- prefer `<path>` with cubic Bézier curves for silhouettes and anatomy;
-- group logically (`character`, `face`, `hair`, `left-hand`, `prop`, `background`);
-- use layered fills for cel shading;
-- use `stroke-linecap="round"` and `stroke-linejoin="round"` for hand-drawn lines;
-- add sparse hatching/folds/motion marks as short accent paths;
-- keep SVG deterministic and CairoSVG-friendly.
+Before committing:
+1. Is this beautiful finished sketch art rather than crude vector art?
+2. Is the setting immediately recognisable?
+3. Does the frame contain a concrete example/prop instead of abstraction?
+4. Is protagonist anatomy/face/hair professionally drawn?
+5. Does gaze/pose match the spoken beat?
+6. Does every text element fit with comfortable padding?
+7. Is there zero text overlap or clipping?
+8. Are key poses meaningfully different?
+9. Is continuity correct?
+10. Would the frame still work as a polished comic panel without subtitles?
 
-Never use scripts, `foreignObject`, remote references, embedded raster data, external fonts/images or network resources.
-
-## Final V2 checklist
-
-Before committing, ask:
-
-1. Does the protagonist look professionally drawn rather than like an SVG stick figure?
-2. Can emotion and gaze direction be read instantly?
-3. Does the pose physically express the exact narration beat?
-4. Is the mechanism obvious without relying on subtitles?
-5. Is the style sketchy/editorial rather than realistic, glossy or childish?
-6. Is the composition strong on a vertical phone screen?
-7. Are consecutive key poses meaningfully different while preserving identity?
-8. Does the action order make sense with no continuity errors?
-9. Would each frame still look intentional if printed as a comic panel?
-
-If an important answer is no, redraw before push.
+If any answer is no, redraw before push.
