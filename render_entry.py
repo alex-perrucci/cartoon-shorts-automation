@@ -15,7 +15,7 @@ MIN_FONT_SIZE = 58
 SAFE_TEXT_WIDTH = 820
 MAX_WORDS_PER_CAPTION = 2
 MIN_VIDEO_SECONDS = 60.0
-MAX_VIDEO_SECONDS = 90.0
+MAX_VIDEO_SECONDS = 120.0
 TAIL_HOLD_SECONDS = 1.2
 MIN_NARRATION_WORDS = 150
 MIN_KEYFRAMES = 2
@@ -326,7 +326,7 @@ def qc_60_plus(
         "vertical_1080x1920": video_stream.get("width") == renderer.WIDTH
         and video_stream.get("height") == renderer.HEIGHT,
         "audio_present": bool(audio_stream),
-        "duration_60_to_90_seconds": MIN_VIDEO_SECONDS <= duration <= MAX_VIDEO_SECONDS,
+        "duration_60_to_120_seconds": MIN_VIDEO_SECONDS <= duration <= MAX_VIDEO_SECONDS,
         "at_least_6_scenes": len(data["scenes"]) >= 6,
         "all_scene_images_prepared": len(image_manifest) == len(data["scenes"]),
         "caption_present": bool(data.get("caption")),
