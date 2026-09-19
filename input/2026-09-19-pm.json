@@ -1,0 +1,100 @@
+{
+  "id": "2026-09-19-pm",
+  "title": "Il volo da 30 euro che cresce a ogni clic",
+  "hook": "Il volo costa trenta euro. Poi inizi a cliccare.",
+  "narration": "Il volo costa trenta euro. Poi inizi a cliccare. Scegli Roma-Barcellona e vedi 29,99 euro. Bello. Quel numero diventa subito il tuo riferimento mentale. Poi arriva il bagaglio: quello piccolo passa, quello grande costa. Poi il posto: vuoi sceglierlo? Altro bivio, altro prezzo. Assicurazione, priorità, flessibilità. Nessun extra è automaticamente una fregatura: alcuni possono servirti. Ma ormai non stai più decidendo se spendere trenta euro. Stai decidendo se aggiungerne nove, poi dodici, poi sette. Ogni morso sembra piccolo. Il totale ingrassa in silenzio come se avesse trovato il buffet. Nell'Unione europea, il prezzo del volo deve includere fin dall'inizio tasse e costi inevitabili e prevedibili. Gli extra opzionali devono essere comunicati chiaramente e accettati con una scelta attiva. Quindi il punto non è che ogni supplemento sia nascosto o illegale. È che una fila di micro-decisioni può farti perdere la domanda importante: quanto pago davvero per il viaggio che voglio? Prima di confermare, ignora per dieci secondi i singoli extra. Guarda il totale e confrontalo con un'offerta equivalente. Se il volo da trenta è diventato settantotto, il prezzo che conta è settantotto.",
+  "scenes": [
+    {
+      "narration": "Il volo costa trenta euro. Poi inizi a cliccare.",
+      "visual": "Airport booking context. The recurring protagonist sees a flight card and initially points at the low fare, then leans closer with a suspicious expression. Warm terminal windows, plane silhouette and red suitcase remain visible.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_01_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_01_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_01_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_01_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_01_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Scegli Roma-Barcellona e vedi 29,99 euro. Bello. Quel numero diventa subito il tuo riferimento mentale.",
+      "visual": "Same terminal and booking flow. The protagonist notices the illustrative 29.99 euro Rome-to-Barcelona fare, then shifts from pleased to focused as the red price becomes the visual anchor.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_02_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_02_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_02_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_02_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_02_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_02_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Poi arriva il bagaglio: quello piccolo passa, quello grande costa. Poi il posto: vuoi sceglierlo? Altro bivio, altro prezzo.",
+      "visual": "The airport booking card advances through optional choices. First the protagonist gestures toward the red cabin suitcase and a +9 euro illustrative baggage option; then his gaze and hand move to a +12 euro seat-choice card.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_03_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_03_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_03_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_03_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_03_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_03_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Assicurazione, priorità, flessibilità. Nessun extra è automaticamente una fregatura: alcuni possono servirti. Ma ormai non stai più decidendo se spendere trenta euro.",
+      "visual": "The same booking flow shows three optional-service labels. The protagonist first scans the list, then changes pose and deliberately considers a simple yes/no choice, making clear that extras can have real utility.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_04_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_04_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_04_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_04_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_04_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_04_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Stai decidendo se aggiungerne nove, poi dodici, poi sette. Ogni morso sembra piccolo. Il totale ingrassa in silenzio come se avesse trovato il buffet.",
+      "visual": "Illustrative micro-additions +9, +12 and +7 accumulate on the booking card. The protagonist follows the small increments, then reacts to the visibly larger total with a sarcastic disbelieving expression.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_05_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_05_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_05_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_05_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_05_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_05_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Nell'Unione europea, il prezzo del volo deve includere fin dall'inizio tasse e costi inevitabili e prevedibili. Gli extra opzionali devono essere comunicati chiaramente e accettati con una scelta attiva.",
+      "visual": "Still in the airport booking context, the protagonist points first to a clean final-price card for unavoidable foreseeable charges, then to an optional-extra opt-in control. No implication that every supplement is hidden or unlawful.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_06_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_06_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_06_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_06_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_06_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_06_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Quindi il punto non è che ogni supplemento sia nascosto o illegale. È che una fila di micro-decisioni può farti perdere la domanda importante: quanto pago davvero per il viaggio che voglio?",
+      "visual": "The protagonist steps back from the individual add-on rows and reframes the decision around one large question: the real trip total. His second pose turns from the interface toward the viewer while keeping the airport environment visible.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_07_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_07_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_07_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_07_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_07_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_07_pose_02.b64"}
+      ]
+    },
+    {
+      "narration": "Prima di confermare, ignora per dieci secondi i singoli extra. Guarda il totale e confrontalo con un'offerta equivalente. Se il volo da trenta è diventato settantotto, il prezzo che conta è settantotto.",
+      "visual": "Payoff in the same airport context. The protagonist compares the illustrative starting fare with the illustrative 77.99 euro trip total, then points confidently at the total-only card as the practical comparison rule.",
+      "image_svg_source": "assets/generated/2026-09-19-pm/scene_08_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-19-pm/scene_08_pose_01.b64",
+      "keyframes": [
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_08_pose_01.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_08_pose_01.b64"},
+        {"image_svg_source":"assets/generated/2026-09-19-pm/scene_08_pose_02.svg","image_b64":"work/prepared_assets/2026-09-19-pm/scene_08_pose_02.b64"}
+      ]
+    }
+  ],
+  "caption": "Il volo da 30 € non è sempre il viaggio da 30 €. Conta il totale che ti serve davvero.",
+  "hashtags": ["prezzi", "voli", "risparmio", "psicologia"],
+  "youtube": {
+    "title": "Il volo da 30 € che cresce a ogni clic",
+    "description": "Un prezzo iniziale basso può restare il tuo riferimento mentre aggiungi bagaglio, posto e altri servizi opzionali. Prima di pagare, confronta il costo totale del viaggio equivalente, non solo la tariffa che ti ha attirato.",
+    "hashtags": ["voli", "prezzi", "risparmio", "psicologia"],
+    "tags": ["voli low cost", "prezzi voli", "bagaglio a mano", "costi extra", "psicologia prezzi", "risparmiare voli", "biglietti aerei", "prezzo finale"]
+  },
+  "tiktok": {
+    "caption": "29,99 € ti entra in testa. Poi +9, +12, +7… e continui a pensare al prezzo di partenza. Guarda il totale.",
+    "hashtags": ["voli", "prezzi", "risparmio", "psicologia"]
+  }
+}
