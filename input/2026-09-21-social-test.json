@@ -151,5 +151,7 @@
     ]
   },
   "retry_generation": 1,
-  "retry_reason": "youtube_api_enabled"
+  "retry_reason": "youtube_api_enabled",
+  "metadata_revision": 1,
+  "metadata_reason": "youtube_title_hashtags"
 }
