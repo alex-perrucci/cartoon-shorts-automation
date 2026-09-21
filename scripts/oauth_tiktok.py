@@ -15,7 +15,8 @@ import requests
 from tiktok_tokens import save_encrypted
 
 AUTHORIZE_ENDPOINT = "https://www.tiktok.com/v2/auth/authorize/"
-TOKEN_ENDPOINT = "https://open.tiktokapis.com/v2/oauth/token/"\nUSER_INFO_ENDPOINT = "https://open.tiktokapis.com/v2/user/info/"
+TOKEN_ENDPOINT = "https://open.tiktokapis.com/v2/oauth/token/"
+USER_INFO_ENDPOINT = "https://open.tiktokapis.com/v2/user/info/"
 
 
 def _env(name: str) -> str:
