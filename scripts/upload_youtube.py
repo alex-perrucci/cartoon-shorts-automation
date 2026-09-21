@@ -125,6 +125,7 @@ def update_metadata(video_id: str, manifest_path: Path) -> dict:
                 "description": description,
                 "tags": tags,
                 "categoryId": "27",
+                "defaultLanguage": "it",
             },
         },
     ).execute()
@@ -151,6 +152,7 @@ def upload(video_path: Path, manifest_path: Path) -> dict:
             "description": description,
             "tags": tags,
             "categoryId": "27",
+            "defaultLanguage": "it",
         },
         "status": {
             "privacyStatus": "private",
