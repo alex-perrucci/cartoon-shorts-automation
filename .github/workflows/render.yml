@@ -159,7 +159,7 @@ jobs:
           tail -n 1 youtube-upload.log > "$RECEIPT"
           python -m json.tool "$RECEIPT" >/dev/null
 
-      - name: Persist social receipts and rotated TikTok token state
+      - name: Persist YouTube upload receipt
         if: always() && github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
         shell: bash
         run: |
@@ -171,10 +171,10 @@ jobs:
             git add .social_receipts
           fi
           if git diff --cached --quiet; then
-            echo "No social receipt or TikTok token-state changes to persist."
+            echo "No YouTube receipt changes to persist."
             exit 0
           fi
-          git commit -m "chore: persist social upload state"
+          git commit -m "chore: persist YouTube upload state"
           git pull --rebase origin main
           git push origin HEAD:main
 
