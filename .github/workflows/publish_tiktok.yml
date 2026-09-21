@@ -1,4 +1,4 @@
-name: Publish TikTok Direct
+name: Prepare TikTok private-ready
 
 on:
   workflow_dispatch:
@@ -7,27 +7,23 @@ on:
         description: "Existing input manifest, e.g. input/2026-09-21-am.json"
         required: true
         type: string
-      privacy_level:
-        description: "Choose explicitly: SELF_ONLY, MUTUAL_FOLLOW_FRIENDS, FOLLOWER_OF_CREATOR, PUBLIC_TO_EVERYONE"
-        required: true
-        type: string
-      confirm_publish:
-        description: "I reviewed the generated caption/hashtags and explicitly consent to publish this post"
+      confirm_private_post:
+        description: "I choose SELF_ONLY, reviewed the generated caption/hashtags, and consent to create this private TikTok post"
         required: true
         default: false
         type: boolean
       allow_comments:
-        description: "Allow comments (only if creator settings permit)"
+        description: "Keep comments enabled when TikTok allows it"
         required: true
-        default: false
+        default: true
         type: boolean
       allow_duet:
-        description: "Allow Duet (only if creator settings permit)"
+        description: "Keep Duet enabled when TikTok allows it"
         required: true
         default: false
         type: boolean
       allow_stitch:
-        description: "Allow Stitch (only if creator settings permit)"
+        description: "Keep Stitch enabled when TikTok allows it"
         required: true
         default: false
         type: boolean
@@ -36,7 +32,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: tiktok-direct-${{ inputs.input_file }}
+  group: tiktok-private-ready-${{ inputs.input_file }}
   cancel-in-progress: false
 
 jobs:
@@ -55,19 +51,18 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Validate explicit publish consent
+      - name: Validate explicit private-post consent
         shell: bash
         run: |
           set -euo pipefail
-          if [ "${{ inputs.confirm_publish }}" != "true" ]; then
-            echo "Direct Post requires explicit per-post consent." >&2
+          if [ "${{ inputs.confirm_private_post }}" != "true" ]; then
+            echo "TikTok Direct Post requires explicit per-post consent." >&2
             exit 1
           fi
-          case "${{ inputs.privacy_level }}" in
-            SELF_ONLY|MUTUAL_FOLLOW_FRIENDS|FOLLOWER_OF_CREATOR|PUBLIC_TO_EVERYONE) ;;
-            *) echo "Invalid privacy_level: ${{ inputs.privacy_level }}" >&2; exit 1 ;;
-          esac
-          test -f "${{ inputs.input_file }}" || { echo "Manifest not found: ${{ inputs.input_file }}" >&2; exit 1; }
+          test -f "${{ inputs.input_file }}" || {
+            echo "Manifest not found: ${{ inputs.input_file }}" >&2
+            exit 1
+          }
 
       - uses: actions/setup-python@v5
         with:
@@ -79,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Render approved package
+      - name: Render final package
         shell: bash
         run: |
           set -euo pipefail
@@ -87,7 +82,7 @@ jobs:
           python render_entry.py --input "${{ inputs.input_file }}" --validate-assets
           python render_entry.py --input "${{ inputs.input_file }}"
 
-      - name: Direct post to TikTok
+      - name: Create finished private TikTok post
         id: tiktok
         shell: bash
         run: |
@@ -98,7 +93,7 @@ jobs:
           RECEIPT=".social_receipts/tiktok_direct/$ID.json"
 
           if [ -f "$RECEIPT" ]; then
-            echo "TikTok Direct Post receipt already exists for $ID; refusing duplicate publish."
+            echo "TikTok private-ready receipt already exists for $ID; refusing duplicate Direct Post."
             cat "$RECEIPT"
             exit 0
           fi
@@ -108,13 +103,13 @@ jobs:
           [ "${{ inputs.allow_duet }}" = "true" ] && FLAGS+=(--allow-duet)
           [ "${{ inputs.allow_stitch }}" = "true" ] && FLAGS+=(--allow-stitch)
 
-          python scripts/upload_tiktok_direct.py             --video "$VIDEO"             --manifest "$INPUT_FILE"             --privacy-level "${{ inputs.privacy_level }}"             "${FLAGS[@]}" | tee tiktok-direct.log
+          python scripts/upload_tiktok_direct.py             --video "$VIDEO"             --manifest "$INPUT_FILE"             --privacy-level SELF_ONLY             "${FLAGS[@]}" | tee tiktok-direct.log
 
           mkdir -p "$(dirname "$RECEIPT")"
           tail -n 1 tiktok-direct.log > "$RECEIPT"
           python -m json.tool "$RECEIPT" >/dev/null
 
-      - name: Persist TikTok token state and publish receipt
+      - name: Persist TikTok token state and private-post receipt
         if: always() && steps.tiktok.outcome == 'success'
         shell: bash
         run: |
@@ -129,6 +124,6 @@ jobs:
             echo "No TikTok state changes to persist."
             exit 0
           fi
-          git commit -m "chore: persist TikTok direct-post state"
+          git commit -m "chore: persist TikTok private-ready state"
           git pull --rebase origin main
           git push origin HEAD:main
