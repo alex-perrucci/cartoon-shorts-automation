@@ -142,15 +142,8 @@ jobs:
           ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "$INPUT_FILE")"
           RECEIPT=".social_receipts/youtube/$ID.json"
           if [ -f "$RECEIPT" ]; then
-            VIDEO_ID="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("video_id", ""))' "$RECEIPT")"
-            if [ -z "$VIDEO_ID" ]; then
-              echo "Existing YouTube receipt has no video_id; refusing to risk a duplicate upload." >&2
-              exit 1
-            fi
-            echo "YouTube receipt exists for $ID; reconciling metadata on video $VIDEO_ID instead of uploading a duplicate."
-            python scripts/upload_youtube.py --video-id "$VIDEO_ID" --manifest "$INPUT_FILE" | tee youtube-upload.log
-            tail -n 1 youtube-upload.log > "$RECEIPT"
-            python -m json.tool "$RECEIPT" >/dev/null
+            echo "YouTube receipt already exists for $ID; skipping duplicate upload."
+            cat "$RECEIPT"
             exit 0
           fi
           if [ -z "${YOUTUBE_CLIENT_ID:-}" ] || [ -z "${YOUTUBE_CLIENT_SECRET:-}" ] || [ -z "${YOUTUBE_REFRESH_TOKEN:-}" ]; then
