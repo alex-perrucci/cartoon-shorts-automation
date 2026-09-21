@@ -15,7 +15,7 @@ import requests
 from tiktok_tokens import save_encrypted
 
 AUTHORIZE_ENDPOINT = "https://www.tiktok.com/v2/auth/authorize/"
-TOKEN_ENDPOINT = "https://open.tiktokapis.com/v2/oauth/token/"
+TOKEN_ENDPOINT = "https://open.tiktokapis.com/v2/oauth/token/"\nUSER_INFO_ENDPOINT = "https://open.tiktokapis.com/v2/user/info/"
 
 
 def _env(name: str) -> str:
@@ -29,7 +29,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="One-time TikTok Desktop OAuth bootstrap.")
     parser.add_argument("--port", type=int, default=3455)
     parser.add_argument("--output", type=Path, default=Path(".auth/tiktok_tokens.enc"))
-    parser.add_argument("--scope", default="video.upload,video.publish")
+    parser.add_argument("--scope", default="user.info.basic,video.upload,video.publish")
     args = parser.parse_args()
 
     client_key = _env("TIKTOK_CLIENT_KEY")
@@ -127,6 +127,24 @@ def main() -> int:
     save_encrypted(args.output, token_key, body)
     print(f"Encrypted TikTok token state written to {args.output}")
     print(f"Authorized scopes: {body.get('scope', '')}")
+
+    scopes = {x.strip() for x in str(body.get("scope", "")).replace(" ", ",").split(",") if x.strip()}
+    if "user.info.basic" in scopes:
+        profile_response = requests.get(
+            USER_INFO_ENDPOINT,
+            headers={"Authorization": f"Bearer {body['access_token']}"},
+            params={"fields": "open_id,display_name,avatar_url"},
+            timeout=30,
+        )
+        profile_body = profile_response.json()
+        if profile_response.status_code < 400 and (profile_body.get("error") or {}).get("code") in (None, "", "ok"):
+            user = (profile_body.get("data") or {}).get("user") or {}
+            display_name = str(user.get("display_name", "")).strip()
+            if display_name:
+                print(f"Authorized TikTok profile: {display_name}")
+        else:
+            print("TikTok profile confirmation could not be loaded; OAuth tokens were still saved.")
+
     print("No access or refresh token was printed.")
     return 0
 
