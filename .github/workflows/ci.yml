@@ -48,7 +48,9 @@ jobs:
           scripts/tiktok_tokens.py
           scripts/upload_youtube.py
           scripts/upload_tiktok_draft.py
+          scripts/upload_tiktok_direct.py
           tests/test_assets.py tests/test_subtitles.py
+          tests/test_tiktok_direct.py tests/test_youtube_metadata.py
       - name: Unit tests
         run: python -m unittest discover -s tests -v
       - name: Self test
