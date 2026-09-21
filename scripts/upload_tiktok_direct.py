@@ -8,8 +8,12 @@ from pathlib import Path
 
 import requests
 
-from tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
-from upload_tiktok_draft import _check_api_response, _chunk_plan, upload_file
+try:
+    from tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
+    from upload_tiktok_draft import _check_api_response, _chunk_plan, upload_file
+except ModuleNotFoundError:  # imported as scripts.upload_tiktok_direct in tests
+    from scripts.tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
+    from scripts.upload_tiktok_draft import _check_api_response, _chunk_plan, upload_file
 
 CREATOR_INFO_ENDPOINT = "https://open.tiktokapis.com/v2/post/publish/creator_info/query/"
 INIT_ENDPOINT = "https://open.tiktokapis.com/v2/post/publish/video/init/"
