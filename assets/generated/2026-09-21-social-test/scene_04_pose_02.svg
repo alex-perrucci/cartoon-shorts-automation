@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <rect width="1080" height="1920" fill="#F3E6CC"/>
+  <g stroke="#171512" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#D8B47C" d="M55 185 Q540 120 1025 190 L1025 1560 Q540 1635 55 1565 Z"/>
+    <path fill="#F7EDD9" d="M85 225 Q540 170 995 230 L995 1515 Q540 1570 85 1515 Z"/>
+    <path fill="#CFA66F" d="M90 1320 Q540 1270 990 1325 L990 1510 Q540 1565 90 1510 Z"/>
+    <path fill="#292725" d="M150 365 Q285 315 430 350 L430 650 Q285 680 150 645 Z"/>
+    <path fill="#171717" d="M210 1040 Q290 940 430 980 Q540 1030 558 1240 L540 1480 Q365 1530 195 1465 L190 1235 Q188 1120 210 1040 Z"/>
+    <path fill="#E7A16F" d="M245 800 Q275 670 405 675 Q525 695 545 825 Q540 940 440 982 Q320 978 248 885 Z"/>
+    <path fill="#171512" d="M230 795 Q245 640 395 625 Q520 635 562 765 Q515 720 480 738 Q447 658 392 710 Q330 650 287 748 Z"/>
+    <path d="M300 838 Q330 816 360 838 M430 838 Q460 816 492 838" fill="none"/>
+    <path d="M365 925 Q410 900 456 923" fill="none"/>
+    <path d="M265 1000 Q330 970 430 980" fill="none"/>
+    <path d="M455 1110 C585 1050 675 930 770 820" fill="none"/><path d="M758 802 Q800 775 830 812 Q846 842 818 870 Q776 884 744 848 Z" fill="#E7A16F"/>
+    <path fill="#292725" d="M115 1485 Q540 1440 965 1490 L940 1715 Q540 1760 135 1715 Z"/>
+    <path fill="#D74332" d="M155 1550 Q280 1525 405 1550 L405 1655 Q280 1680 155 1655 Z"/>
+    <path fill="#F7EDD9" d="M465 1530 Q690 1495 905 1540 L905 1665 Q690 1700 465 1665 Z"/>
+    
+      <path fill="#F7EDD9" d="M545 315 Q770 270 985 330 L985 1015 Q770 1055 545 1015 Z"/>
+      <path fill="#292725" d="M575 350 Q770 320 955 360 L955 475 Q770 500 575 475 Z"/>
+      <text x="765" y="424" text-anchor="middle" font-family="sans-serif" font-size="44" font-weight="800" fill="#F7EDD9" stroke="none">IL PRESTIGIATORE</text>
+      <text x="765" y="560" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="800" fill="#171512" stroke="none">SPEDIZIONE GRATIS</text>
+      <rect x="615" y="625" width="300" height="42" rx="21" fill="#D8B47C" stroke="none"/>
+      <rect x="615" y="625" width="300" height="42" rx="21" fill="#D74332" stroke="none"/>
+      <text x="650" y="750" font-family="sans-serif" font-size="42" font-weight="800" fill="#171512" stroke="none">45 € + 18 €</text>
+      <text x="650" y="825" font-family="sans-serif" font-size="38" font-weight="700" fill="#D74332" stroke="none">63 €</text>
+    <path d="M635 930 C700 870 790 870 860 930 M660 900 q100 -110 190 0" fill="none"/>
+  </g>
+</svg>

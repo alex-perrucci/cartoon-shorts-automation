@@ -1,0 +1,153 @@
+{
+  "id": "2026-09-21-social-test",
+  "title": "Ti mancano 5 euro e ne spendi 20",
+  "hook": "Ti mancano cinque euro. E ne spendi venti.",
+  "narration": "Ti mancano cinque euro. E ne spendi venti. Hai 45 euro nel carrello e la spedizione costa 5,90. Poi compare la barra: spedizione gratis sopra i 50. A quel punto pagare 5,90 di consegna sembra quasi una sconfitta personale. Così inizi a cercare qualcosa da aggiungere. Calzini, cavo, snack, qualsiasi cosa pur di vedere quella scritta magica: gratis. Ed è qui che il carrello ti fa il prestigiatore. La spedizione non è diventata gratuita: hai semplicemente spostato più soldi sui prodotti. Le soglie di spedizione gratuita vengono usate proprio per spingere il valore medio dell’ordine verso l’alto. Il negozio non deve nemmeno nasconderlo: la soglia è lì, bella visibile, e spesso conviene anche a lui. Non significa che sia una truffa: se l’oggetto extra ti serviva davvero, può avere senso. Ma il confronto corretto è brutale: quanto spendi senza extra, spedizione compresa, contro quanto spendi per raggiungere la soglia. Se per evitare 5,90 ne aggiungi 18, complimenti: hai speso circa dodici euro in più per non pagare la spedizione. Il corriere arriva uguale. Solo il tuo carrello ha fatto palestra.",
+  "scenes": [
+    {
+      "narration": "Ti mancano cinque euro. E ne spendi venti. Hai 45 euro nel carrello e la spedizione costa 5,90.",
+      "visual": "Online shopping desk scene. The recurring protagonist notices a 45 euro cart and 5.90 shipping cost, first reading the cart and then reacting to the shipping line.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_01_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_01_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_01_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_01_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_01_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Poi compare la barra: spedizione gratis sopra i 50. A quel punto pagare 5,90 di consegna sembra quasi una sconfitta personale.",
+      "visual": "Same online cart. A free-shipping progress bar shows that only 5 euros are missing; protagonist goes from noticing the bar to a sarcastically tempted expression.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_02_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_02_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_02_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_02_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_02_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_02_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Così inizi a cercare qualcosa da aggiungere. Calzini, cavo, snack, qualsiasi cosa pur di vedere quella scritta magica: gratis.",
+      "visual": "Same ecommerce context. Three small add-on products appear—socks, cable and snack—while the protagonist scans them and then reaches toward one of them just to unlock free shipping.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_03_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_03_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_03_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_03_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_03_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_03_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Ed è qui che il carrello ti fa il prestigiatore. La spedizione non è diventata gratuita: hai semplicemente spostato più soldi sui prodotti.",
+      "visual": "Shopping-cart magic-trick visual. The protagonist watches the shipping line become free while the product total grows from 45 plus 18 to 63 euros, then points at the larger total.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_04_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_04_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_04_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_04_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_04_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_04_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Le soglie di spedizione gratuita vengono usate proprio per spingere il valore medio dell’ordine verso l’alto. Il negozio non deve nemmeno nasconderlo: la soglia è lì, bella visibile, e spesso conviene anche a lui.",
+      "visual": "Object-led ecommerce analytics insert in the same visual world. A simple chart shows order value rising when a threshold is introduced, without implying hidden illegality.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_05.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_05.b64"
+    },
+    {
+      "narration": "Non significa che sia una truffa: se l’oggetto extra ti serviva davvero, può avere senso.",
+      "visual": "Same add-on products. The protagonist pauses before buying and evaluates whether the extra item is genuinely useful rather than automatically treating the threshold as a scam.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_06.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_06.b64"
+    },
+    {
+      "narration": "Ma il confronto corretto è brutale: quanto spendi senza extra, spedizione compresa, contro quanto spendi per raggiungere la soglia.",
+      "visual": "Clear side-by-side totals in the same shopping scene: 50.90 euros with shipping versus 63 euros after adding an extra item. The protagonist compares them, then points to the cheaper total.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_07_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_07_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_07_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_07_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_07_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_07_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Se per evitare 5,90 ne aggiungi 18, complimenti: hai speso circa dodici euro in più per non pagare la spedizione. Il corriere arriva uguale. Solo il tuo carrello ha fatto palestra.",
+      "visual": "Final sarcastic payoff. The two totals remain visible while the same courier outcome is emphasized; protagonist turns toward the viewer with a knowing expression as the cart total has clearly grown.",
+      "image_svg_source": "assets/generated/2026-09-21-social-test/scene_08_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_08_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_08_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_08_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-social-test/scene_08_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-social-test/scene_08_pose_02.b64"
+        }
+      ]
+    }
+  ],
+  "caption": "La spedizione è gratis. Il prodotto extra no. Prima confronta i due totali.",
+  "hashtags": [
+    "spedizionegratis",
+    "shoppingonline",
+    "marketing",
+    "soldi"
+  ],
+  "youtube": {
+    "title": "Ti mancano 5 €. E ne spendi 20 per la spedizione gratis",
+    "description": "La soglia della spedizione gratuita può spingerti ad aggiungere prodotti al carrello. Il controllo più semplice: confronta il totale con spedizione contro il totale necessario per raggiungere la soglia.",
+    "hashtags": [
+      "shoppingonline",
+      "marketing",
+      "soldi",
+      "ecommerce"
+    ],
+    "tags": [
+      "spedizione gratis",
+      "soglia spedizione gratuita",
+      "shopping online",
+      "ecommerce",
+      "marketing",
+      "average order value",
+      "risparmio online",
+      "carrello ecommerce"
+    ]
+  },
+  "tiktok": {
+    "caption": "Ti mancano 5 € alla spedizione gratis. Poi ne aggiungi 18. Grande affare 😂",
+    "hashtags": [
+      "spedizionegratis",
+      "shoppingonline",
+      "marketing",
+      "soldi",
+      "ecommerce"
+    ]
+  }
+}
