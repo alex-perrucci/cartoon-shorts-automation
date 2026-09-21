@@ -121,18 +121,6 @@ jobs:
           ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "${{ steps.input.outputs.file }}")"
           echo "dir=output/$ID" >> "$GITHUB_OUTPUT"
 
-      - name: Generate thumbnail and send publication package to Telegram
-        id: telegram
-        if: steps.render.outcome == 'success'
-        continue-on-error: true
-        shell: bash
-        run: |
-          set -euo pipefail
-          python scripts/send_telegram_package.py \
-            --video "${{ steps.output.outputs.dir }}/final_video.mp4" \
-            --manifest "${{ steps.input.outputs.file }}" \
-            --thumbnail "${{ steps.output.outputs.dir }}/thumbnail.jpg" | tee telegram-delivery.log
-
       - name: Upload output artifact
         if: steps.render.outcome == 'success'
         uses: actions/upload-artifact@v4
@@ -196,20 +184,19 @@ jobs:
           git push origin HEAD:main
 
       - name: Upload failure logs
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.telegram.outcome == 'failure' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         uses: actions/upload-artifact@v4
         with:
           name: cartoon-short-failure-${{ github.run_id }}
           path: |
             render.log
-            telegram-delivery.log
             youtube-upload.log
             tiktok-upload.log
           if-no-files-found: ignore
           retention-days: 7
 
       - name: Send failure to Telegram when configured
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.telegram.outcome == 'failure' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         shell: bash
         run: |
           set -u
@@ -219,9 +206,9 @@ jobs:
           fi
           INPUT_FILE="${{ steps.input.outputs.file }}"
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          MESSAGE=$(printf '❌ Cartoon short pipeline issue\nInput: %s\nRender: %s\nTelegram: %s\nYouTube: %s\nTikTok: %s\n%s' "$INPUT_FILE" "${{ steps.render.outcome }}" "${{ steps.telegram.outcome }}" "${{ steps.youtube.outcome }}" "${{ steps.tiktok.outcome }}" "$RUN_URL")
+          MESSAGE=$(printf '❌ Cartoon short pipeline issue\nInput: %s\nRender: %s\nYouTube: %s\nTikTok: %s\n%s' "$INPUT_FILE" "${{ steps.render.outcome }}" "${{ steps.youtube.outcome }}" "${{ steps.tiktok.outcome }}" "$RUN_URL")
           curl --fail --silent --show-error --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$MESSAGE" "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
 
-      - name: Fail job when render, Telegram delivery or social upload failed
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.telegram.outcome == 'failure' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
+      - name: Fail job when render or social upload failed
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure')
         run: exit 1

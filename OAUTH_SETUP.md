@@ -105,7 +105,7 @@ On subsequent production runs, GitHub Actions decrypts the state with `TIKTOK_TO
 
 The TikTok **video upload/draft** endpoint accepts the video but does not accept the video's caption/hashtags in the upload payload. The scheduler still generates `tiktok.caption` and `tiktok.hashtags` in the manifest so they are ready for the final editing step inside TikTok.
 
-If we later switch to TikTok **Direct Post**, the `video.publish` endpoint can carry caption/hashtags, but that is a different permission and workflow and should be enabled separately after the draft pipeline has proven reliable.
+TikTok **Direct Post** (`video.publish`) can carry caption and hashtags, but it is intentionally not used by this repository. TikTok's current Direct Post guidelines require a creator-facing publishing UX with explicit per-post consent, editable metadata/privacy controls, and creator information. They also state that a utility limited to uploading content to accounts managed by the developer/team is not an acceptable Direct Post use case. Unaudited clients are additionally restricted to private (`SELF_ONLY`) posts. Enabling Direct Post in the Developer Portal therefore does not change this repository's production behavior; the supported automation remains `video.upload` to the TikTok draft/inbox flow.
 
 ## 4. Expected GitHub secrets
 
