@@ -132,21 +132,24 @@ Every package MUST include:
 
 ### YouTube
 
-- punchy Shorts base title; the uploader appends up to 3 relevant hashtags and guarantees the FINAL title is <=100 characters;
-- concise 1-3 sentence description;
-- 3-5 relevant hashtags, ordered by importance because the first 3 are eligible for the title;
-- 5-12 useful search tags;
+- punchy Shorts base title, ideally 45-70 characters before hashtags; the uploader appends up to 3 relevant hashtags and guarantees the FINAL title is <=100 characters;
+- description in natural Italian, normally 250-700 characters: first sentence states the concrete payoff/insight, then 1-3 useful sentences explain the mechanism without keyword stuffing; optionally close with one short channel CTA;
+- 3-5 topic-specific hashtags, ordered by importance because the first 3 are eligible for the title; avoid generic reach bait;
+- 8-12 useful search tags mixing the exact topic, broader category and natural search phrases;
+- metadata must target an Italian adult/general audience interested in consumer psychology, pricing, marketing mechanisms, technology or money as appropriate to the actual topic;
 - do not mechanically copy the TikTok caption.
 
-YouTube upload is private, so metadata must be production-ready before push.
+YouTube upload is private, category Education, language Italian and explicitly not made-for-kids. Metadata must be production-ready before push.
 
 ### TikTok
 
-- short conversational/satirical caption;
-- 3-6 relevant hashtags;
-- no generic spam such as `#fyp` unless genuinely useful.
+- short conversational/satirical caption that works as standalone copy, not a neutral summary;
+- 3-6 highly relevant hashtags tied to the actual mechanism/topic; no generic spam such as `#fyp`, `#viral` or unrelated trend tags;
+- caption + hashtags together must remain concise and readable; the Direct Post uploader enforces TikTok's 2200 UTF-16 limit;
+- set `is_aigc: true` for this pipeline because the finished short uses AI-generated editorial artwork/voice;
+- set `brand_content: false` and `brand_organic: false` unless the specific video genuinely qualifies otherwise.
 
-TikTok draft upload does not populate caption/hashtags automatically; still retain them in the manifest.
+TikTok Direct Post uses the manifest caption/hashtags as the published post text. The publish workflow requires explicit per-post consent and an explicit privacy choice.
 
 Keep legacy top-level `caption` and `hashtags` too.
 
@@ -186,7 +189,10 @@ Keep legacy top-level `caption` and `hashtags` too.
   },
   "tiktok": {
     "caption": "TikTok caption",
-    "hashtags": ["marketing", "psicologia", "soldi"]
+    "hashtags": ["marketing", "psicologia", "soldi"],
+    "is_aigc": true,
+    "brand_content": false,
+    "brand_organic": false
   }
 }
 ```

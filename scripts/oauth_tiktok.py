@@ -29,7 +29,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="One-time TikTok Desktop OAuth bootstrap.")
     parser.add_argument("--port", type=int, default=3455)
     parser.add_argument("--output", type=Path, default=Path(".auth/tiktok_tokens.enc"))
-    parser.add_argument("--scope", default="video.upload")
+    parser.add_argument("--scope", default="video.upload,video.publish")
     args = parser.parse_args()
 
     client_key = _env("TIKTOK_CLIENT_KEY")
