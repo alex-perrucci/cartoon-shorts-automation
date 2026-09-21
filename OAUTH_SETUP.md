@@ -3,7 +3,7 @@
 The production workflow uploads successful renders to:
 
 - **YouTube** as a private video with title, description, hashtags and tags already populated.
-- **TikTok** through the official Direct Post API after explicit per-post approval in the `Publish TikTok Direct` workflow.
+- **TikTok** through the official `video.upload` inbox flow. The creator receives a TikTok notification to continue the post, while Telegram receives the final caption/hashtags and YouTube metadata for copy/paste.
 
 Telegram is used only for pipeline failures once social uploads are configured.
 
@@ -135,3 +135,13 @@ TELEGRAM_CHAT_ID
 ```
 
 Never commit OAuth client secrets, access tokens, refresh tokens, plaintext token JSON, or the Fernet encryption key.
+
+
+## Current production behavior
+
+The normal render workflow is intentionally conservative:
+
+- YouTube is uploaded as **private**, already carrying the final title, description, hashtags and search tags.
+- TikTok is uploaded with **video.upload** to the creator inbox. TikTok requires the creator to open the inbox notification to continue the creation flow; the upload endpoint does not carry the video caption/hashtags.
+- Telegram sends the exact TikTok caption + hashtags to paste, plus the final YouTube title and description. No successful MP4 delivery is required through Telegram.
+- Direct Post support remains in the repository for audit/testing, but it is not the default production path.
