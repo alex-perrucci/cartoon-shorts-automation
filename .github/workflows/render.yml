@@ -159,7 +159,51 @@ jobs:
           tail -n 1 youtube-upload.log > "$RECEIPT"
           python -m json.tool "$RECEIPT" >/dev/null
 
-      - name: Persist YouTube upload receipt
+      - name: Upload draft to TikTok inbox
+        id: tiktok
+        if: github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT_FILE="${{ steps.input.outputs.file }}"
+          VIDEO="${{ steps.output.outputs.dir }}/final_video.mp4"
+          ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "$INPUT_FILE")"
+          RECEIPT=".social_receipts/tiktok/$ID.json"
+          if [ -f "$RECEIPT" ]; then
+            echo "TikTok receipt already exists for $ID; skipping duplicate inbox upload."
+            cat "$RECEIPT"
+            exit 0
+          fi
+          if [ -z "${TIKTOK_CLIENT_KEY:-}" ] || [ -z "${TIKTOK_CLIENT_SECRET:-}" ] || [ -z "${TIKTOK_TOKEN_KEY:-}" ]; then
+            echo "TikTok OAuth not configured; skipping inbox upload."
+            exit 0
+          fi
+          if [ ! -f .auth/tiktok_tokens.enc ]; then
+            echo "Encrypted TikTok OAuth state is missing." >&2
+            exit 1
+          fi
+          python scripts/upload_tiktok_draft.py --video "$VIDEO" | tee tiktok-upload.log
+          mkdir -p "$(dirname "$RECEIPT")"
+          tail -n 1 tiktok-upload.log > "$RECEIPT"
+          python -m json.tool "$RECEIPT" >/dev/null
+
+      - name: Send ready-to-publish metadata to Telegram
+        id: metadata
+        if: github.ref == 'refs/heads/main' && steps.render.outcome == 'success' && steps.youtube.outcome != 'failure' && steps.tiktok.outcome != 'failure'
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT_FILE="${{ steps.input.outputs.file }}"
+          ID="$(python -c 'import json,sys,re; d=json.load(open(sys.argv[1], encoding="utf-8")); print(re.sub(r"[^a-zA-Z0-9._-]+", "-", str(d["id"])).strip("-") or "short")' "$INPUT_FILE")"
+          if [ -z "${TELEGRAM_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+            echo "Telegram is required for social metadata delivery but is not configured." >&2
+            exit 1
+          fi
+          python scripts/send_social_metadata.py             --manifest "$INPUT_FILE"             --youtube-receipt ".social_receipts/youtube/$ID.json" | tee telegram-metadata.log
+
+      - name: Persist social upload state
         if: always() && github.ref == 'refs/heads/main' && steps.render.outcome == 'success'
         shell: bash
         run: |
@@ -171,15 +215,15 @@ jobs:
             git add .social_receipts
           fi
           if git diff --cached --quiet; then
-            echo "No YouTube receipt changes to persist."
+            echo "No social receipt or TikTok token-state changes to persist."
             exit 0
           fi
-          git commit -m "chore: persist YouTube upload state"
+          git commit -m "chore: persist social upload state"
           git pull --rebase origin main
           git push origin HEAD:main
 
       - name: Upload failure logs
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure')
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure' || steps.metadata.outcome == 'failure')
         uses: actions/upload-artifact@v4
         with:
           name: cartoon-short-failure-${{ github.run_id }}
@@ -187,6 +231,7 @@ jobs:
             render.log
             youtube-upload.log
             tiktok-upload.log
+            telegram-metadata.log
           if-no-files-found: ignore
           retention-days: 7
 
@@ -201,9 +246,9 @@ jobs:
           fi
           INPUT_FILE="${{ steps.input.outputs.file }}"
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          MESSAGE=$(printf '❌ Cartoon short pipeline issue\nInput: %s\nRender: %s\nYouTube: %s\n%s' "$INPUT_FILE" "${{ steps.render.outcome }}" "${{ steps.youtube.outcome }}" "$RUN_URL")
+          MESSAGE=$(printf '❌ Cartoon short pipeline issue\nInput: %s\nRender: %s\nYouTube: %s\nTikTok: %s\nMetadata Telegram: %s\n%s' "$INPUT_FILE" "${{ steps.render.outcome }}" "${{ steps.youtube.outcome }}" "${{ steps.tiktok.outcome }}" "${{ steps.metadata.outcome }}" "$RUN_URL")
           curl --fail --silent --show-error --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$MESSAGE" "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
 
-      - name: Fail job when render or YouTube upload failed
+      - name: Fail job when render, social upload or metadata delivery failed
         if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure')
         run: exit 1
