@@ -9,7 +9,10 @@ from pathlib import Path
 
 import requests
 
-from tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
+try:
+    from tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
+except ModuleNotFoundError:
+    from scripts.tiktok_tokens import load_encrypted, refresh_access_token, save_encrypted
 
 INIT_ENDPOINT = "https://open.tiktokapis.com/v2/post/publish/inbox/video/init/"
 STATUS_ENDPOINT = "https://open.tiktokapis.com/v2/post/publish/status/fetch/"
