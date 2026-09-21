@@ -1,9 +1,9 @@
-# OAuth setup for social drafts
+# OAuth setup for social publishing
 
 The production workflow uploads successful renders to:
 
 - **YouTube** as a private video with title, description, hashtags and tags already populated.
-- **TikTok** through the official `video.upload` Content Posting API, which delivers the video to the creator inbox/draft flow for final editing and posting.
+- **TikTok** through the official Direct Post API after explicit per-post approval in the `Publish TikTok Direct` workflow.
 
 Telegram is used only for pipeline failures once social uploads are configured.
 
@@ -40,7 +40,7 @@ The workflow requests only the `youtube.upload` scope and uploads with `privacyS
 
 ## 2. TikTok OAuth
 
-TikTok's draft upload uses the official Content Posting API and the `video.upload` scope.
+TikTok Direct Post uses the official Content Posting API and requires the `video.publish` scope. The helper also keeps `video.upload` for compatibility.
 
 ### TikTok Developer setup
 
@@ -55,7 +55,7 @@ http://127.0.0.1:3455/callback/
 ```
 
    TikTok Desktop Login Kit also allows a wildcard loopback port, but the helper intentionally uses fixed port `3455` to make setup deterministic.
-6. Request/obtain approval for the `video.upload` scope. The TikTok account must then authorize that scope.
+6. Enable Direct Post and obtain approval for the `video.publish` scope (and keep `video.upload` if desired). The TikTok account must authorize the scopes.
 7. Copy the app's **Client Key** and **Client Secret**, but do not commit either value.
 
 ### Generate the encryption key
@@ -80,7 +80,7 @@ For the one-time local OAuth bootstrap, set the same values in your terminal env
 $env:TIKTOK_CLIENT_KEY="..."
 $env:TIKTOK_CLIENT_SECRET="..."
 $env:TIKTOK_TOKEN_KEY="..."
-python scripts/oauth_tiktok.py
+python scripts/oauth_tiktok.py --scope "video.upload,video.publish"
 ```
 
 A browser opens. Authorize the **@tifregano_cosi** account. The helper receives the callback locally, exchanges the code, and writes:
@@ -101,11 +101,20 @@ git push
 
 On subsequent production runs, GitHub Actions decrypts the state with `TIKTOK_TOKEN_KEY`, refreshes the access token, replaces a rotated refresh token if TikTok returns one, encrypts the new state again, and commits only the ciphertext.
 
-## 3. TikTok draft metadata limitation
+## 3. TikTok Direct Post
 
-The TikTok **video upload/draft** endpoint accepts the video but does not accept the video's caption/hashtags in the upload payload. The scheduler still generates `tiktok.caption` and `tiktok.hashtags` in the manifest so they are ready for the final editing step inside TikTok.
+The normal render workflow no longer sends inbox drafts. To publish a rendered package, open **Actions -> Publish TikTok Direct -> Run workflow** and provide:
 
-TikTok **Direct Post** (`video.publish`) can carry caption and hashtags, but it is intentionally not used by this repository. TikTok's current Direct Post guidelines require a creator-facing publishing UX with explicit per-post consent, editable metadata/privacy controls, and creator information. They also state that a utility limited to uploading content to accounts managed by the developer/team is not an acceptable Direct Post use case. Unaudited clients are additionally restricted to private (`SELF_ONLY`) posts. Enabling Direct Post in the Developer Portal therefore does not change this repository's production behavior; the supported automation remains `video.upload` to the TikTok draft/inbox flow.
+- the existing manifest path;
+- an explicit privacy level;
+- the per-post consent checkbox;
+- optional Comment / Duet / Stitch permissions.
+
+The uploader queries TikTok creator info first and rejects privacy or interaction settings that the creator account does not currently allow. Caption and 3-6 relevant hashtags come from the manifest and are sent in the Direct Post `title` field.
+
+TikTok requires explicit consent before each Direct Post and requires the privacy choice to be user-selected. Clients that have not passed TikTok's Direct Post audit can only create private posts; public `PUBLIC_TO_EVERYONE` publishing is available only after the client is audited.
+
+After enabling `video.publish`, re-run the OAuth bootstrap and commit the newly encrypted `.auth/tiktok_tokens.enc` before using Direct Post.
 
 ## 4. Expected GitHub secrets
 
