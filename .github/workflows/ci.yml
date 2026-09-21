@@ -49,6 +49,7 @@ jobs:
           scripts/upload_youtube.py
           scripts/upload_tiktok_draft.py
           scripts/upload_tiktok_direct.py
+          scripts/send_social_metadata.py
           tests/test_assets.py tests/test_subtitles.py
           tests/test_tiktok_direct.py tests/test_youtube_metadata.py
       - name: Unit tests
