@@ -132,9 +132,9 @@ Every package MUST include:
 
 ### YouTube
 
-- punchy Shorts title <=100 chars;
+- punchy Shorts base title; the uploader appends up to 3 relevant hashtags and guarantees the FINAL title is <=100 characters;
 - concise 1-3 sentence description;
-- 3-5 relevant hashtags;
+- 3-5 relevant hashtags, ordered by importance because the first 3 are eligible for the title;
 - 5-12 useful search tags;
 - do not mechanically copy the TikTok caption.
 
