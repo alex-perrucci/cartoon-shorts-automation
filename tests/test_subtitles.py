@@ -37,7 +37,7 @@ class SubtitleLayoutTests(unittest.TestCase):
             content = path.read_text(encoding="utf-8")
         self.assertIn("{\\fs", content)
         self.assertIn("MarginL,MarginR", content)
-        self.assertIn("130,130", content)
+        self.assertIn(",2,130,130,265,1", content)
 
 
 class SceneSyncTests(unittest.TestCase):
