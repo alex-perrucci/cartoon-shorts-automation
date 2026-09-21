@@ -149,5 +149,7 @@
       "soldi",
       "ecommerce"
     ]
-  }
+  },
+  "retry_generation": 1,
+  "retry_reason": "youtube_api_enabled"
 }
