@@ -1,0 +1,178 @@
+{
+  "id": "2026-09-21-bnpl-direct-test",
+  "title": "Quattro rate non fanno sparire il prezzo",
+  "hook": "Quattro rate. Stesso prezzo. Più facile da ignorare.",
+  "narration": "Quattro rate. Stesso prezzo. Più facile da ignorare. Vedi 120 euro e ti fermi. Poi compare “4 rate da 30” e improvvisamente sembra una spesa più piccola. Ma il prodotto non si è rimpicciolito: hai solo spezzato il conto in pezzi più facili da digerire. Il Buy Now Pay Later è proprio questo: compri subito e paghi dopo, spesso in poche rate e senza interessi. Comodo? Sì. Gratis per il cervello? Molto meno. Perché quando guardi 30 euro invece di 120, rischi di decidere sulla rata e non sul totale. E se fai la stessa cosa su tre acquisti diversi, il mese dopo non hai una rata: hai una riunione di condominio sul conto corrente. Il controllo serio è banale: prima del bottone, moltiplica la rata per il numero di pagamenti e guarda il totale. Poi chiediti se lo compreresti ancora vedendo quella cifra tutta insieme. E leggi le condizioni: alcuni servizi possono applicare costi o penali se paghi in ritardo. Quattro rate possono aiutarti a gestire una spesa. Ma non trasformano 120 euro in 30.",
+  "scenes": [
+    {
+      "narration": "Quattro rate. Stesso prezzo. Più facile da ignorare. Vedi 120 euro e ti fermi. Poi compare “4 rate da 30” e improvvisamente sembra una spesa più piccola.",
+      "visual": "Warm home-workspace ecommerce scene. The recurring protagonist first reacts to a 120 euro pair of shoes on the laptop, then notices the red 4 x 30 euro installment option and shifts into a skeptical side-eye.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_01_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_01_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_01_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_01_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_01_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_01_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Ma il prodotto non si è rimpicciolito: hai solo spezzato il conto in pezzi più facili da digerire.",
+      "visual": "Same room and product continuity. The shoe stays unchanged while four separate 30 euro payment cards fan out on screen; protagonist first points at the fragments, then opens his hands to show that the total is still 120 euros.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_02_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_02_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_02_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_02_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_02_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_02_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Il Buy Now Pay Later è proprio questo: compri subito e paghi dopo, spesso in poche rate e senza interessi.",
+      "visual": "Same home setting. A delivered parcel sits beside a four-payment calendar; protagonist first welcomes the convenience, then checks the phone/calendar to reinforce buy-now-pay-later timing.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_03_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_03_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_03_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_03_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_03_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_03_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Comodo? Sì. Gratis per il cervello? Molto meno. Perché quando guardi 30 euro invece di 120, rischi di decidere sulla rata e non sul totale.",
+      "visual": "Close explanatory frame in the same room. A huge red 30 euro amount dominates above the still-present 120 euro total; protagonist first looks tempted, then visibly realizes the total never disappeared.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_04_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_04_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_04_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_04_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_04_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_04_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "E se fai la stessa cosa su tre acquisti diversi, il mese dopo non hai una rata: hai una riunione di condominio sul conto corrente.",
+      "visual": "Wider room scene with three separate purchases—shoes, headphones, jacket—each carrying its own installment plan. Protagonist goes from comparing them to an overwhelmed reaction as the next-month total becomes 95 euros.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_05_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_05_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_05_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_05_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_05_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_05_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Il controllo serio è banale: prima del bottone, moltiplica la rata per il numero di pagamenti e guarda il totale.",
+      "visual": "Bank-account style panel in the same environment shows three installment debits and a 95 euro total. Protagonist first panics at the stacked debits, then checks them carefully on the phone.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_06_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_06_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_06_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_06_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_06_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_06_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "Poi chiediti se lo compreresti ancora vedendo quella cifra tutta insieme.",
+      "visual": "Calculator-focused scene. Protagonist physically taps 30 x 4, then points at the 120 euro result and the instruction to look at the total.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_07_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_07_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_07_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_07_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_07_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_07_pose_02.b64"
+        }
+      ]
+    },
+    {
+      "narration": "E leggi le condizioni: alcuni servizi possono applicare costi o penali se paghi in ritardo. Quattro rate possono aiutarti a gestire una spesa. Ma non trasformano 120 euro in 30.",
+      "visual": "Final payoff in the same room. First pose shows terms and a late-payment clock warning; second pose turns direct-to-camera with 120 euros and 4 x 30 euros visibly equated, emphasizing that installments can help cash flow but do not reduce the price.",
+      "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_08_pose_01.svg",
+      "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_08_pose_01.b64",
+      "keyframes": [
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_08_pose_01.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_08_pose_01.b64"
+        },
+        {
+          "image_svg_source": "assets/generated/2026-09-21-bnpl-direct-test/scene_08_pose_02.svg",
+          "image_b64": "work/prepared_assets/2026-09-21-bnpl-direct-test/scene_08_pose_02.b64"
+        }
+      ]
+    }
+  ],
+  "caption": "4 rate da 30 € fanno meno paura di 120 €. Peccato che la moltiplicazione non cambi.",
+  "hashtags": [
+    "BNPL",
+    "rate",
+    "soldi",
+    "acquistionline"
+  ],
+  "youtube": {
+    "title": "4 rate da 30 €: il prezzo non è diventato più piccolo",
+    "description": "Quattro rate da 30 € sembrano più leggere di 120 €, ma il totale non cambia. In questo Short usiamo un esempio semplice per capire come funziona il Buy Now Pay Later, perché conviene guardare il costo complessivo e cosa controllare prima di accettare una rateizzazione. Alcuni servizi possono prevedere costi o penali in caso di ritardo: leggi sempre le condizioni. Ti Fregano Così: prezzi, marketing e soldi spiegati senza giri di parole.",
+    "hashtags": [
+      "BNPL",
+      "Rate",
+      "Soldi",
+      "EducazioneFinanziaria"
+    ],
+    "tags": [
+      "buy now pay later",
+      "BNPL",
+      "pagamento a rate",
+      "rate senza interessi",
+      "compra ora paga dopo",
+      "educazione finanziaria",
+      "acquisti online",
+      "psicologia degli acquisti",
+      "gestione spese",
+      "credito al consumo"
+    ]
+  },
+  "tiktok": {
+    "caption": "4 rate da 30 € fanno meno paura di 120 €. Peccato che il totale sappia ancora fare le moltiplicazioni.",
+    "hashtags": [
+      "BNPL",
+      "rate",
+      "soldi",
+      "acquistionline",
+      "educazionefinanziaria"
+    ],
+    "is_aigc": true,
+    "brand_content": false,
+    "brand_organic": false
+  }
+}

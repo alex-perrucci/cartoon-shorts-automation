@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <title>2026-09-21-bnpl-direct-test scene 6 pose 1</title>
+  
+  <rect width="1080" height="1920" fill="#F5E8CE"/>
+  <path d="M0 1510 C250 1472 660 1496 1080 1450 L1080 1920 L0 1920 Z" fill="#2A2421"/>
+  <path d="M0 1510 C310 1470 720 1494 1080 1450" fill="none" stroke="#A46C46" stroke-width="15"/>
+  <g id="window">
+    <path d="M58 250 Q76 232 394 240 L382 760 Q368 780 72 770 Z" fill="#DDD1B9" stroke="#171512" stroke-width="9"/>
+    <path d="M92 282 L360 282 L350 715 L88 725 Z" fill="#BFC3BF" stroke="#171512" stroke-width="6"/>
+    <path d="M215 286 L210 720 M90 495 L354 486" fill="none" stroke="#171512" stroke-width="5"/>
+    <path d="M105 670 L160 610 L220 654 L276 575 L345 638" fill="none" stroke="#6E5545" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="318" cy="338" r="42" fill="#E8C56A" stroke="#171512" stroke-width="5"/>
+  </g>
+  <g id="shelf">
+    <path d="M760 250 Q780 236 1010 250 L1000 705 Q990 720 775 710 Z" fill="#6A5140" stroke="#171512" stroke-width="9"/>
+    <path d="M785 390 L980 380 M790 535 L985 525" fill="none" stroke="#171512" stroke-width="7"/>
+    <g fill="#D74332" stroke="#171512" stroke-width="4"><rect x="805" y="290" width="36" height="78"/><rect x="848" y="302" width="34" height="64"/><rect x="890" y="284" width="42" height="83"/></g>
+    <rect x="810" y="432" width="145" height="74" rx="8" fill="#F7EDD9" stroke="#171512" stroke-width="5"/>
+    <path d="M838 454 L930 454 M838 476 L910 476" stroke="#171512" stroke-width="5" stroke-linecap="round"/>
+    <path d="M822 584 Q887 550 956 590 L948 673 L828 673 Z" fill="#292725" stroke="#171512" stroke-width="6"/>
+  </g>
+  <g id="desk">
+    <path d="M420 1240 Q710 1202 1018 1235 L1007 1376 Q715 1410 415 1378 Z" fill="#8D674C" stroke="#171512" stroke-width="10"/>
+    <path d="M474 1375 L455 1740 M935 1372 L964 1710" stroke="#171512" stroke-width="17" stroke-linecap="round"/>
+    <path d="M492 1318 Q560 1275 630 1320 L624 1368 L500 1372 Z" fill="#CFA66F" stroke="#171512" stroke-width="6"/>
+    <path d="M915 1068 Q960 1038 1000 1068 L995 1228 L920 1225 Z" fill="#292725" stroke="#171512" stroke-width="7"/>
+    <path d="M957 1072 L957 980 M914 987 Q955 948 998 987" fill="none" stroke="#171512" stroke-width="9" stroke-linecap="round"/>
+    <ellipse cx="958" cy="965" rx="64" ry="25" fill="#E8C56A" opacity=".62"/>
+  </g>
+  <g id="wall-lines" opacity=".28" stroke="#806C57" stroke-width="4">
+    <path d="M432 290 q80 -28 160 0"/><path d="M470 330 q55 -18 115 0"/><path d="M435 835 q90 -24 170 3"/>
+  </g>
+  <g><path d="M500 320 Q525 300 996 320 L996 1125 Q982 1145 510 1135 Z" fill="#FFF8E9" stroke="#171512" stroke-width="10"/>
+      <text x="750" y="430" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="#171512">CONTO CORRENTE</text>
+      <g><rect x="555" y="500" width="390" height="115" rx="16" fill="#F5D1C9" stroke="#171512" stroke-width="5"/><text x="585" y="570" font-family="Arial,sans-serif" font-size="28" font-weight="900" fill="#171512">RATA SCARPE</text><text x="910" y="572" text-anchor="end" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#D74332">30 €</text></g><g><rect x="555" y="655" width="390" height="115" rx="16" fill="#F3E6CC" stroke="#171512" stroke-width="5"/><text x="585" y="725" font-family="Arial,sans-serif" font-size="28" font-weight="900" fill="#171512">RATA CUFFIE</text><text x="910" y="727" text-anchor="end" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#D74332">25 €</text></g><g><rect x="555" y="810" width="390" height="115" rx="16" fill="#F3E6CC" stroke="#171512" stroke-width="5"/><text x="585" y="880" font-family="Arial,sans-serif" font-size="28" font-weight="900" fill="#171512">RATA GIACCA</text><text x="910" y="882" text-anchor="end" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#D74332">40 €</text></g>
+      <rect x="555" y="985" width="390" height="92" rx="16" fill="#292725"/><text x="585" y="1042" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="#FFF8E9">TOTALE RATE</text><text x="910" y="1045" text-anchor="end" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="#FFF8E9">95 €</text>
+    </g><g id="character" transform=" translate(15 715) scale(0.93)">
+    <path d="M118 1024 C86 902 92 771 153 682 C191 627 340 622 389 686 C452 770 458 901 428 1025 Z" fill="#171717" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M180 705 C214 748 316 751 356 704 C341 669 325 647 270 645 C216 645 194 665 180 705 Z" fill="#2B2927" stroke="#171512" stroke-width="9"/>
+    <path d="M225 578 C230 628 224 656 206 684 C244 720 305 723 341 684 C324 654 320 625 326 578 Z" fill="#D88A60" stroke="#171512" stroke-width="9"/>
+    <g transform="rotate(6 280 365)">
+      <path d="M156 254 C165 182 223 133 307 136 C392 140 443 204 437 304 C430 417 374 538 282 559 C202 552 155 470 141 366 C134 319 136 281 156 254 Z" fill="#F1B17F" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+      <path d="M144 341 C106 326 97 371 114 408 C129 439 157 432 170 404" fill="#F1B17F" stroke="#171512" stroke-width="9"/>
+      <path d="M143 292 C122 235 151 172 207 135 C245 87 319 72 362 116 C417 108 456 155 448 207 C478 240 456 292 425 311 C404 266 382 234 347 210 C332 248 298 267 258 264 C225 284 186 302 143 292 Z" fill="#161616" stroke="#171512" stroke-width="11" stroke-linejoin="round"/>
+      <path d="M174 214 C208 165 244 142 286 132 C257 171 248 198 250 233 M258 133 C309 96 357 109 391 147 C348 142 316 166 295 214 M333 151 C385 140 418 171 422 212" fill="none" stroke="#5B3A2A" stroke-width="8" stroke-linecap="round"/>
+      <path d="M184 324 Q229 288 276 324 Q231 361 184 324 Z" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+      <path d="M297 321 Q339 285 384 322 Q341 358 297 321 Z" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+      <ellipse cx="262" cy="325" rx="13" ry="18" fill="#171512"/><ellipse cx="367" cy="323" rx="13" ry="18" fill="#171512"/>
+      <path d="M181 277 Q229 252 276 273" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+      <path d="M297 288 Q340 263 385 286" fill="none" stroke="#171512" stroke-width="14" stroke-linecap="round"/>
+      <path d="M286 329 C279 369 267 393 282 406 C299 420 322 408 329 394" fill="none" stroke="#171512" stroke-width="8" stroke-linecap="round"/>
+      <path d="M183 410 C202 444 219 465 242 478" fill="none" stroke="#D88A60" stroke-width="12" opacity=".45" stroke-linecap="round"/>
+      <ellipse cx="302" cy="416" rx="28" ry="23" fill="#FFF8E9" stroke="#171512" stroke-width="8"/>
+      <path d="M177 456 l18 10 M185 475 l18 10 M365 415 l18 -9 M372 433 l18 -8" stroke="#171512" stroke-width="4" opacity=".35"/>
+    </g>
+    <path d="M170 708 C120 630 142 545 205 480" fill="none" stroke="#171717" stroke-width="58" stroke-linecap="round"/>
+    <path d="M375 710 C430 632 410 545 352 480" fill="none" stroke="#171717" stroke-width="58" stroke-linecap="round"/>
+    <path d="M193 466 q38 -18 64 15 q15 26 -6 50 q-40 15 -70 -15 z" fill="#F1B17F" stroke="#171512" stroke-width="8"/>
+    <path d="M333 466 q38 -18 64 15 q15 26 -6 50 q-40 15 -70 -15 z" fill="#F1B17F" stroke="#171512" stroke-width="8"/>
+    <path d="M147 818 C190 843 208 900 208 968 M389 816 C349 849 332 905 332 974" fill="none" stroke="#4C4742" stroke-width="6"/>
+    <text x="270" y="928" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#F8EEDD">TI FREGANO</text>
+    <text x="270" y="958" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#F8EEDD">COSÌ</text>
+    <path d="M224 972 L316 962" stroke="#D74332" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  </svg>
