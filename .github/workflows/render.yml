@@ -236,7 +236,7 @@ jobs:
           retention-days: 7
 
       - name: Send failure to Telegram when configured
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure')
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure' || steps.metadata.outcome == 'failure')
         shell: bash
         run: |
           set -u
@@ -250,5 +250,5 @@ jobs:
           curl --fail --silent --show-error --data-urlencode "chat_id=$TELEGRAM_CHAT_ID" --data-urlencode "text=$MESSAGE" "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage"
 
       - name: Fail job when render, social upload or metadata delivery failed
-        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure')
+        if: always() && steps.input.outputs.skip != 'true' && (steps.render.outcome != 'success' || steps.youtube.outcome == 'failure' || steps.tiktok.outcome == 'failure' || steps.metadata.outcome == 'failure')
         run: exit 1
