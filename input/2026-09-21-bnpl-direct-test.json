@@ -174,5 +174,7 @@
     "is_aigc": true,
     "brand_content": false,
     "brand_organic": false
-  }
+  },
+  "delivery_revision": 1,
+  "delivery_reason": "tiktok_inbox_and_telegram_metadata"
 }
