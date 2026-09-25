@@ -230,7 +230,17 @@ def direct_post(
         },
         timeout=30,
     )
-    body = _check_api_response(response, "TikTok direct-post init")
+    try:
+        body = _check_api_response(response, "TikTok direct-post init")
+    except RuntimeError as exc:
+        message = str(exc)
+        if "unaudited_client_can_only_post_to_private_accounts" in message:
+            raise RuntimeError(
+                "TikTok blocked Direct Post because this unaudited API client can only post "
+                "while the target TikTok account itself is set to Private. Set the creator "
+                "account to Private and retry, or complete TikTok's Direct Post audit."
+            ) from exc
+        raise
     data = body.get("data") or {}
     publish_id = data.get("publish_id")
     upload_url = data.get("upload_url")

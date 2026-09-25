@@ -101,18 +101,17 @@ git push
 
 On subsequent production runs, GitHub Actions decrypts the state with `TIKTOK_TOKEN_KEY`, refreshes the access token, replaces a rotated refresh token if TikTok returns one, encrypts the new state again, and commits only the ciphertext.
 
-## 3. TikTok Direct Post
+## 3. TikTok private-ready Direct Post
 
-The normal render workflow no longer sends inbox drafts. To publish a rendered package, open **Actions -> Publish TikTok Direct -> Run workflow** and provide:
+The normal render workflow no longer sends inbox drafts. To prepare a finished TikTok post without reopening the editor, open **Actions -> Prepare TikTok private-ready -> Run workflow**.
 
-- the existing manifest path;
-- an explicit privacy level;
-- the per-post consent checkbox;
-- optional Comment / Duet / Stitch permissions.
+- provide the existing manifest path;
+- explicitly confirm the `SELF_ONLY` private post;
+- optionally choose Comment / Duet / Stitch permissions.
 
-The uploader queries TikTok creator info first and rejects privacy or interaction settings that the creator account does not currently allow. Caption and 3-6 relevant hashtags come from the manifest and are sent in the Direct Post `title` field.
+The uploader queries TikTok creator info first and rejects interaction settings that the creator account does not currently allow. Caption and 3-6 relevant hashtags come from the manifest and are sent in the Direct Post `title` field. The resulting TikTok item is a finished `SELF_ONLY` post, not an inbox draft, so no TikTok editing step is required.
 
-TikTok requires explicit consent before each Direct Post and requires the privacy choice to be user-selected. Clients that have not passed TikTok's Direct Post audit can only create private posts; public `PUBLIC_TO_EVERYONE` publishing is available only after the client is audited.
+TikTok requires explicit consent before each Direct Post. For an unaudited API client, TikTok additionally requires the target creator account itself to be set to Private at posting time and restricts the post to `SELF_ONLY`. After audit, public visibility can be enabled without changing the generated caption/hashtags.
 
 After enabling `video.publish`, re-run the OAuth bootstrap and commit the newly encrypted `.auth/tiktok_tokens.enc` before using Direct Post.
 
